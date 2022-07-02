@@ -1,0 +1,29 @@
+{
+  "name": "HeardlEsp - Heardle con canciones clásicas en español",
+  "short_name": "HeardlEsp",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.global/0170743c-d7f2-452d-be08-17af2cd9cc8b/apple-touch-icon.png?v=1648416618376",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.glitch.global/0170743c-d7f2-452d-be08-17af2cd9cc8b/apple-touch-icon.png?v=1648416618376",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.glitch.global/0170743c-d7f2-452d-be08-17af2cd9cc8b/favicon-32x32.png?v=1648416619457",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn.glitch.global/0170743c-d7f2-452d-be08-17af2cd9cc8b/favicon-16x16.png?v=1648416619457",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
