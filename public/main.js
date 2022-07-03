@@ -20,9 +20,9 @@ var app = (function () {
   }
 
   function i(e, t) {
-    return e != e
-      ? t == t
-      : e !== t || (e && "object" == typeof e) || "function" == typeof e;
+    return e != e ?
+      t == t :
+      e !== t || (e && "object" == typeof e) || "function" == typeof e;
   }
   let o, a;
 
@@ -48,12 +48,12 @@ var app = (function () {
   }
 
   function d(e, t, n, r) {
-    return e[1] && r
-      ? (function (e, t) {
-          for (const n in t) e[n] = t[n];
-          return e;
-        })(n.ctx.slice(), e[1](r(t)))
-      : n.ctx;
+    return e[1] && r ?
+      (function (e, t) {
+        for (const n in t) e[n] = t[n];
+        return e;
+      })(n.ctx.slice(), e[1](r(t))) :
+      n.ctx;
   }
 
   function h(e, t, n, r) {
@@ -129,9 +129,9 @@ var app = (function () {
   }
 
   function M(e, t, n) {
-    null == n
-      ? e.removeAttribute(t)
-      : e.getAttribute(t) !== n && e.setAttribute(t, n);
+    null == n ?
+      e.removeAttribute(t) :
+      e.getAttribute(t) !== n && e.setAttribute(t, n);
   }
 
   function $(e, t) {
@@ -143,9 +143,9 @@ var app = (function () {
   }
 
   function T(e, t, n, r) {
-    null === n
-      ? e.style.removeProperty(t)
-      : e.style.setProperty(t, n, r ? "important" : "");
+    null === n ?
+      e.style.removeProperty(t) :
+      e.style.setProperty(t, n, r ? "important" : "");
   }
 
   function Y(e, t, n) {
@@ -201,18 +201,18 @@ var app = (function () {
   function B() {
     const e = a;
     do {
-      for (; j < N.length; ) {
+      for (; j < N.length;) {
         const e = N[j];
         j++, C(e), z(e.$$);
       }
-      for (C(null), N.length = 0, j = 0; H.length; ) H.pop()();
+      for (C(null), N.length = 0, j = 0; H.length;) H.pop()();
       for (let e = 0; e < I.length; e += 1) {
         const t = I[e];
         E.has(t) || (E.add(t), t());
       }
       I.length = 0;
     } while (N.length);
-    for (; W.length; ) W.pop()();
+    for (; W.length;) W.pop()();
     (F = !1), E.clear(), C(e);
   }
 
@@ -221,7 +221,7 @@ var app = (function () {
       e.update(), r(e.before_update);
       const t = e.dirty;
       (e.dirty = [-1]),
-        e.fragment && e.fragment.p(e.ctx, t),
+      e.fragment && e.fragment.p(e.ctx, t),
         e.after_update.forEach(G);
     }
   }
@@ -255,24 +255,29 @@ var app = (function () {
     }
   }
   const X =
-    "undefined" != typeof window
-      ? window
-      : "undefined" != typeof globalThis
-      ? globalThis
-      : global;
+    "undefined" != typeof window ?
+    window :
+    "undefined" != typeof globalThis ?
+    globalThis :
+    global;
 
   function Q(e) {
     e && e.c();
   }
 
   function ee(e, n, i, o) {
-    const { fragment: a, on_mount: l, on_destroy: u, after_update: c } = e.$$;
+    const {
+      fragment: a,
+      on_mount: l,
+      on_destroy: u,
+      after_update: c
+    } = e.$$;
     a && a.m(n, i),
       o ||
-        G(() => {
-          const n = l.map(t).filter(s);
-          u ? u.push(...n) : r(n), (e.$$.on_mount = []);
-        }),
+      G(() => {
+        const n = l.map(t).filter(s);
+        u ? u.push(...n) : r(n), (e.$$.on_mount = []);
+      }),
       c.forEach(G);
   }
 
@@ -280,9 +285,9 @@ var app = (function () {
     const n = e.$$;
     null !== n.fragment &&
       (r(n.on_destroy),
-      n.fragment && n.fragment.d(t),
-      (n.on_destroy = n.fragment = null),
-      (n.ctx = []));
+        n.fragment && n.fragment.d(t),
+        (n.on_destroy = n.fragment = null),
+        (n.ctx = []));
   }
 
   function ne(e, t) {
@@ -315,22 +320,22 @@ var app = (function () {
     c && c(f.root);
     let m = !1;
     if (
-      ((f.ctx = i
-        ? i(t, s.props || {}, (e, n, ...r) => {
+      ((f.ctx = i ?
+          i(t, s.props || {}, (e, n, ...r) => {
             const s = r.length ? r[0] : n;
             return (
               f.ctx &&
-                l(f.ctx[e], (f.ctx[e] = s)) &&
-                (!f.skip_bound && f.bound[e] && f.bound[e](s), m && ne(t, e)),
+              l(f.ctx[e], (f.ctx[e] = s)) &&
+              (!f.skip_bound && f.bound[e] && f.bound[e](s), m && ne(t, e)),
               n
             );
-          })
-        : []),
-      f.update(),
-      (m = !0),
-      r(f.before_update),
-      (f.fragment = !!o && o(f.ctx)),
-      s.target)
+          }) :
+          []),
+        f.update(),
+        (m = !0),
+        r(f.before_update),
+        (f.fragment = !!o && o(f.ctx)),
+        s.target)
     ) {
       if (s.hydrate) {
         const e = (function (e) {
@@ -353,8 +358,8 @@ var app = (function () {
       return (
         n.push(t),
         () => {
-          const e = n.indexOf(t);
-          -1 !== e && n.splice(e, 1);
+          const e = n.indexOf(t); -
+          1 !== e && n.splice(e, 1);
         }
       );
     }
@@ -373,7 +378,7 @@ var app = (function () {
     return {
       c() {
         (t = w("button")),
-          o && o.c(),
+        o && o.c(),
           M(
             t,
             "class",
@@ -409,9 +414,14 @@ var app = (function () {
   }
 
   function oe(e, t, n) {
-    let { $$slots: r = {}, $$scope: s } = t,
-      { primary: i = !1 } = t,
-      { secondary: o = !1 } = t;
+    let {
+      $$slots: r = {},
+      $$scope: s
+    } = t, {
+      primary: i = !1
+    } = t, {
+      secondary: o = !1
+    } = t;
     return (
       (e.$$set = (e) => {
         "primary" in e && n(0, (i = e.primary)),
@@ -485,9 +495,13 @@ var app = (function () {
   }
 
   function fe(e, t, n) {
-    let { properties: r } = t,
-      { configurations: s = {} } = t,
-      { enabled: i = !0 } = t;
+    let {
+      properties: r
+    } = t, {
+      configurations: s = {}
+    } = t, {
+      enabled: i = !0
+    } = t;
 
     function o() {
       !(function (e, t, n) {
@@ -496,33 +510,32 @@ var app = (function () {
         function s() {
           (r = --r), r < 1 && n();
         }
-        t()
-          ? n()
-          : e.forEach(
-              ({
-                type: e,
-                url: t,
-                options: n = {
-                  async: !0,
-                  defer: !0,
-                },
-              }) => {
-                const r = "script" === e,
-                  i = document.createElement(r ? "script" : "link");
-                r
-                  ? ((i.src = t), (i.async = n.async), (i.defer = n.defer))
-                  : ((i.rel = "stylesheet"), (i.href = t)),
-                  (i.onload = s),
-                  document.body.appendChild(i);
-              }
-            );
+        t() ?
+          n() :
+          e.forEach(
+            ({
+              type: e,
+              url: t,
+              options: n = {
+                async: !0,
+                defer: !0,
+              },
+            }) => {
+              const r = "script" === e,
+                i = document.createElement(r ? "script" : "link");
+              r
+                ?
+                ((i.src = t), (i.async = n.async), (i.defer = n.defer)) :
+                ((i.rel = "stylesheet"), (i.href = t)),
+                (i.onload = s),
+                document.body.appendChild(i);
+            }
+          );
       })(
-        [
-          {
-            type: "script",
-            url: `//www.googletagmanager.com/gtag/js?id=${r[0]}`,
-          },
-        ],
+        [{
+          type: "script",
+          url: `//www.googletagmanager.com/gtag/js?id=${r[0]}`,
+        }, ],
         de,
         a
       );
@@ -537,8 +550,11 @@ var app = (function () {
         }),
         ce.subscribe((e) => {
           let t = e.length && e.shift();
-          for (; t; ) {
-            const { event: n, data: r } = t;
+          for (; t;) {
+            const {
+              event: n,
+              data: r
+            } = t;
             he("event", n, r), (t = e.shift());
           }
         })
@@ -587,10 +603,10 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("circle")),
-          (r = k("line")),
-          (s = k("line")),
-          M(n, "cx", "12"),
+        (n = k("circle")),
+        (r = k("line")),
+        (s = k("line")),
+        M(n, "cx", "12"),
           M(n, "cy", "12"),
           M(n, "r", "10"),
           M(r, "x1", "12"),
@@ -625,8 +641,8 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("path")),
-          M(
+        (n = k("path")),
+        M(
             n,
             "d",
             "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
@@ -655,8 +671,8 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("path")),
-          M(
+        (n = k("path")),
+        M(
             n,
             "d",
             "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
@@ -685,10 +701,10 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("circle")),
-          (r = k("path")),
-          (s = k("line")),
-          M(n, "cx", "12"),
+        (n = k("circle")),
+        (r = k("path")),
+        (s = k("line")),
+        M(n, "cx", "12"),
           M(n, "cy", "12"),
           M(n, "r", "10"),
           M(r, "d", "M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"),
@@ -761,14 +777,13 @@ var app = (function () {
           },
         },
       })),
-      m.$on("click", e[4]),
-      {
+      m.$on("click", e[4]), {
         c() {
           (t = w("header")),
-            (n = w("div")),
-            (r = w("div")),
-            (s = w("div")),
-            Q(i.$$.fragment),
+          (n = w("div")),
+          (r = w("div")),
+          (s = w("div")),
+          Q(i.$$.fragment),
             (o = x()),
             Q(a.$$.fragment),
             (l = x()),
@@ -844,10 +859,10 @@ var app = (function () {
         i(e) {
           v ||
             (Z(i.$$.fragment, e),
-            Z(a.$$.fragment, e),
-            Z(h.$$.fragment, e),
-            Z(m.$$.fragment, e),
-            (v = !0));
+              Z(a.$$.fragment, e),
+              Z(h.$$.fragment, e),
+              Z(m.$$.fragment, e),
+              (v = !0));
         },
         o(e) {
           q(i.$$.fragment, e),
@@ -961,9 +976,9 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          (n = w("a")),
-          (r = w("div")),
-          h && h.c(),
+        (n = w("a")),
+        (r = w("div")),
+        h && h.c(),
           (s = x()),
           (i = w("div")),
           f && f.c(),
@@ -1008,28 +1023,28 @@ var app = (function () {
           p(r, u);
       },
       p(e, t) {
-        e[1].img
-          ? h
-            ? h.p(e, t)
-            : ((h = Ae(e)), h.c(), h.m(r, s))
-          : h && (h.d(1), (h = null)),
-          e[1].artist
-            ? f
-              ? f.p(e, t)
-              : ((f = Le(e)), f.c(), f.m(i, null))
-            : f && (f.d(1), (f = null)),
+        e[1].img ?
+          h ?
+          h.p(e, t) :
+          ((h = Ae(e)), h.c(), h.m(r, s)) :
+          h && (h.d(1), (h = null)),
+          e[1].artist ?
+          f ?
+          f.p(e, t) :
+          ((f = Le(e)), f.c(), f.m(i, null)) :
+          f && (f.d(1), (f = null)),
           4 & t && Y(r, "bg-custom-positive", e[2].gotCorrect),
           4 & t && Y(r, "bg-custom-mg", !e[2].gotCorrect),
           2 & t && c !== (c = e[1].url) && M(n, "href", c),
           2 & t &&
-            d !==
-              (d =
-                "Listen to " +
-                e[1].artist +
-                " - " +
-                e[1].title +
-                " on SoundCloud") &&
-            M(n, "title", d);
+          d !==
+          (d =
+            "Listen to " +
+            e[1].artist +
+            " - " +
+            e[1].title +
+            " on SoundCloud") &&
+          M(n, "title", d);
       },
       d(e) {
         e && y(t), h && h.d(), f && f.d();
@@ -1057,12 +1072,14 @@ var app = (function () {
     let t, n, r;
 
     function s(e, t) {
-      return e[0][e[7]].isCorrect || e[0][e[7]].isSkipped
-        ? e[0][e[7]].isSkipped
-          ? Te
-          : void 0
-        : Ye;
+      console.log(e[0][e[7]]);
+      return e[0][e[7]].isArtist ?
+        Wee : e[0][e[7]].isCorrect ||
+        e[0][e[7]].isSkipped ?
+        e[0][e[7]].isSkipped ?
+        Te : void 0 : Ye;
     }
+    console.log(s(e));
     let i = s(e),
       o = i && i(e);
 
@@ -1074,7 +1091,7 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          o && o.c(),
+        o && o.c(),
           (n = x()),
           (r = w("div")),
           u.c(),
@@ -1087,9 +1104,9 @@ var app = (function () {
       p(e, n) {
         i !== (i = s(e)) &&
           (o && o.d(1), (o = i && i(e)), o && (o.c(), o.m(t, null))),
-          l === (l = a(e)) && u
-            ? u.p(e, n)
-            : (u.d(1), (u = l(e)), u && (u.c(), u.m(r, null)));
+          l === (l = a(e)) && u ?
+          u.p(e, n) :
+          (u.d(1), (u = l(e)), u && (u.c(), u.m(r, null)));
       },
       d(e) {
         e && y(t), o && o.d(), e && y(n), e && y(r), u.d();
@@ -1102,8 +1119,8 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("rect")),
-          M(n, "x", "3"),
+        (n = k("rect")),
+        M(n, "x", "3"),
           M(n, "y", "3"),
           M(n, "width", "18"),
           M(n, "height", "18"),
@@ -1134,9 +1151,9 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("line")),
-          (r = k("line")),
-          M(n, "x1", "18"),
+        (n = k("line")),
+        (r = k("line")),
+        M(n, "x1", "18"),
           M(n, "y1", "6"),
           M(n, "x2", "6"),
           M(n, "y2", "18"),
@@ -1148,6 +1165,40 @@ var app = (function () {
           M(t, "xmlns", "http://www.w3.org/2000/svg"),
           M(t, "width", "24"),
           M(t, "height", "24"),
+          M(t, "viewBox", "0 0 24 24"),
+          M(t, "fill", "none"),
+          M(t, "stroke", "currentColor"),
+          M(t, "stroke-width", "2"),
+          M(t, "stroke-linecap", "round"),
+          M(t, "stroke-linejoin", "round");
+      },
+      m(e, s) {
+        g(e, t, s), p(t, n), p(t, r);
+      },
+      d(e) {
+        e && y(t);
+      },
+    };
+  }
+  function Wee(e) {
+    let t, n, r;
+    return {
+      c() {
+        (t = k("svg")),
+        (n = k("line")),
+        (r = k("line")),
+          M(n, "x1", "18"),
+          M(n, "y1", "6"),
+          M(n, "x2", "6"),
+          M(n, "y2", "18"),
+          M(r, "x1", "6"),
+          M(r, "y1", "6"),
+          M(r, "x2", "18"),
+          M(r, "y2", "18"),
+          M(t, "class", "ml-0.5 text-custom-warning"),
+          M(t, "xmlns", "http://www.w3.org/2000/svg"),
+          M(t, "width", "20"),
+          M(t, "height", "20"),
           M(t, "viewBox", "0 0 24 24"),
           M(t, "fill", "none"),
           M(t, "stroke", "currentColor"),
@@ -1189,8 +1240,8 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (n.textContent = "SALTADO"),
-          M(n, "class", "text-custom-mg tracking-widest font-semibold");
+        (n.textContent = "SALTADO"),
+        M(n, "class", "text-custom-mg tracking-widest font-semibold");
       },
       m(e, t) {
         g(e, n, t);
@@ -1213,7 +1264,7 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          i.c(),
+        i.c(),
           (n = x()),
           M(
             t,
@@ -1226,9 +1277,9 @@ var app = (function () {
         g(e, t, r), i.m(t, null), p(t, n);
       },
       p(e, o) {
-        s === (s = r(e)) && i
-          ? i.p(e, o)
-          : (i.d(1), (i = s(e)), i && (i.c(), i.m(t, n))),
+        s === (s = r(e)) && i ?
+          i.p(e, o) :
+          (i.d(1), (i = s(e)), i && (i.c(), i.m(t, n))),
           1 & o && Y(t, "border-custom-line", e[7] == e[0].length);
       },
       d(e) {
@@ -1242,7 +1293,7 @@ var app = (function () {
     return {
       c() {
         (t = w("img")),
-          l(t.src, (n = e[1].img)) || M(t, "src", n),
+        l(t.src, (n = e[1].img)) || M(t, "src", n),
           M(t, "class", "h-14 w-14 "),
           M(t, "alt", (r = e[1].artist + " - " + e[1].title));
       },
@@ -1252,8 +1303,8 @@ var app = (function () {
       p(e, s) {
         2 & s && !l(t.src, (n = e[1].img)) && M(t, "src", n),
           2 & s &&
-            r !== (r = e[1].artist + " - " + e[1].title) &&
-            M(t, "alt", r);
+          r !== (r = e[1].artist + " - " + e[1].title) &&
+          M(t, "alt", r);
       },
       d(e) {
         e && y(t);
@@ -1272,11 +1323,11 @@ var app = (function () {
     return {
       c() {
         (t = w("p")),
-          (n = _(o)),
-          (r = x()),
-          (s = w("p")),
-          (i = _(a)),
-          M(t, "class", ""),
+        (n = _(o)),
+        (r = x()),
+        (s = w("p")),
+        (i = _(a)),
+        M(t, "class", ""),
           M(s, "class", "text-sm ");
       },
       m(e, o) {
@@ -1308,9 +1359,9 @@ var app = (function () {
         i.m(e, t), g(e, n, t);
       },
       p(e, [t]) {
-        s === (s = r(e)) && i
-          ? i.p(e, t)
-          : (i.d(1), (i = s(e)), i && (i.c(), i.m(n.parentNode, n)));
+        s === (s = r(e)) && i ?
+          i.p(e, t) :
+          (i.d(1), (i = s(e)), i && (i.c(), i.m(n.parentNode, n)));
       },
       i: e,
       o: e,
@@ -1321,11 +1372,18 @@ var app = (function () {
   }
 
   function He(e, t, n) {
-    let r,
-      { userGuesses: s } = t,
-      { maxAttempts: i } = t,
-      { currentHeardle: o } = t,
-      { todaysGame: a } = t;
+    let r, {
+        userGuesses: s
+      } = t,
+      {
+        maxAttempts: i
+      } = t,
+      {
+        currentHeardle: o
+      } = t,
+      {
+        todaysGame: a
+      } = t;
     return (
       (e.$$set = (e) => {
         "userGuesses" in e && n(0, (s = e.userGuesses)),
@@ -1357,8 +1415,8 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (r = w("i")),
-          M(r, "class", "gg-loadbar-sound svelte-15swa4o"),
+        (r = w("i")),
+        M(r, "class", "gg-loadbar-sound svelte-15swa4o"),
           Y(r, "musicIsPlaying", t[0]),
           M(n, "class", "scale-150 transform relative");
       },
@@ -1377,7 +1435,9 @@ var app = (function () {
   }
 
   function Re(e, t, n) {
-    let { musicIsPlaying: r } = t;
+    let {
+      musicIsPlaying: r
+    } = t;
     return (
       (e.$$set = (e) => {
         "musicIsPlaying" in e && n(0, (r = e.musicIsPlaying));
@@ -1399,8 +1459,8 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (n.innerHTML = '<span class="loader svelte-57p3aa"></span>'),
-          M(n, "class", "flex justify-center m-3");
+        (n.innerHTML = '<span class="loader svelte-57p3aa"></span>'),
+        M(n, "class", "flex justify-center m-3");
       },
       m(e, t) {
         g(e, n, t);
@@ -1418,7 +1478,9 @@ var app = (function () {
       super(), re(this, e, null, Ge, i, {});
     }
   }
-  const { document: je } = X;
+  const {
+    document: je
+  } = X;
 
   function Be(e, t, n) {
     const r = e.slice();
@@ -1445,11 +1507,10 @@ var app = (function () {
     }
     return (
       (n = a(e)),
-      (r = o[n] = i[n](e)),
-      {
+      (r = o[n] = i[n](e)), {
         c() {
           (t = w("div")),
-            r.c(),
+          r.c(),
             M(t, "class", "text-sm text-center text-custom-line p-6");
         },
         m(e, r) {
@@ -1458,17 +1519,17 @@ var app = (function () {
         p(e, s) {
           let l = n;
           (n = a(e)),
-            n === l
-              ? o[n].p(e, s)
-              : (J(),
-                q(o[l], 1, 1, () => {
-                  o[l] = null;
-                }),
-                K(),
-                (r = o[n]),
-                r ? r.p(e, s) : ((r = o[n] = i[n](e)), r.c()),
-                Z(r, 1),
-                r.m(t, null));
+          n === l ?
+            o[n].p(e, s) :
+            (J(),
+              q(o[l], 1, 1, () => {
+                o[l] = null;
+              }),
+              K(),
+              (r = o[n]),
+              r ? r.p(e, s) : ((r = o[n] = i[n](e)), r.c()),
+              Z(r, 1),
+              r.m(t, null));
         },
         i(e) {
           s || (Z(r), (s = !0));
@@ -1493,8 +1554,7 @@ var app = (function () {
     }
     return (
       (t = a(e)),
-      (n = o[t] = i[t](e)),
-      {
+      (n = o[t] = i[t](e)), {
         c() {
           n.c(), (r = b());
         },
@@ -1504,17 +1564,17 @@ var app = (function () {
         p(e, s) {
           let l = t;
           (t = a(e)),
-            t === l
-              ? o[t].p(e, s)
-              : (J(),
-                q(o[l], 1, 1, () => {
-                  o[l] = null;
-                }),
-                K(),
-                (n = o[t]),
-                n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
-                Z(n, 1),
-                n.m(r.parentNode, r));
+          t === l ?
+            o[t].p(e, s) :
+            (J(),
+              q(o[l], 1, 1, () => {
+                o[l] = null;
+              }),
+              K(),
+              (n = o[t]),
+              n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
+              Z(n, 1),
+              n.m(r.parentNode, r));
         },
         i(e) {
           s || (Z(n), (s = !0));
@@ -1532,8 +1592,7 @@ var app = (function () {
   function Ke(t) {
     let n, r, s, i;
     return (
-      (n = new Ee({})),
-      {
+      (n = new Ee({})), {
         c() {
           Q(n.$$.fragment),
             (r = x()),
@@ -1570,15 +1629,14 @@ var app = (function () {
           },
         },
       })),
-      s.$on("click", e[22]),
-      {
+      s.$on("click", e[22]), {
         c() {
           (t = w("p")),
-            (t.textContent =
-              "There was an error loading the player. Please reload and try\n                again."),
-            (n = x()),
-            (r = w("div")),
-            Q(s.$$.fragment),
+          (t.textContent =
+            "There was an error loading the player. Please reload and try\n                again."),
+          (n = x()),
+          (r = w("div")),
+          Q(s.$$.fragment),
             M(t, "class", "mb-3"),
             M(r, "class", "flex justify-center");
         },
@@ -1612,8 +1670,8 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("path")),
-          M(n, "d", "M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"),
+        (n = k("path")),
+        M(n, "d", "M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38"),
           M(t, "xmlns", "http://www.w3.org/2000/svg"),
           M(t, "width", "24"),
           M(t, "height", "24"),
@@ -1646,18 +1704,18 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (r = w("div")),
-          (s = w("div")),
-          (i = w("div")),
-          (i.innerHTML =
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM22 9l-6 6M16 9l6 6"></path></svg>'),
-          (o = x()),
-          (a = w("div")),
-          (l = w("p")),
-          (l.textContent =
-            "Oh no! Seems like today's track is unavailable on\n                            SoundCloud in your location"),
-          (u = x()),
-          c && c.c(),
+        (r = w("div")),
+        (s = w("div")),
+        (i = w("div")),
+        (i.innerHTML =
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM22 9l-6 6M16 9l6 6"></path></svg>'),
+        (o = x()),
+        (a = w("div")),
+        (l = w("p")),
+        (l.textContent =
+          "Oh no! Seems like today's track is unavailable on\n                            SoundCloud in your location"),
+        (u = x()),
+        c && c.c(),
           M(i, "class", "mr-3"),
           M(l, "class", "text-sm "),
           M(s, "class", "flex items-center"),
@@ -1676,11 +1734,11 @@ var app = (function () {
           c && c.m(a, null);
       },
       p(e, t) {
-        e[4].gameIsActive
-          ? c
-            ? c.p(e, t)
-            : ((c = et(e)), c.c(), c.m(a, null))
-          : c && (c.d(1), (c = null));
+        e[4].gameIsActive ?
+          c ?
+          c.p(e, t) :
+          ((c = et(e)), c.c(), c.m(a, null)) :
+          c && (c.d(1), (c = null));
       },
       i: e,
       o: e,
@@ -1715,13 +1773,13 @@ var app = (function () {
       P,
       A = mt(e[11]) + "",
       L =
-        mt(
-          e[15]
-            ? e[4].isPrime
-              ? e[8].slice(-1)[0]
-              : e[2].maxAttempts * e[2].attemptInterval
-            : e[3]
-        ) + "",
+      mt(
+        e[15] ?
+        e[4].isPrime ?
+        e[8].slice(-1)[0] :
+        e[2].maxAttempts * e[2].attemptInterval :
+        e[3]
+      ) + "",
       N = !e[12] && 1 == e[0] && tt();
 
     function H(e, t) {
@@ -1742,8 +1800,7 @@ var app = (function () {
       })),
       D.$on("click", function () {
         s(e[18] ? e[6] : e[5]) && (e[18] ? e[6] : e[5]).apply(this, arguments);
-      }),
-      {
+      }), {
         c() {
           N && N.c(),
             (t = x()),
@@ -1809,34 +1866,34 @@ var app = (function () {
             (P = !0);
         },
         p(n, r) {
-          (e = n)[12] || 1 != e[0]
-            ? N && (N.d(1), (N = null))
-            : N || ((N = tt()), N.c(), N.m(t.parentNode, t)),
+          (e = n)[12] || 1 != e[0] ?
+            N && (N.d(1), (N = null)) :
+            N || ((N = tt()), N.c(), N.m(t.parentNode, t)),
             (!P || 1024 & r[0]) && T(a, "width", e[10] + "%"),
             (!P || 98304 & r[0]) &&
-              T(o, "width", (e[15] ? e[16] : "100") + "%"),
-            I === (I = H(e)) && W
-              ? W.p(e, r)
-              : (W.d(1), (W = I(e)), W && (W.c(), W.m(i, null))),
+            T(o, "width", (e[15] ? e[16] : "100") + "%"),
+            I === (I = H(e)) && W ?
+            W.p(e, r) :
+            (W.d(1), (W = I(e)), W && (W.c(), W.m(i, null))),
             (!P || 2048 & r[0]) && A !== (A = mt(e[11]) + "") && $(k, A);
           const s = {};
           (262144 & r[0]) | (128 & r[1]) &&
-            (s.$$scope = {
-              dirty: r,
-              ctx: e,
-            }),
-            D.$set(s),
+          (s.$$scope = {
+            dirty: r,
+            ctx: e,
+          }),
+          D.$set(s),
             (!P || 33052 & r[0]) &&
-              L !==
-                (L =
-                  mt(
-                    e[15]
-                      ? e[4].isPrime
-                        ? e[8].slice(-1)[0]
-                        : e[2].maxAttempts * e[2].attemptInterval
-                      : e[3]
-                  ) + "") &&
-              $(O, L);
+            L !==
+            (L =
+              mt(
+                e[15] ?
+                e[4].isPrime ?
+                e[8].slice(-1)[0] :
+                e[2].maxAttempts * e[2].attemptInterval :
+                e[3]
+              ) + "") &&
+            $(O, L);
         },
         i(e) {
           P || (Z(D.$$.fragment, e), (P = !0));
@@ -1856,13 +1913,13 @@ var app = (function () {
     return {
       c() {
         (t = w("p")),
-          (n = _("We're really sorry. The answer is ")),
-          (r = w("a")),
-          (s = _("here")),
-          (o = _(
-            ", though, if you want to maintain your streak.\n                                We won't tell..."
-          )),
-          M(r, "href", (i = e[1].url)),
+        (n = _("We're really sorry. The answer is ")),
+        (r = w("a")),
+        (s = _("here")),
+        (o = _(
+          ", though, if you want to maintain your streak.\n                                We won't tell..."
+        )),
+        M(r, "href", (i = e[1].url)),
           M(t, "class", "text-xs text-custom-line pt-1");
       },
       m(e, i) {
@@ -1882,13 +1939,13 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          (t.innerHTML =
-            '<p>Sube el volumen y pulsa el botón para empezar!</p> \n\n                <svg class="mt-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>'),
-          M(
-            t,
-            "class",
-            "text-center p-3 flex flex-col items-center text-sm text-custom-line"
-          );
+        (t.innerHTML =
+          '<p>Sube el volumen y pulsa el botón para empezar!</p> \n\n                <svg class="mt-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>'),
+        M(
+          t,
+          "class",
+          "text-center p-3 flex flex-col items-center text-sm text-custom-line"
+        );
       },
       m(e, n) {
         g(e, t, n);
@@ -1910,16 +1967,16 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          s.c(),
+        s.c(),
           M(t, "class", "flex w-full h-full absolute justify-between");
       },
       m(e, n) {
         g(e, t, n), s.m(t, null);
       },
       p(e, i) {
-        r === (r = n(e)) && s
-          ? s.p(e, i)
-          : (s.d(1), (s = r(e)), s && (s.c(), s.m(t, null)));
+        r === (r = n(e)) && s ?
+          s.p(e, i) :
+          (s.d(1), (s = r(e)), s && (s.c(), s.m(t, null)));
       },
       d(e) {
         e && y(t), s.d();
@@ -1938,11 +1995,11 @@ var app = (function () {
         g(e, t, r), n && n.m(t, null);
       },
       p(e, r) {
-        e[15]
-          ? n
-            ? n.p(e, r)
-            : ((n = lt(e)), n.c(), n.m(t, null))
-          : n && (n.d(1), (n = null));
+        e[15] ?
+          n ?
+          n.p(e, r) :
+          ((n = lt(e)), n.c(), n.m(t, null)) :
+          n && (n.d(1), (n = null));
       },
       d(e) {
         e && y(t), n && n.d();
@@ -1970,7 +2027,7 @@ var app = (function () {
           let i;
           for (n = Array(e[2].maxAttempts + 1), i = s; i < n.length; i += 1)
             Be(e, n, i),
-              r[i] || ((r[i] = ot()), r[i].c(), r[i].m(t.parentNode, t));
+            r[i] || ((r[i] = ot()), r[i].c(), r[i].m(t.parentNode, t));
           for (i = n.length; i < s; i += 1) r[i].d(1);
           r.length = n.length;
         }
@@ -2000,12 +2057,10 @@ var app = (function () {
           const s = n.length;
           let i;
           for (
-            n = Array(Math.floor(e[3] / e[2].attemptInterval)), i = s;
-            i < n.length;
-            i += 1
+            n = Array(Math.floor(e[3] / e[2].attemptInterval)), i = s; i < n.length; i += 1
           )
             ze(e, n, i),
-              r[i] || ((r[i] = at()), r[i].c(), r[i].m(t.parentNode, t));
+            r[i] || ((r[i] = at()), r[i].c(), r[i].m(t.parentNode, t));
           for (i = n.length; i < s; i += 1) r[i].d(1);
           r.length = n.length;
         }
@@ -2059,8 +2114,8 @@ var app = (function () {
         (t = w("div")), (n = x());
         for (let e = 0; e < o.length; e += 1) o[e].c();
         (r = x()),
-          (s = w("div")),
-          M(t, "class", "bg-custom-line w-px h-full absolute right-0"),
+        (s = w("div")),
+        M(t, "class", "bg-custom-line w-px h-full absolute right-0"),
           M(s, "class", "bg-custom-mg w-px h-full absolute right-0");
       },
       m(e, i) {
@@ -2073,9 +2128,9 @@ var app = (function () {
           let n;
           for (i = e[8], n = 0; n < i.length; n += 1) {
             const s = Ue(e, i, n);
-            o[n]
-              ? o[n].p(s, t)
-              : ((o[n] = ut(s)), o[n].c(), o[n].m(r.parentNode, r));
+            o[n] ?
+              o[n].p(s, t) :
+              ((o[n] = ut(s)), o[n].c(), o[n].m(r.parentNode, r));
           }
           for (; n < o.length; n += 1) o[n].d(1);
           o.length = i.length;
@@ -2092,7 +2147,7 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          M(t, "class", "w-px h-full absolute"),
+        M(t, "class", "w-px h-full absolute"),
           T(t, "left", (e[8][e[35]] / e[8].slice(-1)[0]) * 100 + "%"),
           Y(t, "bg-custom-bg", e[35] < e[7] - 1),
           Y(t, "bg-custom-mg", e[35] > e[7] - 1),
@@ -2119,9 +2174,9 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (n.innerHTML =
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>'),
-          M(n, "class", "ml-1 relative z-10");
+        (n.innerHTML =
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>'),
+        M(n, "class", "ml-1 relative z-10");
       },
       m(e, t) {
         g(e, n, t);
@@ -2142,8 +2197,7 @@ var app = (function () {
         props: {
           musicIsPlaying: e[18],
         },
-      })),
-      {
+      })), {
         c() {
           (t = w("div")), Q(n.$$.fragment), M(t, "class", "relative z-10");
         },
@@ -2177,11 +2231,10 @@ var app = (function () {
     }
     return (
       (n = a(e)),
-      (r = o[n] = i[n](e)),
-      {
+      (r = o[n] = i[n](e)), {
         c() {
           (t = w("div")),
-            r.c(),
+          r.c(),
             M(
               t,
               "class",
@@ -2194,17 +2247,17 @@ var app = (function () {
         p(e, s) {
           let l = n;
           (n = a(e)),
-            n === l
-              ? o[n].p(e, s)
-              : (J(),
-                q(o[l], 1, 1, () => {
-                  o[l] = null;
-                }),
-                K(),
-                (r = o[n]),
-                r ? r.p(e, s) : ((r = o[n] = i[n](e)), r.c()),
-                Z(r, 1),
-                r.m(t, null));
+          n === l ?
+            o[n].p(e, s) :
+            (J(),
+              q(o[l], 1, 1, () => {
+                o[l] = null;
+              }),
+              K(),
+              (r = o[n]),
+              r ? r.p(e, s) : ((r = o[n] = i[n](e)), r.c()),
+              Z(r, 1),
+              r.m(t, null));
         },
         i(e) {
           s || (Z(r), (s = !0));
@@ -2229,17 +2282,16 @@ var app = (function () {
     }
     return (
       (s = v(e)),
-      (i = m[s] = f[s](e)),
-      {
+      (i = m[s] = f[s](e)), {
         c() {
           (t = w("script")),
-            (r = x()),
-            i.c(),
+          (r = x()),
+          i.c(),
             (o = x()),
             (a = w("div")),
             (u = w("div")),
             l(t.src, (n = "https://w.soundcloud.com/player/api.js")) ||
-              M(t, "src", "https://w.soundcloud.com/player/api.js"),
+            M(t, "src", "https://w.soundcloud.com/player/api.js"),
             M(a, "class", "hidden");
         },
         m(n, i) {
@@ -2256,17 +2308,17 @@ var app = (function () {
         p(e, t) {
           let n = s;
           (s = v(e)),
-            s === n
-              ? m[s].p(e, t)
-              : (J(),
-                q(m[n], 1, 1, () => {
-                  m[n] = null;
-                }),
-                K(),
-                (i = m[s]),
-                i ? i.p(e, t) : ((i = m[s] = f[s](e)), i.c()),
-                Z(i, 1),
-                i.m(o.parentNode, o));
+          s === n ?
+            m[s].p(e, t) :
+            (J(),
+              q(m[n], 1, 1, () => {
+                m[n] = null;
+              }),
+              K(),
+              (i = m[s]),
+              i ? i.p(e, t) : ((i = m[s] = f[s](e)), i.c()),
+              Z(i, 1),
+              i.m(o.parentNode, o));
         },
         i(e) {
           c || (Z(i), (c = !0));
@@ -2297,12 +2349,18 @@ var app = (function () {
   function pt(e, t, n) {
     let r, s, i, o, a, l, u;
     const c = A();
-    let { currentAttempt: d } = t,
-      { currentHeardle: h } = t,
-      { config: f } = t,
-      { trackDuration: m = 0 } = t,
-      { gameState: p } = t,
-      g = !1;
+    let {
+      currentAttempt: d
+    } = t, {
+      currentHeardle: h
+    } = t, {
+      config: f
+    } = t, {
+      trackDuration: m = 0
+    } = t, {
+      gameState: p
+    } = t,
+    g = !1;
     var y;
     let v = 0,
       w = 0,
@@ -2327,34 +2385,34 @@ var app = (function () {
         SC.Widget.Events.READY,
         function () {
           y.getCurrentSound(function (e) {
-            "BLOCK" === e.policy && n(9, (g = !0)),
-              c("updateSong", {
-                currentSong: e,
-              });
-          }),
+              "BLOCK" === e.policy && n(9, (g = !0)),
+                c("updateSong", {
+                  currentSong: e,
+                });
+            }),
             y.bind(SC.Widget.Events.PAUSE, function () {
               $(!1);
             }),
             y.bind(SC.Widget.Events.PLAY, function () {
               b ||
                 (pe("startGame", {
-                  name: "startGame",
-                }),
-                pe("startGame#" + h.id, {
-                  name: "startGame",
-                }),
-                (b = !0)),
+                    name: "startGame",
+                  }),
+                  pe("startGame#" + h.id, {
+                    name: "startGame",
+                  }),
+                  (b = !0)),
                 $(!0),
                 n(12, (x = !0));
             }),
             y.bind(SC.Widget.Events.PLAY_PROGRESS, function (e) {
               n(11, (w = e.currentPosition)),
-                1 == s
-                  ? p.isPrime
-                    ? (n(10, (v = (w / u) * 100)), w > u && M())
-                    : (n(10, (v = (w / (d * f.attemptInterval)) * 100)),
-                      w > d * f.attemptInterval && M())
-                  : (n(10, (v = (w / m) * 100)), w > m && M());
+                1 == s ?
+                p.isPrime ?
+                (n(10, (v = (w / u) * 100)), w > u && M()) :
+                (n(10, (v = (w / (d * f.attemptInterval)) * 100)),
+                  w > d * f.attemptInterval && M()) :
+                (n(10, (v = (w / m) * 100)), w > m && M());
             });
         }
       );
@@ -2363,15 +2421,15 @@ var app = (function () {
     P(() => {
       const e = document.createElement("iframe");
       (e.name = h.id),
-        (e.id = "soundcloud" + h.id),
-        (e.allow = "autoplay"),
-        (e.height = 0),
-        (e.src =
-          "https://w.soundcloud.com/player/?url=" + h.url + "&cache=" + h.id),
-        D.appendChild(e),
+      (e.id = "soundcloud" + h.id),
+      (e.allow = "autoplay"),
+      (e.height = 0),
+      (e.src =
+        "https://w.soundcloud.com/player/?url=" + h.url + "&cache=" + h.id),
+      D.appendChild(e),
         (_ = !0),
         k &&
-          (setTimeout(() => {
+        (setTimeout(() => {
             n(13, (S = !0));
           }, 6e3),
           T());
@@ -2397,12 +2455,12 @@ var app = (function () {
           1 & e.$$.dirty[0] && n(7, (o = d)),
           4 & e.$$.dirty[0] && n(8, (a = f.attemptIntervalAlt)),
           405 & e.$$.dirty[0] &&
-            n(
-              16,
-              (l = p.isPrime
-                ? (a[o - 1] / a.slice(-1)[0]) * 100
-                : (d / f.maxAttempts) * 100)
-            ),
+          n(
+            16,
+            (l = p.isPrime ?
+              (a[o - 1] / a.slice(-1)[0]) * 100 :
+              (d / f.maxAttempts) * 100)
+          ),
           384 & e.$$.dirty[0] && (u = a[o - 1]);
       }),
       [
@@ -2429,8 +2487,8 @@ var app = (function () {
         r,
         function () {
           (k = !0),
-            _ &&
-              (setTimeout(() => {
+          _ &&
+            (setTimeout(() => {
                 n(13, (S = !0));
               }, 6e3),
               T());
@@ -2460,8 +2518,7 @@ var app = (function () {
           e,
           pt,
           ft,
-          i,
-          {
+          i, {
             currentAttempt: 0,
             currentHeardle: 1,
             config: 2,
@@ -2490,12 +2547,13 @@ var app = (function () {
     }
   }
   "undefined" != typeof globalThis
-    ? globalThis
-    : "undefined" != typeof window
-    ? window
-    : "undefined" != typeof global
-    ? global
-    : "undefined" != typeof self && self;
+    ?
+    globalThis :
+    "undefined" != typeof window ?
+    window :
+    "undefined" != typeof global ?
+    global :
+    "undefined" != typeof self && self;
 
   function yt(e) {
     var t = {
@@ -2507,8 +2565,8 @@ var app = (function () {
   function vt(e) {
     throw new Error(
       'Could not dynamically require "' +
-        e +
-        '". Please configure the dynamicRequireTargets option of @rollup/plugin-commonjs appropriately for this require call to behave properly.'
+      e +
+      '". Please configure the dynamicRequireTargets option of @rollup/plugin-commonjs appropriately for this require call to behave properly.'
     );
   }
   var wt = yt(function (e, t) {
@@ -2530,49 +2588,49 @@ var app = (function () {
         function t(t) {
           for (var n = 1; n < arguments.length; n++) {
             var s = null != arguments[n] ? arguments[n] : {};
-            n % 2
-              ? e(Object(s), !0).forEach(function (e) {
-                  r(t, e, s[e]);
-                })
-              : Object.getOwnPropertyDescriptors
-              ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(s))
-              : e(Object(s)).forEach(function (e) {
-                  Object.defineProperty(
-                    t,
-                    e,
-                    Object.getOwnPropertyDescriptor(s, e)
-                  );
-                });
+            n % 2 ?
+              e(Object(s), !0).forEach(function (e) {
+                r(t, e, s[e]);
+              }) :
+              Object.getOwnPropertyDescriptors ?
+              Object.defineProperties(t, Object.getOwnPropertyDescriptors(s)) :
+              e(Object(s)).forEach(function (e) {
+                Object.defineProperty(
+                  t,
+                  e,
+                  Object.getOwnPropertyDescriptor(s, e)
+                );
+              });
           }
           return t;
         }
 
         function n(e) {
           return (n =
-            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-              ? function (e) {
-                  return typeof e;
-                }
-              : function (e) {
-                  return e &&
-                    "function" == typeof Symbol &&
-                    e.constructor === Symbol &&
-                    e !== Symbol.prototype
-                    ? "symbol"
-                    : typeof e;
-                })(e);
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ?
+            function (e) {
+              return typeof e;
+            } :
+            function (e) {
+              return e &&
+                "function" == typeof Symbol &&
+                e.constructor === Symbol &&
+                e !== Symbol.prototype ?
+                "symbol" :
+                typeof e;
+            })(e);
         }
 
         function r(e, t, n) {
           return (
-            t in e
-              ? Object.defineProperty(e, t, {
-                  value: n,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (e[t] = n),
+            t in e ?
+            Object.defineProperty(e, t, {
+              value: n,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            }) :
+            (e[t] = n),
             e
           );
         }
@@ -2604,12 +2662,12 @@ var app = (function () {
             var n = Object.prototype.toString.call(e).slice(8, -1);
             return (
               "Object" === n && e.constructor && (n = e.constructor.name),
-              "Map" === n || "Set" === n
-                ? Array.from(e)
-                : "Arguments" === n ||
-                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-                ? o(e, t)
-                : void 0
+              "Map" === n || "Set" === n ?
+              Array.from(e) :
+              "Arguments" === n ||
+              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ?
+              o(e, t) :
+              void 0
             );
           }
         }
@@ -2640,19 +2698,18 @@ var app = (function () {
           u = function (e, t) {
             return (
               (e = e.toString().toLowerCase()),
-              t
-                ? e
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .normalize("NFC")
-                : e
+              t ?
+              e
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .normalize("NFC") :
+              e
             );
           },
           c = function (e, n) {
             return l(
               "mark",
-              t(
-                {
+              t({
                   innerHTML: e,
                 },
                 "string" == typeof n && {
@@ -2680,12 +2737,12 @@ var app = (function () {
               var l = (e = e.replace(/ /g, "")).length,
                 d = 0,
                 h = Array.from(t)
-                  .map(function (t, n) {
-                    return (
-                      d < l && a[n] === e[d] && ((t = o ? c(t, o) : t), d++), t
-                    );
-                  })
-                  .join("");
+                .map(function (t, n) {
+                  return (
+                    d < l && a[n] === e[d] && ((t = o ? c(t, o) : t), d++), t
+                  );
+                })
+                .join("");
               if (d === l) return h;
             } else {
               var f = a.indexOf(e);
@@ -2699,19 +2756,19 @@ var app = (function () {
           f = function (e, t) {
             return new Promise(function (n, r) {
               var s;
-              return (s = e.data).cache && s.store
-                ? n()
-                : new Promise(function (e, n) {
-                    return "function" == typeof s.src
-                      ? s.src(t).then(e, n)
-                      : e(s.src);
-                  }).then(function (t) {
-                    try {
-                      return (e.feedback = s.store = t), d("response", e), n();
-                    } catch (e) {
-                      return r(e);
-                    }
-                  }, r);
+              return (s = e.data).cache && s.store ?
+                n() :
+                new Promise(function (e, n) {
+                  return "function" == typeof s.src ?
+                    s.src(t).then(e, n) :
+                    e(s.src);
+                }).then(function (t) {
+                  try {
+                    return (e.feedback = s.store = t), d("response", e), n();
+                  } catch (e) {
+                    return r(e);
+                  }
+                }, r);
             });
           },
           m = function (e, t) {
@@ -2719,89 +2776,89 @@ var app = (function () {
               r = t.searchEngine,
               s = [];
             n.store.forEach(function (o, a) {
-              var l = function (n) {
-                var i = n ? o[n] : o,
-                  a =
-                    "function" == typeof r
-                      ? r(e, i)
-                      : h(e, i, {
-                          mode: r,
-                          diacritics: t.diacritics,
-                          highlight: t.resultItem.highlight,
-                        });
-                if (a) {
-                  var l = {
-                    match: a,
-                    value: o,
-                  };
-                  n && (l.key = n), s.push(l);
-                }
-              };
-              if (n.keys) {
-                var u,
-                  c = (function (e, t) {
-                    var n =
-                      ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
-                      e["@@iterator"];
-                    if (!n) {
-                      if (Array.isArray(e) || (n = i(e))) {
-                        n && (e = n);
-                        var r = 0,
-                          s = function () {};
-                        return {
-                          s: s,
-                          n: function () {
-                            return r >= e.length
-                              ? {
+                var l = function (n) {
+                  var i = n ? o[n] : o,
+                    a =
+                    "function" == typeof r ?
+                    r(e, i) :
+                    h(e, i, {
+                      mode: r,
+                      diacritics: t.diacritics,
+                      highlight: t.resultItem.highlight,
+                    });
+                  if (a) {
+                    var l = {
+                      match: a,
+                      value: o,
+                    };
+                    n && (l.key = n), s.push(l);
+                  }
+                };
+                if (n.keys) {
+                  var u,
+                    c = (function (e, t) {
+                      var n =
+                        ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                        e["@@iterator"];
+                      if (!n) {
+                        if (Array.isArray(e) || (n = i(e))) {
+                          n && (e = n);
+                          var r = 0,
+                            s = function () {};
+                          return {
+                            s: s,
+                            n: function () {
+                              return r >= e.length ?
+                                {
                                   done: !0,
-                                }
-                              : {
+                                } :
+                                {
                                   done: !1,
                                   value: e[r++],
                                 };
-                          },
-                          e: function (e) {
-                            throw e;
-                          },
-                          f: s,
-                        };
-                      }
-                      throw new TypeError(
-                        "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
-                      );
-                    }
-                    var o,
-                      a = !0,
-                      l = !1;
-                    return {
-                      s: function () {
-                        n = n.call(e);
-                      },
-                      n: function () {
-                        var e = n.next();
-                        return (a = e.done), e;
-                      },
-                      e: function (e) {
-                        (l = !0), (o = e);
-                      },
-                      f: function () {
-                        try {
-                          a || null == n.return || n.return();
-                        } finally {
-                          if (l) throw o;
+                            },
+                            e: function (e) {
+                              throw e;
+                            },
+                            f: s,
+                          };
                         }
-                      },
-                    };
-                  })(n.keys);
-                try {
-                  for (c.s(); !(u = c.n()).done; ) l(u.value);
-                } catch (e) {
-                  c.e(e);
-                } finally {
-                  c.f();
-                }
-              } else l();
-            }),
+                        throw new TypeError(
+                          "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+                        );
+                      }
+                      var o,
+                        a = !0,
+                        l = !1;
+                      return {
+                        s: function () {
+                          n = n.call(e);
+                        },
+                        n: function () {
+                          var e = n.next();
+                          return (a = e.done), e;
+                        },
+                        e: function (e) {
+                          (l = !0), (o = e);
+                        },
+                        f: function () {
+                          try {
+                            a || null == n.return || n.return();
+                          } finally {
+                            if (l) throw o;
+                          }
+                        },
+                      };
+                    })(n.keys);
+                  try {
+                    for (c.s(); !(u = c.n()).done;) l(u.value);
+                  } catch (e) {
+                    c.e(e);
+                  } finally {
+                    c.f();
+                  }
+                } else l();
+              }),
               n.filter && (s = n.filter(s));
             var o = s.slice(0, t.resultsList.maxResults);
             (t.feedback = {
@@ -2809,14 +2866,13 @@ var app = (function () {
               matches: s,
               results: o,
             }),
-              d("results", t);
+            d("results", t);
           },
           p = "aria-expanded",
           g = "aria-activedescendant",
           y = "aria-selected",
           v = function (e, n) {
-            e.feedback.selection = t(
-              {
+            e.feedback.selection = t({
                 index: n,
               },
               e.feedback.results[n]
@@ -2825,17 +2881,17 @@ var app = (function () {
           w = function (e) {
             e.isOpen ||
               ((e.wrapper || e.input).setAttribute(p, !0),
-              e.list.removeAttribute("hidden"),
-              (e.isOpen = !0),
-              d("open", e));
+                e.list.removeAttribute("hidden"),
+                (e.isOpen = !0),
+                d("open", e));
           },
           k = function (e) {
             e.isOpen &&
               ((e.wrapper || e.input).setAttribute(p, !1),
-              e.input.setAttribute(g, ""),
-              e.list.setAttribute("hidden", ""),
-              (e.isOpen = !1),
-              d("close", e));
+                e.input.setAttribute(g, ""),
+                e.list.setAttribute("hidden", ""),
+                (e.isOpen = !1),
+                d("close", e));
           },
           _ = function (e, t) {
             var n = t.resultItem,
@@ -2849,7 +2905,7 @@ var app = (function () {
                 e < 0 && (e = r.length - 1),
                 (t.cursor = e),
                 l > -1 &&
-                  (r[l].removeAttribute(y),
+                (r[l].removeAttribute(y),
                   i && (a = r[l].classList).remove.apply(a, s(i))),
                 r[e].setAttribute(y, !0),
                 i && (o = r[e].classList).add.apply(o, s(i)),
@@ -2880,59 +2936,58 @@ var app = (function () {
               (o =
                 n ||
                 ((a = e.input) instanceof HTMLInputElement ||
-                a instanceof HTMLTextAreaElement
-                  ? a.value
-                  : a.innerHTML)),
+                  a instanceof HTMLTextAreaElement ?
+                  a.value :
+                  a.innerHTML)),
               (function (e, t, n) {
                 return t ? t(e) : e.length >= n;
-              })((o = e.query ? e.query(o) : o), e.trigger, e.threshold)
-                ? f(e, o).then(function (n) {
-                    try {
-                      return e.feedback instanceof Error
-                        ? s()
-                        : (m(o, e),
-                          e.resultsList &&
-                            (function (e) {
-                              var n = e.resultsList,
-                                r = e.list,
-                                s = e.resultItem,
-                                i = e.feedback,
-                                o = i.matches,
-                                a = i.results;
-                              if (
-                                ((e.cursor = -1),
-                                (r.innerHTML = ""),
-                                o.length || n.noResults)
-                              ) {
-                                var u = new DocumentFragment();
-                                a.forEach(function (e, n) {
-                                  var r = l(
-                                    s.tag,
-                                    t(
-                                      {
-                                        id: "".concat(s.id, "_").concat(n),
-                                        role: "option",
-                                        innerHTML: e.match,
-                                        inside: u,
-                                      },
-                                      s.class && {
-                                        class: s.class,
-                                      }
-                                    )
-                                  );
-                                  s.element && s.element(r, e);
-                                }),
-                                  r.append(u),
-                                  n.element && n.element(r, i),
-                                  w(e);
-                              } else k(e);
-                            })(e),
-                          u.call(r));
-                    } catch (e) {
-                      return i(e);
-                    }
-                  }, i)
-                : (k(e), u.call(r))
+              })((o = e.query ? e.query(o) : o), e.trigger, e.threshold) ?
+              f(e, o).then(function (n) {
+                try {
+                  return e.feedback instanceof Error ?
+                    s() :
+                    (m(o, e),
+                      e.resultsList &&
+                      (function (e) {
+                        var n = e.resultsList,
+                          r = e.list,
+                          s = e.resultItem,
+                          i = e.feedback,
+                          o = i.matches,
+                          a = i.results;
+                        if (
+                          ((e.cursor = -1),
+                            (r.innerHTML = ""),
+                            o.length || n.noResults)
+                        ) {
+                          var u = new DocumentFragment();
+                          a.forEach(function (e, n) {
+                              var r = l(
+                                s.tag,
+                                t({
+                                    id: "".concat(s.id, "_").concat(n),
+                                    role: "option",
+                                    innerHTML: e.match,
+                                    inside: u,
+                                  },
+                                  s.class && {
+                                    class: s.class,
+                                  }
+                                )
+                              );
+                              s.element && s.element(r, e);
+                            }),
+                            r.append(u),
+                            n.element && n.element(r, i),
+                            w(e);
+                        } else k(e);
+                      })(e),
+                      u.call(r));
+                } catch (e) {
+                  return i(e);
+                }
+              }, i) :
+              (k(e), u.call(r))
             );
 
             function u() {
@@ -2941,7 +2996,8 @@ var app = (function () {
           });
         }
         var $ = function (e, t) {
-          for (var n in e) for (var r in e[n]) t(n, r);
+          for (var n in e)
+            for (var r in e[n]) t(n, r);
         };
 
         function D(e) {
@@ -2950,43 +3006,40 @@ var app = (function () {
             var i, o, a;
             if (
               ((i = e.placeHolder),
-              (a = {
-                role: "combobox",
-                "aria-owns": (o = e.resultsList).id,
-                "aria-haspopup": !0,
-                "aria-expanded": !1,
-              }),
-              l(
-                e.input,
-                t(
+                (a = {
+                  role: "combobox",
+                  "aria-owns": (o = e.resultsList).id,
+                  "aria-haspopup": !0,
+                  "aria-expanded": !1,
+                }),
+                l(
+                  e.input,
                   t(
-                    {
-                      "aria-controls": o.id,
-                      "aria-autocomplete": "both",
-                    },
-                    i && {
-                      placeholder: i,
-                    }
-                  ),
-                  !e.wrapper && t({}, a)
-                )
-              ),
-              e.wrapper &&
+                    t({
+                        "aria-controls": o.id,
+                        "aria-autocomplete": "both",
+                      },
+                      i && {
+                        placeholder: i,
+                      }
+                    ),
+                    !e.wrapper && t({}, a)
+                  )
+                ),
+                e.wrapper &&
                 (e.wrapper = l(
                   "div",
-                  t(
-                    {
+                  t({
                       around: e.input,
                       class: e.name + "_wrapper",
                     },
                     a
                   )
                 )),
-              o &&
+                o &&
                 (e.list = l(
                   o.tag,
-                  t(
-                    {
+                  t({
                       dest: [o.destination, o.position],
                       id: o.id,
                       role: "listbox",
@@ -2997,84 +3050,83 @@ var app = (function () {
                     }
                   )
                 )),
-              (function (e) {
-                var n,
-                  r,
-                  s,
-                  i = e.events,
-                  o =
+                (function (e) {
+                  var n,
+                    r,
+                    s,
+                    i = e.events,
+                    o =
                     ((n = function () {
-                      return M(e);
+                        return M(e);
+                      }),
+                      (r = e.debounce),
+                      function () {
+                        clearTimeout(s),
+                          (s = setTimeout(function () {
+                            return n();
+                          }, r));
+                      }),
+                    a = (e.events = t({
+                        input: t({}, i && i.input),
+                      },
+                      e.resultsList && {
+                        list: i ? t({}, i.list) : {},
+                      }
+                    )),
+                    l = {
+                      input: {
+                        input: function () {
+                          o();
+                        },
+                        keydown: function (t) {
+                          !(function (e, t) {
+                            switch (e.keyCode) {
+                              case 40:
+                              case 38:
+                                e.preventDefault(),
+                                  40 === e.keyCode ? x(t) : b(t);
+                                break;
+                              case 13:
+                                t.submit || e.preventDefault(),
+                                  t.cursor >= 0 && S(t, e);
+                                break;
+                              case 9:
+                                t.resultsList.tabSelect &&
+                                  t.cursor >= 0 &&
+                                  S(t, e);
+                                break;
+                              case 27:
+                                (t.input.value = ""), k(t);
+                            }
+                          })(t, e);
+                        },
+                        blur: function () {
+                          k(e);
+                        },
+                      },
+                      list: {
+                        mousedown: function (e) {
+                          e.preventDefault();
+                        },
+                        click: function (t) {
+                          !(function (e, t) {
+                            var n = t.resultItem.tag.toUpperCase(),
+                              r = Array.from(t.list.querySelectorAll(n)),
+                              s = e.target.closest(n);
+                            s && s.nodeName === n && S(t, e, r.indexOf(s));
+                          })(t, e);
+                        },
+                      },
+                    };
+                  $(l, function (t, n) {
+                      (e.resultsList || "input" === n) &&
+                      (a[t][n] || (a[t][n] = l[t][n]));
                     }),
-                    (r = e.debounce),
-                    function () {
-                      clearTimeout(s),
-                        (s = setTimeout(function () {
-                          return n();
-                        }, r));
-                    }),
-                  a = (e.events = t(
-                    {
-                      input: t({}, i && i.input),
-                    },
-                    e.resultsList && {
-                      list: i ? t({}, i.list) : {},
-                    }
-                  )),
-                  l = {
-                    input: {
-                      input: function () {
-                        o();
-                      },
-                      keydown: function (t) {
-                        !(function (e, t) {
-                          switch (e.keyCode) {
-                            case 40:
-                            case 38:
-                              e.preventDefault(),
-                                40 === e.keyCode ? x(t) : b(t);
-                              break;
-                            case 13:
-                              t.submit || e.preventDefault(),
-                                t.cursor >= 0 && S(t, e);
-                              break;
-                            case 9:
-                              t.resultsList.tabSelect &&
-                                t.cursor >= 0 &&
-                                S(t, e);
-                              break;
-                            case 27:
-                              (t.input.value = ""), k(t);
-                          }
-                        })(t, e);
-                      },
-                      blur: function () {
-                        k(e);
-                      },
-                    },
-                    list: {
-                      mousedown: function (e) {
-                        e.preventDefault();
-                      },
-                      click: function (t) {
-                        !(function (e, t) {
-                          var n = t.resultItem.tag.toUpperCase(),
-                            r = Array.from(t.list.querySelectorAll(n)),
-                            s = e.target.closest(n);
-                          s && s.nodeName === n && S(t, e, r.indexOf(s));
-                        })(t, e);
-                      },
-                    },
-                  };
-                $(l, function (t, n) {
-                  (e.resultsList || "input" === n) &&
-                    (a[t][n] || (a[t][n] = l[t][n]));
-                }),
-                  $(a, function (t, n) {
-                    e[t].addEventListener(n, a[t][n]);
-                  });
-              })(e),
-              e.data.cache)
+                    $(a, function (t, n) {
+                      e[t].addEventListener(n, a[t][n]);
+                    });
+                })(e),
+                e.data.cache)
             )
               return f(e).then(function (e) {
                 try {
@@ -3096,77 +3148,77 @@ var app = (function () {
           (t.init = function () {
             D(this);
           }),
-            (t.start = function (e) {
-              M(this, e);
-            }),
-            (t.unInit = function () {
-              if (this.wrapper) {
-                var e = this.wrapper.parentNode;
-                e.insertBefore(this.input, this.wrapper),
-                  e.removeChild(this.wrapper);
-              }
-              var t;
-              $((t = this).events, function (e, n) {
-                t[e].removeEventListener(n, t.events[e][n]);
-              });
-            }),
-            (t.open = function () {
-              w(this);
-            }),
-            (t.close = function () {
-              k(this);
-            }),
-            (t.goTo = function (e) {
-              _(e, this);
-            }),
-            (t.next = function () {
-              x(this);
-            }),
-            (t.previous = function () {
-              b(this);
-            }),
-            (t.select = function (e) {
-              S(this, null, e);
-            }),
-            (t.search = function (e, t, n) {
-              return h(e, t, n);
+          (t.start = function (e) {
+            M(this, e);
+          }),
+          (t.unInit = function () {
+            if (this.wrapper) {
+              var e = this.wrapper.parentNode;
+              e.insertBefore(this.input, this.wrapper),
+                e.removeChild(this.wrapper);
+            }
+            var t;
+            $((t = this).events, function (e, n) {
+              t[e].removeEventListener(n, t.events[e][n]);
             });
+          }),
+          (t.open = function () {
+            w(this);
+          }),
+          (t.close = function () {
+            k(this);
+          }),
+          (t.goTo = function (e) {
+            _(e, this);
+          }),
+          (t.next = function () {
+            x(this);
+          }),
+          (t.previous = function () {
+            b(this);
+          }),
+          (t.select = function (e) {
+            S(this, null, e);
+          }),
+          (t.search = function (e, t, n) {
+            return h(e, t, n);
+          });
         }
         return function e(t) {
           (this.options = t),
-            (this.id = e.instances = (e.instances || 0) + 1),
-            (this.name = "autoComplete"),
-            (this.wrapper = 1),
-            (this.threshold = 1),
-            (this.debounce = 0),
-            (this.resultsList = {
-              position: "afterend",
-              tag: "ul",
-              maxResults: 5,
-            }),
-            (this.resultItem = {
-              tag: "li",
-            }),
-            (function (e) {
-              var t = e.name,
-                r = e.options,
-                s = e.resultsList,
-                i = e.resultItem;
-              for (var o in r)
-                if ("object" === n(r[o]))
-                  for (var l in (e[o] || (e[o] = {}), r[o])) e[o][l] = r[o][l];
-                else e[o] = r[o];
-              (e.selector = e.selector || "#" + t),
-                (s.destination = s.destination || e.selector),
-                (s.id = s.id || t + "_list_" + e.id),
-                (i.id = i.id || t + "_result"),
-                (e.input = a(e.selector));
-            })(this),
-            T.call(this, e),
+          (this.id = e.instances = (e.instances || 0) + 1),
+          (this.name = "autoComplete"),
+          (this.wrapper = 1),
+          (this.threshold = 1),
+          (this.debounce = 0),
+          (this.resultsList = {
+            position: "afterend",
+            tag: "ul",
+            maxResults: 5,
+          }),
+          (this.resultItem = {
+            tag: "li",
+          }),
+          (function (e) {
+            var t = e.name,
+              r = e.options,
+              s = e.resultsList,
+              i = e.resultItem;
+            for (var o in r)
+              if ("object" === n(r[o]))
+                for (var l in (e[o] || (e[o] = {}), r[o])) e[o][l] = r[o][l];
+              else e[o] = r[o];
+            (e.selector = e.selector || "#" + t),
+            (s.destination = s.destination || e.selector),
+            (s.id = s.id || t + "_list_" + e.id),
+            (i.id = i.id || t + "_result"),
+            (e.input = a(e.selector));
+          })(this),
+          T.call(this, e),
             D(this);
         };
       }),
-        (e.exports = n());
+      (e.exports = n());
     }),
     kt = _t(2);
 
@@ -3184,26 +3236,26 @@ var app = (function () {
         s = [];
       if (null == t) return s;
       if (((r = t.slice ? t : String(t)), (n = r.length - e + 1) < 1)) return s;
-      for (; n--; ) s[n] = r.slice(n, n + e);
+      for (; n--;) s[n] = r.slice(n, n + e);
       return s;
     };
   }
 
   function xt(e, t) {
     let n, r, s, i;
-    Array.isArray(e)
-      ? (s = e.map((e) => String(e).toLowerCase()))
-      : ((n = String(e).toLowerCase()), (s = 1 === n.length ? [n] : kt(n))),
-      Array.isArray(t)
-        ? (i = t.map((e) => String(e).toLowerCase()))
-        : ((r = String(t).toLowerCase()), (i = 1 === r.length ? [r] : kt(r)));
+    Array.isArray(e) ?
+      (s = e.map((e) => String(e).toLowerCase())) :
+      ((n = String(e).toLowerCase()), (s = 1 === n.length ? [n] : kt(n))),
+      Array.isArray(t) ?
+      (i = t.map((e) => String(e).toLowerCase())) :
+      ((r = String(t).toLowerCase()), (i = 1 === r.length ? [r] : kt(r)));
     let o,
       a,
       l,
       u = -1,
       c = 0;
-    for (; ++u < s.length; )
-      for (o = s[u], l = -1; ++l < i.length; )
+    for (; ++u < s.length;)
+      for (o = s[u], l = -1; ++l < i.length;)
         if (((a = i[l]), o === a)) {
           c++, (i[l] = "");
           break;
@@ -3232,11 +3284,11 @@ var app = (function () {
     return {
       c() {
         (t = _("Saltar ")),
-          (n = w("span")),
-          (r = _("(+")),
-          (s = _(e[0])),
-          (i = _("s)")),
-          M(n, "class", "tracking-normal lowercase"),
+        (n = w("span")),
+        (r = _("(+")),
+        (s = _(e[0])),
+        (i = _("s)")),
+        M(n, "class", "tracking-normal lowercase"),
           Y(n, "hidden", e[0] >= e[1].maxAttempts);
       },
       m(e, o) {
@@ -3267,9 +3319,9 @@ var app = (function () {
         s.m(e, n), g(e, t, n);
       },
       p(e, i) {
-        r === (r = n(e)) && s
-          ? s.p(e, i)
-          : (s.d(1), (s = r(e)), s && (s.c(), s.m(t.parentNode, t)));
+        r === (r = n(e)) && s ?
+          s.p(e, i) :
+          (s.d(1), (s = r(e)), s && (s.c(), s.m(t.parentNode, t)));
       },
       d(e) {
         s.d(e), e && y(t);
@@ -3318,25 +3370,24 @@ var app = (function () {
           },
         },
       })),
-      b.$on("click", e[5]),
-      {
+      b.$on("click", e[5]), {
         c() {
           (t = w("div")),
-            (n = w("div")),
-            (s = w("div")),
-            (i = w("div")),
-            (o = k("svg")),
-            (a = k("circle")),
-            (l = k("line")),
-            (u = x()),
-            (c = w("input")),
-            (d = x()),
-            (h = w("div")),
-            (h.innerHTML =
-              '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
-            (f = x()),
-            (m = w("div")),
-            Q(v.$$.fragment),
+          (n = w("div")),
+          (s = w("div")),
+          (i = w("div")),
+          (o = k("svg")),
+          (a = k("circle")),
+          (l = k("line")),
+          (u = x()),
+          (c = w("input")),
+          (d = x()),
+          (h = w("div")),
+          (h.innerHTML =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
+          (f = x()),
+          (m = w("div")),
+          Q(v.$$.fragment),
             (_ = x()),
             Q(b.$$.fragment),
             M(a, "cx", "11"),
@@ -3426,11 +3477,18 @@ var app = (function () {
   }
 
   function Tt(e, t, n) {
-    let r,
-      { allOptions: s } = t,
-      { currentAttempt: i } = t,
-      { config: o } = t,
-      { isPrime: a } = t;
+    let r, {
+        allOptions: s
+      } = t,
+      {
+        currentAttempt: i
+      } = t,
+      {
+        config: o
+      } = t,
+      {
+        isPrime: a
+      } = t;
     const l = {
         focus() {
           document.getElementById("autoComplete").focus();
@@ -3443,18 +3501,19 @@ var app = (function () {
 
     function c(e) {
       "skipped" == e
-        ? (u("guess", {
+        ?
+        (u("guess", {
             guess: r,
             isSkipped: !0,
           }),
-          n(4, (r = "")))
-        : void 0 !== r && "" !== r.trim()
-        ? (u("guess", {
+          n(4, (r = ""))) :
+        void 0 !== r && "" !== r.trim() ?
+        (u("guess", {
             guess: r,
             isSkipped: !1,
           }),
-          n(4, (r = "")))
-        : l.focus();
+          n(4, (r = ""))) :
+        l.focus();
     }
     P(() => {
       !(function () {
@@ -3554,17 +3613,17 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          (n = w("div")),
-          (r = w("div")),
-          (s = w("h2")),
-          (i = _(e[0])),
-          (o = x()),
-          (a = w("div")),
-          (l = w("button")),
-          (l.innerHTML =
-            '<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
-          (u = x()),
-          D && D.c(),
+        (n = w("div")),
+        (r = w("div")),
+        (s = w("h2")),
+        (i = _(e[0])),
+        (o = x()),
+        (a = w("div")),
+        (l = w("button")),
+        (l.innerHTML =
+          '<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
+        (u = x()),
+        D && D.c(),
           M(
             s,
             "class",
@@ -3595,9 +3654,9 @@ var app = (function () {
       p(e, t) {
         (!d || 1 & t) && $(i, e[0]),
           D &&
-            D.p &&
-            (!d || 32 & t) &&
-            f(D, b, e, e[5], d ? h(b, e[5], t, null) : m(e[5]), null);
+          D.p &&
+          (!d || 32 & t) &&
+          f(D, b, e, e[5], d ? h(b, e[5], t, null) : m(e[5]), null);
       },
       i(e) {
         d || (Z(D, e), (d = !0));
@@ -3618,10 +3677,10 @@ var app = (function () {
     return {
       c() {
         (t = w("button")),
-          (t.innerHTML =
-            '<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
-          (n = x()),
-          a && a.c(),
+        (t.innerHTML =
+          '<svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'),
+        (n = x()),
+        a && a.c(),
           (t.autofocus = !0),
           M(t, "class", "border-none text-custom-mg absolute right-3 top-3");
       },
@@ -3661,14 +3720,13 @@ var app = (function () {
     }
     return (
       (o = f(e)),
-      (a = h[o] = d[o](e)),
-      {
+      (a = h[o] = d[o](e)), {
         c() {
           (t = w("div")),
-            (n = x()),
-            (s = w("div")),
-            (i = w("div")),
-            a.c(),
+          (n = x()),
+          (s = w("div")),
+          (i = w("div")),
+          a.c(),
             M(
               t,
               "class",
@@ -3696,23 +3754,23 @@ var app = (function () {
             e[7](i),
             (l = !0),
             u ||
-              ((c = [S(window, "keydown", e[4]), S(t, "click", e[3])]),
+            ((c = [S(window, "keydown", e[4]), S(t, "click", e[3])]),
               (u = !0));
         },
         p(e, [t]) {
           let n = o;
           (o = f(e)),
-            o === n
-              ? h[o].p(e, t)
-              : (J(),
-                q(h[n], 1, 1, () => {
-                  h[n] = null;
-                }),
-                K(),
-                (a = h[o]),
-                a ? a.p(e, t) : ((a = h[o] = d[o](e)), a.c()),
-                Z(a, 1),
-                a.m(i, null));
+          o === n ?
+            h[o].p(e, t) :
+            (J(),
+              q(h[n], 1, 1, () => {
+                h[n] = null;
+              }),
+              K(),
+              (a = h[o]),
+              a ? a.p(e, t) : ((a = h[o] = d[o](e)), a.c()),
+              Z(a, 1),
+              a.m(i, null));
         },
         i(e) {
           l || (Z(a), (l = !0));
@@ -3728,17 +3786,23 @@ var app = (function () {
   }
 
   function At(e, t, n) {
-    let { $$slots: r = {}, $$scope: s } = t;
+    let {
+      $$slots: r = {},
+      $$scope: s
+    } = t;
     const i = A(),
       o = () => i("close");
-    let a,
-      { title: l } = t,
-      { hasFrame: u } = t;
+    let a, {
+        title: l
+      } = t,
+      {
+        hasFrame: u
+      } = t;
     const c = "undefined" != typeof document && document.activeElement;
     var d;
     return (
       c &&
-        ((d = () => {
+      ((d = () => {
           c.focus();
         }),
         O().$$.on_destroy.push(d)),
@@ -3757,8 +3821,8 @@ var app = (function () {
             if ("Tab" === e.key) {
               const t = a.querySelectorAll("*"),
                 n = Array.from(t).filter((e) => e.tabIndex >= 0);
-              let r = n.indexOf(document.activeElement);
-              -1 === r && e.shiftKey && (r = 0),
+              let r = n.indexOf(document.activeElement); -
+              1 === r && e.shiftKey && (r = 0),
                 (r += n.length + (e.shiftKey ? -1 : 1)),
                 (r %= n.length),
                 n[r].focus(),
@@ -3791,9 +3855,9 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (n.innerHTML =
-            '<p class="mb-3">Un clon de <a href="https://www.heardle.app/" title="Heardle">Heardle</a>, pero con canciones en español</p>            \n\n<p class="mb-3">Las canciones son elegidas de forma aleatoria</p> \n\n<p class="mb-3">Gracias por jugar! <a href="https://twitter.com/HeardlEsp" title="@HeardlEsp">@HeardlEsp</a></p> \n\n\n\n<p class="text-xs mb-3 text-custom-line">Hecho con <a href="https://developers.soundcloud.com">Soundcloud</a>,\n <a href="https://svelte.dev">Svelte</a>,\n <a href="https://tailwindcss.com">Tailwind</a>,\n <a href="https://fonts.google.com/noto/specimen/Noto+Serif+Display">Noto Serif Display</a>, <a href="https://fonts.google.com/noto/specimen/Noto+Sans">Noto Sans</a>,\n <a href="https://iconsvg.xyz">IconSVG</a>, <a href="https://momentjs.com">momentjs</a>,\n <a href="https://tarekraafat.github.io/autoComplete.js/#/">autocomplete.js</a>, y desarrollado con <a href="https://glitch.com/">Glitch</a>. <br></br>Agradecimientos a <a href="https://twitter.com/ClomatikArt">ClomatikArt</a> por ofrecer la <a href="https://open.spotify.com/playlist/6YcJI1QspB65yowYylnqji?si=9de1366b27194efb">playlist</a> inicial y tocar lo mínimo del código, <a href="https://twitter.com/POISONP1NK">POISONP1NK</a> por sus dibujos, y <a     href="https://twitter.com/minaszns">Minaszns</a> por stanear a Twice. <br></br>Versión española hecha por <a href="https://twitter.com/HachebeDLC">HachebeDLC</a>.</p>'),
-          M(n, "class", "text");
+        (n.innerHTML =
+          '<p class="mb-3">Un clon de <a href="https://www.heardle.app/" title="Heardle">Heardle</a>, pero con canciones en español</p>            \n\n<p class="mb-3">Las canciones son elegidas de forma aleatoria</p> \n\n<p class="mb-3">Gracias por jugar! <a href="https://twitter.com/HeardlEsp" title="@HeardlEsp">@HeardlEsp</a></p> \n\n\n\n<p class="text-xs mb-3 text-custom-line">Hecho con <a href="https://developers.soundcloud.com">Soundcloud</a>,\n <a href="https://svelte.dev">Svelte</a>,\n <a href="https://tailwindcss.com">Tailwind</a>,\n <a href="https://fonts.google.com/noto/specimen/Noto+Serif+Display">Noto Serif Display</a>, <a href="https://fonts.google.com/noto/specimen/Noto+Sans">Noto Sans</a>,\n <a href="https://iconsvg.xyz">IconSVG</a>, <a href="https://momentjs.com">momentjs</a>,\n <a href="https://tarekraafat.github.io/autoComplete.js/#/">autocomplete.js</a>, y desarrollado con <a href="https://glitch.com/">Glitch</a>. <br></br>Agradecimientos a <a href="https://twitter.com/ClomatikArt">ClomatikArt</a> por ofrecer la <a href="https://open.spotify.com/playlist/6YcJI1QspB65yowYylnqji?si=9de1366b27194efb">playlist</a> inicial y tocar lo mínimo del código, <a href="https://twitter.com/POISONP1NK">POISONP1NK</a> por sus dibujos, y <a     href="https://twitter.com/minaszns">Minaszns</a> por stanear a Twice. <br></br>Versión española hecha por <a href="https://twitter.com/HachebeDLC">HachebeDLC</a>.</p>'),
+        M(n, "class", "text");
       },
       m(e, t) {
         g(e, n, t);
@@ -3817,15 +3881,15 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (r = w("a")),
-          (r.innerHTML =
-            '<span class="kofitext svelte-1d3p4dy"><img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofiimg mr-2 mb-1 svelte-1d3p4dy"/>Apoya a los desarrolladores en Ko-Fi</span><svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg>'),
-          M(
+        (r = w("a")),
+        (r.innerHTML =
+          '<span class="kofitext svelte-1d3p4dy"><img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi donations" class="kofiimg mr-2 mb-1 svelte-1d3p4dy"/>Apoya a los desarrolladores en Ko-Fi</span><svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"></path></svg>'),
+        M(
             r,
             "class",
             "kofi-button py-2 px-3 rounded-lg items-center flex  svelte-1d3p4dy"
           ),
-          M(r, "href", "https://ko-fi.com/heardle"),
+          M(r, "href", "https://ko-fi.com/heardlesp"),
           M(r, "title", "Apoya a los desarrolladores en Ko-Fi"),
           M(
             n,
@@ -3863,8 +3927,7 @@ var app = (function () {
   function Ft(t) {
     let n, r;
     return (
-      (n = new Ee({})),
-      {
+      (n = new Ee({})), {
         c() {
           Q(n.$$.fragment);
         },
@@ -3890,16 +3953,16 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (r = w("div")),
-          (s = x()),
-          (i = w("div")),
-          (o = w("p")),
-          (a = w("span")),
-          (l = x()),
-          (u = _(t[0])),
-          (c = x()),
-          (d = w("div")),
-          M(r, "class", "flex justify-center items-center mt-6 mb-1"),
+        (r = w("div")),
+        (s = x()),
+        (i = w("div")),
+        (o = w("p")),
+        (a = w("span")),
+        (l = x()),
+        (u = _(t[0])),
+        (c = x()),
+        (d = w("div")),
+        M(r, "class", "flex justify-center items-center mt-6 mb-1"),
           M(a, "class", "text-custom-negative"),
           M(o, "class", "pb-6"),
           M(i, "class", "text-custom-mg text-xs h-32 overflow-scroll relative"),
@@ -3945,8 +4008,7 @@ var app = (function () {
     }
     return (
       (t = a(e)),
-      (n = o[t] = i[t](e)),
-      {
+      (n = o[t] = i[t](e)), {
         c() {
           n.c(), (r = b());
         },
@@ -3956,17 +4018,17 @@ var app = (function () {
         p(e, [s]) {
           let l = t;
           (t = a(e)),
-            t === l
-              ? o[t].p(e, s)
-              : (J(),
-                q(o[l], 1, 1, () => {
-                  o[l] = null;
-                }),
-                K(),
-                (n = o[t]),
-                n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
-                Z(n, 1),
-                n.m(r.parentNode, r));
+          t === l ?
+            o[t].p(e, s) :
+            (J(),
+              q(o[l], 1, 1, () => {
+                o[l] = null;
+              }),
+              K(),
+              (n = o[t]),
+              n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
+              Z(n, 1),
+              n.m(r.parentNode, r));
         },
         i(e) {
           s || (Z(n), (s = !0));
@@ -4005,19 +4067,18 @@ var app = (function () {
     let n, r, s, i, o, a, l, u, c;
     return (
       (a = new Rt({})),
-      (u = new Bt({})),
-      {
+      (u = new Bt({})), {
         c() {
           (n = w("p")),
-            (n.textContent =
-              "Si te ha gustado el juego y quieres apoyar a los desarrolladores, considera donar un leuro"),
-            (r = x()),
-            (s = w("p")),
-            (s.innerHTML =
-              '<p class="mb-3">Si te ha gustado, apoya a los <a href="https://ko-fi.com/hachebedlc">desarrolladores de HeardlEsp</a>.</p>'),
-            (i = x()),
-            (o = w("div")),
-            Q(a.$$.fragment),
+          (n.textContent =
+            "Si te ha gustado el juego y quieres apoyar a los desarrolladores, considera donar un leuro"),
+          (r = x()),
+          (s = w("p")),
+          (s.innerHTML =
+            '<p class="mb-3">Si te ha gustado, apoya a los <a href="https://ko-fi.com/hachebedlc">desarrolladores de HeardlEsp</a>.</p>'),
+          (i = x()),
+          (o = w("div")),
+          Q(a.$$.fragment),
             (l = x()),
             Q(u.$$.fragment),
             M(n, "class", "mb-3"),
@@ -4100,23 +4161,23 @@ var app = (function () {
     let r = "",
       s = new Date(),
       i =
-        3600 * (23 - s.getHours()) +
-        60 * (59 - s.getMinutes()) +
-        (59 - s.getSeconds());
+      3600 * (23 - s.getHours()) +
+      60 * (59 - s.getMinutes()) +
+      (59 - s.getSeconds());
 
     function o() {
       let e = Math.floor(i / 3600),
         t = Math.floor((i - 3600 * e) / 60),
         s = Math.floor(i % 60);
       n(
-        0,
-        (r =
-          ("00" + e).slice(-2) +
-          ":" +
-          ("00" + t).slice(-2) +
-          ":" +
-          ("00" + s).slice(-2))
-      ),
+          0,
+          (r =
+            ("00" + e).slice(-2) +
+            ":" +
+            ("00" + t).slice(-2) +
+            ":" +
+            ("00" + s).slice(-2))
+        ),
         i--,
         0 == e && 0 == t && 0 == s && location.reload(!0);
     }
@@ -4182,14 +4243,13 @@ var app = (function () {
       })),
       d.$on("click", e[6]),
       (S = new qt({})),
-      (O = new Rt({})),
-      {
+      (O = new Rt({})), {
         c() {
           (t = w("div")), (n = w("p")), (r = _(A)), (s = x()), (i = w("div"));
           for (let e = 0; e < N.length; e += 1) N[e].c();
           (o = x()),
-            (a = w("p")),
-            W.c(),
+          (a = w("p")),
+          W.c(),
             (l = x()),
             R && R.c(),
             (u = x()),
@@ -4206,7 +4266,18 @@ var app = (function () {
             (T = w("div")),
             (Y = w("div")),
             (Y.innerHTML =
-              '<span class="text-custom-negative"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span> \n                <span class="px-1">HeardlEsp?</span>'),
+              `<span class="text-custom-negative">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+</span> \n                <span class="px-1">HeardlEsp?</span>
+<a target="_blank" class="flex items-center" href="https://twitter.com/Heardlesp">
+    Siguenos en Twitter!<div style="height: 24px; width: 24px; margin-right: 4px;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="24px" height="24px">
+        <path fill="#03A9F4" d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"/>
+    </svg>
+</div></a>
+`),
             (C = x()),
             Q(O.$$.fragment),
             M(n, "class", "text-lg text-custom-line"),
@@ -4257,12 +4328,12 @@ var app = (function () {
             for (; t < N.length; t += 1) N[t].d(1);
             N.length = L.length;
           }
-          I === (I = H(e)) && W
-            ? W.p(e, n)
-            : (W.d(1), (W = I(e)), W && (W.c(), W.m(a, null))),
-            e[5]
-              ? R || ((R = cn()), R.c(), R.m(t, u))
-              : R && (R.d(1), (R = null));
+          I === (I = H(e)) && W ?
+            W.p(e, n) :
+            (W.d(1), (W = I(e)), W && (W.c(), W.m(a, null))),
+            e[5] ?
+            R || ((R = cn()), R.c(), R.m(t, u)) :
+            R && (R.d(1), (R = null));
           const s = {};
           8192 & n &&
             (s.$$scope = {
@@ -4274,9 +4345,9 @@ var app = (function () {
         i(e) {
           P ||
             (Z(d.$$.fragment, e),
-            Z(S.$$.fragment, e),
-            Z(O.$$.fragment, e),
-            (P = !0));
+              Z(S.$$.fragment, e),
+              Z(O.$$.fragment, e),
+              (P = !0));
         },
         o(e) {
           q(d.$$.fragment, e),
@@ -4319,13 +4390,14 @@ var app = (function () {
     let t;
 
     function n(e, t) {
-      return e[0][e[12]].isSkipped
-        ? sn
-        : e[0][e[12]].isCorrect || e[0][e[12]].isSkipped
-        ? e[0][e[12]].isCorrect
-          ? nn
-          : void 0
-        : rn;
+     return e[0][e[12]].isSkipped ?
+      sn : e[0][e[12]].isArtist && !e[0][e[12]].isSkipped ?
+      wan: e[0][e[12]].isCorrect || e[0][e[12]].isSkipped ?
+      e[0][e[12]].isCorrect ?
+      nn :
+      void 0 :
+      rn
+
     }
     let r = n(e),
       s = r && r(e);
@@ -4351,6 +4423,20 @@ var app = (function () {
     return {
       c() {
         (t = w("div")), M(t, "class", "w-4 h-1 m-0.5 bg-custom-positive");
+      },
+      m(e, n) {
+        g(e, t, n);
+      },
+      d(e) {
+        e && y(t);
+      },
+    };
+  }
+  function wan(e) {
+    let t;
+    return {
+      c() {
+        (t = w("div")), M(t, "class", "w-4 h-1 m-0.5 bg-custom-warning");
       },
       m(e, n) {
         g(e, t, n);
@@ -4407,9 +4493,9 @@ var app = (function () {
         s.m(e, n), g(e, t, n);
       },
       p(e, i) {
-        r === (r = n(e)) && s
-          ? s.p(e, i)
-          : (s.d(1), (s = r(e)), s && (s.c(), s.m(t.parentNode, t)));
+        r === (r = n(e)) && s ?
+          s.p(e, i) :
+          (s.d(1), (s = r(e)), s && (s.c(), s.m(t.parentNode, t)));
       },
       d(e) {
         s.d(e), e && y(t);
@@ -4425,8 +4511,8 @@ var app = (function () {
     return {
       c() {
         (t = _("Has sacado el HeardlEsp de hoy en los primeros ")),
-          (n = _(s)),
-          (r = _(" segundos."));
+        (n = _(s)),
+        (r = _(" segundos."));
       },
       m(e, s) {
         g(e, t, s), g(e, n, s), g(e, r, s);
@@ -4453,10 +4539,10 @@ var app = (function () {
     return {
       c() {
         (t = _("Has sacado el HeardlEsp de hoy en el ")),
-          (n = _(o)),
-          (r = _("\n                segundo")),
-          (s = _(a)),
-          (i = _("."));
+        (n = _(o)),
+        (r = _("\n                segundo")),
+        (s = _(a)),
+        (i = _("."));
       },
       m(e, o) {
         g(e, t, o), g(e, n, o), g(e, r, o), g(e, s, o), g(e, i, o);
@@ -4466,12 +4552,12 @@ var app = (function () {
           o !== (o = e[1].attemptIntervalAlt[e[0].length - 1] / 1e3 + "") &&
           $(n, o),
           3 & t &&
-            a !==
-              (a =
-                e[1].attemptIntervalAlt[e[0].length - 1] / 1e3 > 1
-                  ? "s"
-                  : "") &&
-            $(s, a);
+          a !==
+          (a =
+            e[1].attemptIntervalAlt[e[0].length - 1] / 1e3 > 1 ?
+            "s" :
+            "") &&
+          $(s, a);
       },
       d(e) {
         e && y(t), e && y(n), e && y(r), e && y(s), e && y(i);
@@ -4500,12 +4586,12 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          (t.textContent = "Copiado al portapapeles!"),
-          M(
-            t,
-            "class",
-            "tracking-widest uppercase text-xs text-custom-line p-3 pb-0 text-center"
-          );
+        (t.textContent = "Copiado al portapapeles!"),
+        M(
+          t,
+          "class",
+          "tracking-widest uppercase text-xs text-custom-line p-3 pb-0 text-center"
+        );
       },
       m(e, n) {
         g(e, t, n);
@@ -4521,13 +4607,13 @@ var app = (function () {
     return {
       c() {
         (t = _("Compartir\n                ")),
-          (n = k("svg")),
-          (r = k("circle")),
-          (s = k("circle")),
-          (i = k("circle")),
-          (o = k("line")),
-          (a = k("line")),
-          M(r, "cx", "18"),
+        (n = k("svg")),
+        (r = k("circle")),
+        (s = k("circle")),
+        (i = k("circle")),
+        (o = k("line")),
+        (a = k("line")),
+        M(r, "cx", "18"),
           M(r, "cy", "5"),
           M(r, "r", "3"),
           M(s, "cx", "6"),
@@ -4576,12 +4662,12 @@ var app = (function () {
         r && r.m(e, s), g(e, t, s), (n = !0);
       },
       p(e, [n]) {
-        e[2]
-          ? r
-            ? (r.p(e, n), 4 & n && Z(r, 1))
-            : ((r = Qt(e)), r.c(), Z(r, 1), r.m(t.parentNode, t))
-          : r &&
-            (J(),
+        e[2] ?
+          r ?
+          (r.p(e, n), 4 & n && Z(r, 1)) :
+          ((r = Qt(e)), r.c(), Z(r, 1), r.m(t.parentNode, t)) :
+          r &&
+          (J(),
             q(r, 1, 1, () => {
               r = null;
             }),
@@ -4600,14 +4686,22 @@ var app = (function () {
   }
 
   function fn(e, t, n) {
-    let { userGuesses: r } = t,
-      { currentHeardle: s } = t,
-      { config: i } = t,
-      { hasFinished: o } = t,
-      { gotCorrect: a } = t,
-      { guessRef: l } = t,
-      { isPrime: u } = t,
-      c = !1;
+    let {
+      userGuesses: r
+    } = t, {
+      currentHeardle: s
+    } = t, {
+      config: i
+    } = t, {
+      hasFinished: o
+    } = t, {
+      gotCorrect: a
+    } = t, {
+      guessRef: l
+    } = t, {
+      isPrime: u
+    } = t,
+    c = !1;
     return (
       A(),
       (e.$$set = (e) => {
@@ -4627,23 +4721,39 @@ var app = (function () {
         u,
         c,
         () => {
+          console.log(s)
           let e = "HeardlEsp #" + (s.id + 1),
             t = "";
           a
-            ? r.length < i.maxAttempts / 3
-              ? (t += "🔊")
-              : r.length < (i.maxAttempts / 3) * 2
-              ? (t += "🔉")
-              : r.length <= i.maxAttempts && (t += "🔈")
-            : (t += "🔇");
-          for (let e = 0; e < i.maxAttempts; e++)
-            r.length > e
-              ? 1 == r[e].isCorrect
-                ? (t += "🟩")
-                : 1 == r[e].isSkipped
-                ? (t += "⬛️")
-                : (t += "🟥")
-              : (t += "⬜️");
+            ?
+            r.length < i.maxAttempts / 3 ?
+            (t += "🔊") :
+            r.length < (i.maxAttempts / 3) * 2 ?
+            (t += "🔉") :
+            r.length <= i.maxAttempts && (t += "🔈") :
+            (t += "🔇");
+          for (let u = 0; u < i.maxAttempts; u++) {
+            console.log(r[u]);
+            if (r.length > u) {
+              console.log("Entro")
+              if (r[u].isCorrect) {
+                t += "🟩";
+
+              } else
+              if (r[u].isSkipped) {
+                t += "⬛️";
+
+              } else
+              if (r[u].isArtist) {
+                t += "🟨";
+
+              } else {
+                t += "🟥";
+              }
+            } else {
+              t += "⬜️";
+            }
+          }
           let o = e + "\n\n" + t + "\n\nhttps://heardlesp.glitch.me/";
           if (
             !navigator.share ||
@@ -4654,16 +4764,16 @@ var app = (function () {
           )
             return navigator &&
               navigator.clipboard &&
-              navigator.clipboard.writeText
-              ? (pe("clickShareClipboard", {
+              navigator.clipboard.writeText ?
+              (pe("clickShareClipboard", {
                   name: "clickShareClipboard",
                 }),
                 n(5, (c = !0)),
                 setTimeout(() => {
                   n(5, (c = !1));
                 }, 2e3),
-                navigator.clipboard.writeText(o))
-              : Promise.reject("Hubo un problema al copiar al portapapeles");
+                navigator.clipboard.writeText(o)) :
+              Promise.reject("Hubo un problema al copiar al portapapeles");
           navigator
             .share({
               text: o,
@@ -4724,24 +4834,23 @@ var app = (function () {
           },
         },
       })),
-      u.$on("click", e[0]),
-      {
+      u.$on("click", e[0]), {
         c() {
           (t = w("div")),
-            (n = w("div")),
-            (n.innerHTML =
-              '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><circle cx="5.5" cy="17.5" r="2.5"></circle><circle cx="17.5" cy="15.5" r="2.5"></circle><path d="M8 17V5l12-2v12"></path></svg></div> \n        <div><p>Escucha la intro, y adivina la canción.</p></div>'),
-            (r = x()),
-            (s = w("div")),
-            (s.innerHTML =
-              '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div> \n        <div><p>Adivina la canción con solo su intro en el menor número de intentos</p></div>'),
-            (i = x()),
-            (o = w("div")),
-            (o.innerHTML =
-              '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-7"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div> \n        <div><p>Responde en el menor número de intentos posibles y comparte tu puntuación!</p></div>'),
-            (a = x()),
-            (l = w("div")),
-            Q(u.$$.fragment),
+          (n = w("div")),
+          (n.innerHTML =
+            '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-7 w-7"><circle cx="5.5" cy="17.5" r="2.5"></circle><circle cx="17.5" cy="15.5" r="2.5"></circle><path d="M8 17V5l12-2v12"></path></svg></div> \n        <div><p>Escucha la intro, y adivina la canción.</p></div>'),
+          (r = x()),
+          (s = w("div")),
+          (s.innerHTML =
+            '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div> \n        <div><p>Adivina la canción con solo su intro en el menor número de intentos</p></div>'),
+          (i = x()),
+          (o = w("div")),
+          (o.innerHTML =
+            '<div class="mr-4 w-8 text-custom-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-7"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div> \n        <div><p>Responde en el menor número de intentos posibles y comparte tu puntuación!</p></div>'),
+          (a = x()),
+          (l = w("div")),
+          Q(u.$$.fragment),
             M(n, "class", "flex items-center mb-6"),
             M(s, "class", "flex items-center mb-6"),
             M(o, "class", "flex items-center mb-6"),
@@ -4801,8 +4910,8 @@ var app = (function () {
     return {
       c() {
         (n = w("div")),
-          (n.textContent = "Juega de forma diaria para ver tu puntuación"),
-          M(n, "class", "text-center py-3 text-custom-line font-semibold");
+        (n.textContent = "Juega de forma diaria para ver tu puntuación"),
+        M(n, "class", "text-center py-3 text-custom-line font-semibold");
       },
       m(e, t) {
         g(e, n, t);
@@ -4860,44 +4969,44 @@ var app = (function () {
         t = w("div");
         for (let e = 0; e < J.length; e += 1) J[e].c();
         (n = x()),
-          (r = w("div")),
-          (s = w("div")),
-          (i = w("div")),
-          (o = _(e[6])),
-          (a = x()),
-          (l = w("div")),
-          (l.textContent = "Jugado"),
-          (u = x()),
-          (c = w("div")),
-          (d = w("div")),
-          (h = _(e[8])),
-          (f = x()),
-          (m = w("div")),
-          (m.textContent = "Ganado"),
-          (k = x()),
-          (b = w("div")),
-          (S = w("div")),
-          (D = _(B)),
-          (T = _("%")),
-          (Y = x()),
-          (C = w("div")),
-          (C.textContent = "Porcentaje de victorias"),
-          (O = x()),
-          (P = w("div")),
-          (A = w("div")),
-          (L = w("div")),
-          (N = _(z)),
-          (H = x()),
-          (I = w("div")),
-          (I.textContent = "Racha actual"),
-          (W = x()),
-          (R = w("div")),
-          (F = w("div")),
-          (G = _(U)),
-          (E = x()),
-          (j = w("div")),
-          (j.textContent = "Mayor racha"),
-          M(t, "class", "flex justify-between py-3"),
+        (r = w("div")),
+        (s = w("div")),
+        (i = w("div")),
+        (o = _(e[6])),
+        (a = x()),
+        (l = w("div")),
+        (l.textContent = "Jugado"),
+        (u = x()),
+        (c = w("div")),
+        (d = w("div")),
+        (h = _(e[8])),
+        (f = x()),
+        (m = w("div")),
+        (m.textContent = "Ganado"),
+        (k = x()),
+        (b = w("div")),
+        (S = w("div")),
+        (D = _(B)),
+        (T = _("%")),
+        (Y = x()),
+        (C = w("div")),
+        (C.textContent = "Porcentaje de victorias"),
+        (O = x()),
+        (P = w("div")),
+        (A = w("div")),
+        (L = w("div")),
+        (N = _(z)),
+        (H = x()),
+        (I = w("div")),
+        (I.textContent = "Racha actual"),
+        (W = x()),
+        (R = w("div")),
+        (F = w("div")),
+        (G = _(U)),
+        (E = x()),
+        (j = w("div")),
+        (j.textContent = "Mayor racha"),
+        M(t, "class", "flex justify-between py-3"),
           M(i, "class", "text-xl font-semibold"),
           M(l, "class", "text-custom-line text-sm "),
           M(s, "class", "flex-1"),
@@ -4966,9 +5075,9 @@ var app = (function () {
         64 & n && $(o, e[6]),
           256 & n && $(h, e[8]),
           320 & n &&
-            B !==
-              (B = (e[6] > 0 ? ((e[8] / e[6]) * 100).toFixed(1) : 0) + "") &&
-            $(D, B),
+          B !==
+          (B = (e[6] > 0 ? ((e[8] / e[6]) * 100).toFixed(1) : 0) + "") &&
+          $(D, B),
           128 & n && z !== (z = e[7].slice(-1)[0] + "") && $(N, z),
           128 & n && U !== (U = Math.max(...e[7]) + "") && $(G, U);
       },
@@ -5011,11 +5120,11 @@ var app = (function () {
     return {
       c() {
         (t = w("span")),
-          (n = _(o)),
-          (r = _("°")),
-          (s = x()),
-          (i = w("span")),
-          Y(t, "font-semibold", e[17] == e[1] - 1 && e[2]),
+        (n = _(o)),
+        (r = _("°")),
+        (s = x()),
+        (i = w("span")),
+        Y(t, "font-semibold", e[17] == e[1] - 1 && e[2]),
           Y(t, "text-custom-positive", e[17] == e[1] - 1 && 0 != e[4] && e[2]),
           Y(t, "text-custom-negative", e[17] == e[1] && 0 == e[4] && e[2]),
           M(i, "class", "text-custom-positive");
@@ -5026,13 +5135,13 @@ var app = (function () {
       p(e, n) {
         6 & n && Y(t, "font-semibold", e[17] == e[1] - 1 && e[2]),
           22 & n &&
-            Y(
-              t,
-              "text-custom-positive",
-              e[17] == e[1] - 1 && 0 != e[4] && e[2]
-            ),
+          Y(
+            t,
+            "text-custom-positive",
+            e[17] == e[1] - 1 && 0 != e[4] && e[2]
+          ),
           22 & n &&
-            Y(t, "text-custom-negative", e[17] == e[1] && 0 == e[4] && e[2]);
+          Y(t, "text-custom-negative", e[17] == e[1] && 0 == e[4] && e[2]);
       },
       d(e) {
         e && y(t), e && y(s), e && y(i);
@@ -5045,9 +5154,9 @@ var app = (function () {
     return {
       c() {
         (t = k("svg")),
-          (n = k("line")),
-          (r = k("line")),
-          M(n, "x1", "18"),
+        (n = k("line")),
+        (r = k("line")),
+        M(n, "x1", "18"),
           M(n, "y1", "6"),
           M(n, "x2", "6"),
           M(n, "y2", "18"),
@@ -5099,13 +5208,13 @@ var app = (function () {
     return {
       c() {
         (t = w("div")),
-          (n = w("div")),
-          (r = w("div")),
-          (s = w("div")),
-          (i = _(u)),
-          (o = x()),
-          (a = w("div")),
-          h.c(),
+        (n = w("div")),
+        (r = w("div")),
+        (s = w("div")),
+        (i = _(u)),
+        (o = x()),
+        (a = w("div")),
+        h.c(),
           (l = x()),
           M(s, "class", "h-full absolute text-center w-full py-1 text-xs "),
           Y(s, "bg-custom-positive", e[17] == e[1] - 1 && 0 != e[4] && e[2]),
@@ -5134,13 +5243,13 @@ var app = (function () {
       p(e, t) {
         512 & t && u !== (u = (e[15] > 0 ? e[15] : " ") + "") && $(i, u),
           22 & t &&
-            Y(s, "bg-custom-positive", e[17] == e[1] - 1 && 0 != e[4] && e[2]),
+          Y(s, "bg-custom-positive", e[17] == e[1] - 1 && 0 != e[4] && e[2]),
           22 & t &&
-            Y(s, "bg-custom-negative", e[17] == e[1] && 0 == e[4] && e[2]),
+          Y(s, "bg-custom-negative", e[17] == e[1] && 0 == e[4] && e[2]),
           1536 & t && T(r, "height", (e[15] / e[10]) * 100 + "%"),
-          d === (d = c(e)) && h
-            ? h.p(e, t)
-            : (h.d(1), (h = d(e)), h && (h.c(), h.m(a, null)));
+          d === (d = c(e)) && h ?
+          h.p(e, t) :
+          (h.d(1), (h = d(e)), h && (h.c(), h.m(a, null)));
       },
       d(e) {
         e && y(t), h.d();
@@ -5164,9 +5273,9 @@ var app = (function () {
         i.m(e, t), g(e, n, t);
       },
       p(e, [t]) {
-        s === (s = r(e)) && i
-          ? i.p(e, t)
-          : (i.d(1), (i = s(e)), i && (i.c(), i.m(n.parentNode, n)));
+        s === (s = r(e)) && i ?
+          i.p(e, t) :
+          (i.d(1), (i = s(e)), i && (i.c(), i.m(n.parentNode, n)));
       },
       i: e,
       o: e,
@@ -5177,18 +5286,26 @@ var app = (function () {
   }
 
   function Dn(e, t, n) {
-    let { userStats: r } = t,
-      { config: s } = t,
-      { todaysScore: i } = t,
-      { hasFinished: o } = t,
-      { daysSince: a } = t,
-      l = !1,
+    let {
+      userStats: r
+    } = t, {
+      config: s
+    } = t, {
+      todaysScore: i
+    } = t, {
+      hasFinished: o
+    } = t, {
+      daysSince: a
+    } = t,
+    l = !1,
       u = 0,
       c = [],
       d = [],
-      h = 0,
-      { isPrime: f } = t,
-      { guessRef: m } = t,
+      h = 0, {
+        isPrime: f
+      } = t, {
+        guessRef: m
+      } = t,
       p = [];
     for (let e = 0; e < s.maxAttempts + 1; e++) p[e] = 0;
     let g = 0;
@@ -5197,14 +5314,14 @@ var app = (function () {
       for (let e = 0; e < a + 1; e++) d.push(0);
       for (let e in r)
         !0 === r[e].hasFinished &&
-          (++u,
-          !0 === r[e].gotCorrect
-            ? ((d[r[e].id] = 1),
-              ++h,
-              ++p[r[e].score - 1],
-              p[r[e].score - 1] > g && (g = p[r[e].score - 1]))
-            : (++p[s.maxAttempts],
-              p[s.maxAttempts] > g && (g = p[s.maxAttempts])));
+        (++u,
+          !0 === r[e].gotCorrect ?
+          ((d[r[e].id] = 1),
+            ++h,
+            ++p[r[e].score - 1],
+            p[r[e].score - 1] > g && (g = p[r[e].score - 1])) :
+          (++p[s.maxAttempts],
+            p[s.maxAttempts] > g && (g = p[s.maxAttempts])));
       c = d.reduce((e, t) => (t ? e[e.length - 1]++ : e.push(0), e), [0]);
     }
     return (
@@ -5267,7 +5384,8 @@ var app = (function () {
         if (Object.getOwnPropertyNames)
           return 0 === Object.getOwnPropertyNames(e).length;
         var t;
-        for (t in e) if (a(e, t)) return !1;
+        for (t in e)
+          if (a(e, t)) return !1;
         return !0;
       }
 
@@ -5340,18 +5458,17 @@ var app = (function () {
             r = n.call(t.parsedDateParts, function (e) {
               return null != e;
             }),
-            s =
-              !isNaN(e._d.getTime()) &&
-              t.overflow < 0 &&
-              !t.empty &&
-              !t.invalidEra &&
-              !t.invalidMonth &&
-              !t.invalidWeekday &&
-              !t.weekdayMismatch &&
-              !t.nullInput &&
-              !t.invalidFormat &&
-              !t.userInvalidated &&
-              (!t.meridiem || (t.meridiem && r));
+            s = !isNaN(e._d.getTime()) &&
+            t.overflow < 0 &&
+            !t.empty &&
+            !t.invalidEra &&
+            !t.invalidMonth &&
+            !t.invalidWeekday &&
+            !t.weekdayMismatch &&
+            !t.nullInput &&
+            !t.invalidFormat &&
+            !t.userInvalidated &&
+            (!t.meridiem || (t.meridiem && r));
           if (
             (e._strict &&
               (s =
@@ -5359,7 +5476,7 @@ var app = (function () {
                 0 === t.charsLeftOver &&
                 0 === t.unusedTokens.length &&
                 void 0 === t.bigHour),
-            null != Object.isFrozen && Object.isFrozen(e))
+              null != Object.isFrozen && Object.isFrozen(e))
           )
             return s;
           e._isValid = s;
@@ -5371,16 +5488,16 @@ var app = (function () {
         var t = m(NaN);
         return null != e ? f(g(t), e) : (g(t).userInvalidated = !0), t;
       }
-      n = Array.prototype.some
-        ? Array.prototype.some
-        : function (e) {
-            var t,
-              n = Object(this),
-              r = n.length >>> 0;
-            for (t = 0; t < r; t++)
-              if (t in n && e.call(this, n[t], t, n)) return !0;
-            return !1;
-          };
+      n = Array.prototype.some ?
+        Array.prototype.some :
+        function (e) {
+          var t,
+            n = Object(this),
+            r = n.length >>> 0;
+          for (t = 0; t < r; t++)
+            if (t in n && e.call(this, n[t], t, n)) return !0;
+          return !1;
+        };
       var w = (r.momentProperties = []),
         k = !1;
 
@@ -5388,16 +5505,16 @@ var app = (function () {
         var n, r, s;
         if (
           (u(t._isAMomentObject) || (e._isAMomentObject = t._isAMomentObject),
-          u(t._i) || (e._i = t._i),
-          u(t._f) || (e._f = t._f),
-          u(t._l) || (e._l = t._l),
-          u(t._strict) || (e._strict = t._strict),
-          u(t._tzm) || (e._tzm = t._tzm),
-          u(t._isUTC) || (e._isUTC = t._isUTC),
-          u(t._offset) || (e._offset = t._offset),
-          u(t._pf) || (e._pf = g(t)),
-          u(t._locale) || (e._locale = t._locale),
-          w.length > 0)
+            u(t._i) || (e._i = t._i),
+            u(t._f) || (e._f = t._f),
+            u(t._l) || (e._l = t._l),
+            u(t._strict) || (e._strict = t._strict),
+            u(t._tzm) || (e._tzm = t._tzm),
+            u(t._isUTC) || (e._isUTC = t._isUTC),
+            u(t._offset) || (e._offset = t._offset),
+            u(t._pf) || (e._pf = g(t)),
+            u(t._locale) || (e._locale = t._locale),
+            w.length > 0)
         )
           for (n = 0; n < w.length; n++) u((s = t[(r = w[n])])) || (e[r] = s);
         return e;
@@ -5435,18 +5552,18 @@ var app = (function () {
               if (((s = ""), "object" == typeof arguments[i])) {
                 for (o in ((s += "\n[" + i + "] "), arguments[0]))
                   a(arguments[0], o) &&
-                    (s += o + ": " + arguments[0][o] + ", ");
+                  (s += o + ": " + arguments[0][o] + ", ");
                 s = s.slice(0, -2);
               } else s = arguments[i];
               l.push(s);
             }
             S(
-              e +
+                e +
                 "\nArguments: " +
                 Array.prototype.slice.call(l).join("") +
                 "\n" +
                 new Error().stack
-            ),
+              ),
               (n = !1);
           }
           return t.apply(this, arguments);
@@ -5472,11 +5589,11 @@ var app = (function () {
         for (n in e)
           a(e, n) && (Y((t = e[n])) ? (this[n] = t) : (this["_" + n] = t));
         (this._config = e),
-          (this._dayOfMonthOrdinalParseLenient = new RegExp(
-            (this._dayOfMonthOrdinalParse.source || this._ordinalParse.source) +
-              "|" +
-              /\d{1,2}/.source
-          ));
+        (this._dayOfMonthOrdinalParseLenient = new RegExp(
+          (this._dayOfMonthOrdinalParse.source || this._ordinalParse.source) +
+          "|" +
+          /\d{1,2}/.source
+        ));
       }
 
       function O(e, t) {
@@ -5484,11 +5601,11 @@ var app = (function () {
           r = f({}, e);
         for (n in t)
           a(t, n) &&
-            (o(e[n]) && o(t[n])
-              ? ((r[n] = {}), f(r[n], e[n]), f(r[n], t[n]))
-              : null != t[n]
-              ? (r[n] = t[n])
-              : delete r[n]);
+          (o(e[n]) && o(t[n]) ?
+            ((r[n] = {}), f(r[n], e[n]), f(r[n], t[n])) :
+            null != t[n] ?
+            (r[n] = t[n]) :
+            delete r[n]);
         for (n in e) a(e, n) && !a(t, n) && o(e[n]) && (r[n] = f({}, r[n]));
         return r;
       }
@@ -5497,15 +5614,15 @@ var app = (function () {
         null != e && this.set(e);
       }
       (r.suppressDeprecationWarnings = !1),
-        (r.deprecationHandler = null),
-        ($ = Object.keys
-          ? Object.keys
-          : function (e) {
-              var t,
-                n = [];
-              for (t in e) a(e, t) && n.push(t);
-              return n;
-            });
+      (r.deprecationHandler = null),
+      ($ = Object.keys ?
+        Object.keys :
+        function (e) {
+          var t,
+            n = [];
+          for (t in e) a(e, t) && n.push(t);
+          return n;
+        });
       var A = {
         sameDay: "[Today at] LT",
         nextDay: "[Tomorrow at] LT",
@@ -5530,7 +5647,7 @@ var app = (function () {
         );
       }
       var H =
-          /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,
+        /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|N{1,5}|YYYYYY|YYYYY|YYYY|YY|y{2,4}|yo?|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,
         I = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
         W = {},
         R = {};
@@ -5543,19 +5660,19 @@ var app = (function () {
           }),
           e && (R[e] = s),
           t &&
-            (R[t[0]] = function () {
-              return N(s.apply(this, arguments), t[1], t[2]);
-            }),
+          (R[t[0]] = function () {
+            return N(s.apply(this, arguments), t[1], t[2]);
+          }),
           n &&
-            (R[n] = function () {
-              return this.localeData().ordinal(s.apply(this, arguments), e);
-            });
+          (R[n] = function () {
+            return this.localeData().ordinal(s.apply(this, arguments), e);
+          });
       }
 
       function G(e) {
-        return e.match(/\[[\s\S]/)
-          ? e.replace(/^\[|\]$/g, "")
-          : e.replace(/\\/g, "");
+        return e.match(/\[[\s\S]/) ?
+          e.replace(/^\[|\]$/g, "") :
+          e.replace(/\\/g, "");
       }
 
       function E(e) {
@@ -5573,9 +5690,9 @@ var app = (function () {
       }
 
       function j(e, t) {
-        return e.isValid()
-          ? ((t = B(t, e.localeData())), (W[t] = W[t] || E(t)), W[t](e))
-          : e.localeData().invalidDate();
+        return e.isValid() ?
+          ((t = B(t, e.localeData())), (W[t] = W[t] || E(t)), W[t](e)) :
+          e.localeData().invalidDate();
       }
 
       function B(e, t) {
@@ -5584,7 +5701,7 @@ var app = (function () {
         function r(e) {
           return t.longDateFormat(e) || e;
         }
-        for (I.lastIndex = 0; n >= 0 && I.test(e); )
+        for (I.lastIndex = 0; n >= 0 && I.test(e);)
           (e = e.replace(I, r)), (I.lastIndex = 0), (n -= 1);
         return e;
       }
@@ -5600,14 +5717,14 @@ var app = (function () {
       function U(e) {
         var t = this._longDateFormat[e],
           n = this._longDateFormat[e.toUpperCase()];
-        return t || !n
-          ? t
-          : ((this._longDateFormat[e] = n
+        return t || !n ?
+          t :
+          ((this._longDateFormat[e] = n
               .match(H)
               .map(function (e) {
-                return "MMMM" === e || "MM" === e || "DD" === e || "dddd" === e
-                  ? e.slice(1)
-                  : e;
+                return "MMMM" === e || "MM" === e || "DD" === e || "dddd" === e ?
+                  e.slice(1) :
+                  e;
               })
               .join("")),
             this._longDateFormat[e]);
@@ -5680,10 +5797,10 @@ var app = (function () {
           n = [];
         for (t in e)
           a(e, t) &&
-            n.push({
-              unit: t,
-              priority: ie[t],
-            });
+          n.push({
+            unit: t,
+            priority: ie[t],
+          });
         return (
           n.sort(function (e, t) {
             return e.priority - t.priority;
@@ -5708,9 +5825,9 @@ var app = (function () {
 
       function de(e, t) {
         return function (n) {
-          return null != n
-            ? (fe(this, e, n), r.updateOffset(this, t), this)
-            : he(this, e);
+          return null != n ?
+            (fe(this, e, n), r.updateOffset(this, t), this) :
+            he(this, e);
         };
       }
 
@@ -5722,16 +5839,16 @@ var app = (function () {
         e.isValid() &&
           !isNaN(n) &&
           ("FullYear" === t &&
-          le(e.year()) &&
-          1 === e.month() &&
-          29 === e.date()
-            ? ((n = ce(n)),
+            le(e.year()) &&
+            1 === e.month() &&
+            29 === e.date() ?
+            ((n = ce(n)),
               e._d["set" + (e._isUTC ? "UTC" : "") + t](
                 n,
                 e.month(),
                 Qe(n, e.month())
-              ))
-            : e._d["set" + (e._isUTC ? "UTC" : "") + t](n));
+              )) :
+            e._d["set" + (e._isUTC ? "UTC" : "") + t](n));
       }
 
       function me(e) {
@@ -5764,14 +5881,14 @@ var app = (function () {
         Oe = /Z|[+-]\d\d(?::?\d\d)?/gi,
         Pe = /[+-]?\d+(\.\d{1,3})?/,
         Ae =
-          /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i;
+        /[0-9]{0,256}['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFF07\uFF10-\uFFEF]{1,256}|[\u0600-\u06FF\/]{1,256}(\s*?[\u0600-\u06FF]{1,256}){1,2}/i;
 
       function Le(e, t, n) {
-        ge[e] = Y(t)
-          ? t
-          : function (e, r) {
-              return e && n ? n : t;
-            };
+        ge[e] = Y(t) ?
+          t :
+          function (e, r) {
+            return e && n ? n : t;
+          };
       }
 
       function Ne(e, t) {
@@ -5781,13 +5898,13 @@ var app = (function () {
       function He(e) {
         return Ie(
           e
-            .replace("\\", "")
-            .replace(
-              /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
-              function (e, t, n, r, s) {
-                return t || n || r || s;
-              }
-            )
+          .replace("\\", "")
+          .replace(
+            /\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g,
+            function (e, t, n, r, s) {
+              return t || n || r || s;
+            }
+          )
         );
       }
 
@@ -5802,13 +5919,11 @@ var app = (function () {
           r = t;
         for (
           "string" == typeof e && (e = [e]),
-            c(t) &&
-              (r = function (e, n) {
-                n[t] = ce(e);
-              }),
-            n = 0;
-          n < e.length;
-          n++
+          c(t) &&
+          (r = function (e, n) {
+            n[t] = ce(e);
+          }),
+          n = 0; n < e.length; n++
         )
           We[e[n]] = r;
       }
@@ -5844,14 +5959,15 @@ var app = (function () {
           (e += (t - n) / 12), 1 === n ? (le(e) ? 29 : 28) : 31 - ((n % 7) % 2)
         );
       }
-      (Ee = Array.prototype.indexOf
-        ? Array.prototype.indexOf
-        : function (e) {
-            var t;
-            for (t = 0; t < this.length; ++t) if (this[t] === e) return t;
-            return -1;
-          }),
-        F("M", ["MM", 2], "Mo", function () {
+      (Ee = Array.prototype.indexOf ?
+        Array.prototype.indexOf :
+        function (e) {
+          var t;
+          for (t = 0; t < this.length; ++t)
+            if (this[t] === e) return t;
+          return -1;
+        }),
+      F("M", ["MM", 2], "Mo", function () {
           return this.month() + 1;
         }),
         F("MMM", 0, 0, function (e) {
@@ -5878,34 +5994,34 @@ var app = (function () {
           null != s ? (t[Be] = s) : (g(n).invalidMonth = e);
         });
       var et =
-          "January_February_March_April_May_June_July_August_September_October_November_December".split(
-            "_"
-          ),
+        "January_February_March_April_May_June_July_August_September_October_November_December".split(
+          "_"
+        ),
         tt = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_"),
         nt = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
         rt = Ae,
         st = Ae;
 
       function it(e, t) {
-        return e
-          ? i(this._months)
-            ? this._months[e.month()]
-            : this._months[
-                (this._months.isFormat || nt).test(t) ? "format" : "standalone"
-              ][e.month()]
-          : i(this._months)
-          ? this._months
-          : this._months.standalone;
+        return e ?
+          i(this._months) ?
+          this._months[e.month()] :
+          this._months[
+            (this._months.isFormat || nt).test(t) ? "format" : "standalone"
+          ][e.month()] :
+          i(this._months) ?
+          this._months :
+          this._months.standalone;
       }
 
       function ot(e, t) {
-        return e
-          ? i(this._monthsShort)
-            ? this._monthsShort[e.month()]
-            : this._monthsShort[nt.test(t) ? "format" : "standalone"][e.month()]
-          : i(this._monthsShort)
-          ? this._monthsShort
-          : this._monthsShort.standalone;
+        return e ?
+          i(this._monthsShort) ?
+          this._monthsShort[e.month()] :
+          this._monthsShort[nt.test(t) ? "format" : "standalone"][e.month()] :
+          i(this._monthsShort) ?
+          this._monthsShort :
+          this._monthsShort.standalone;
       }
 
       function at(e, t, n) {
@@ -5916,38 +6032,37 @@ var app = (function () {
         if (!this._monthsParse)
           for (
             this._monthsParse = [],
-              this._longMonthsParse = [],
-              this._shortMonthsParse = [],
-              r = 0;
-            r < 12;
+            this._longMonthsParse = [],
+            this._shortMonthsParse = [],
+            r = 0; r < 12;
             ++r
           )
             (i = m([2e3, r])),
-              (this._shortMonthsParse[r] = this.monthsShort(
-                i,
-                ""
-              ).toLocaleLowerCase()),
-              (this._longMonthsParse[r] = this.months(
-                i,
-                ""
-              ).toLocaleLowerCase());
-        return n
-          ? "MMM" === t
-            ? -1 !== (s = Ee.call(this._shortMonthsParse, o))
-              ? s
-              : null
-            : -1 !== (s = Ee.call(this._longMonthsParse, o))
-            ? s
-            : null
-          : "MMM" === t
-          ? -1 !== (s = Ee.call(this._shortMonthsParse, o)) ||
-            -1 !== (s = Ee.call(this._longMonthsParse, o))
-            ? s
-            : null
-          : -1 !== (s = Ee.call(this._longMonthsParse, o)) ||
-            -1 !== (s = Ee.call(this._shortMonthsParse, o))
-          ? s
-          : null;
+            (this._shortMonthsParse[r] = this.monthsShort(
+              i,
+              ""
+            ).toLocaleLowerCase()),
+            (this._longMonthsParse[r] = this.months(
+              i,
+              ""
+            ).toLocaleLowerCase());
+        return n ?
+          "MMM" === t ?
+          -1 !== (s = Ee.call(this._shortMonthsParse, o)) ?
+          s :
+          null :
+          -1 !== (s = Ee.call(this._longMonthsParse, o)) ?
+          s :
+          null :
+          "MMM" === t ?
+          -1 !== (s = Ee.call(this._shortMonthsParse, o)) ||
+          -1 !== (s = Ee.call(this._longMonthsParse, o)) ?
+          s :
+          null :
+          -1 !== (s = Ee.call(this._longMonthsParse, o)) ||
+          -1 !== (s = Ee.call(this._shortMonthsParse, o)) ?
+          s :
+          null;
       }
 
       function lt(e, t, n) {
@@ -5955,30 +6070,28 @@ var app = (function () {
         if (this._monthsParseExact) return at.call(this, e, t, n);
         for (
           this._monthsParse ||
-            ((this._monthsParse = []),
+          ((this._monthsParse = []),
             (this._longMonthsParse = []),
             (this._shortMonthsParse = [])),
-            r = 0;
-          r < 12;
-          r++
+          r = 0; r < 12; r++
         ) {
           if (
             ((s = m([2e3, r])),
-            n &&
+              n &&
               !this._longMonthsParse[r] &&
               ((this._longMonthsParse[r] = new RegExp(
-                "^" + this.months(s, "").replace(".", "") + "$",
-                "i"
-              )),
-              (this._shortMonthsParse[r] = new RegExp(
-                "^" + this.monthsShort(s, "").replace(".", "") + "$",
-                "i"
-              ))),
-            n ||
+                  "^" + this.months(s, "").replace(".", "") + "$",
+                  "i"
+                )),
+                (this._shortMonthsParse[r] = new RegExp(
+                  "^" + this.monthsShort(s, "").replace(".", "") + "$",
+                  "i"
+                ))),
+              n ||
               this._monthsParse[r] ||
               ((i = "^" + this.months(s, "") + "|^" + this.monthsShort(s, "")),
-              (this._monthsParse[r] = new RegExp(i.replace(".", ""), "i"))),
-            n && "MMMM" === t && this._longMonthsParse[r].test(e))
+                (this._monthsParse[r] = new RegExp(i.replace(".", ""), "i"))),
+              n && "MMMM" === t && this._longMonthsParse[r].test(e))
           )
             return r;
           if (n && "MMM" === t && this._shortMonthsParse[r].test(e)) return r;
@@ -6000,9 +6113,9 @@ var app = (function () {
       }
 
       function ct(e) {
-        return null != e
-          ? (ut(this, e), r.updateOffset(this, !0), this)
-          : he(this, "Month");
+        return null != e ?
+          (ut(this, e), r.updateOffset(this, !0), this) :
+          he(this, "Month");
       }
 
       function dt() {
@@ -6010,23 +6123,23 @@ var app = (function () {
       }
 
       function ht(e) {
-        return this._monthsParseExact
-          ? (a(this, "_monthsRegex") || mt.call(this),
-            e ? this._monthsShortStrictRegex : this._monthsShortRegex)
-          : (a(this, "_monthsShortRegex") || (this._monthsShortRegex = rt),
-            this._monthsShortStrictRegex && e
-              ? this._monthsShortStrictRegex
-              : this._monthsShortRegex);
+        return this._monthsParseExact ?
+          (a(this, "_monthsRegex") || mt.call(this),
+            e ? this._monthsShortStrictRegex : this._monthsShortRegex) :
+          (a(this, "_monthsShortRegex") || (this._monthsShortRegex = rt),
+            this._monthsShortStrictRegex && e ?
+            this._monthsShortStrictRegex :
+            this._monthsShortRegex);
       }
 
       function ft(e) {
-        return this._monthsParseExact
-          ? (a(this, "_monthsRegex") || mt.call(this),
-            e ? this._monthsStrictRegex : this._monthsRegex)
-          : (a(this, "_monthsRegex") || (this._monthsRegex = st),
-            this._monthsStrictRegex && e
-              ? this._monthsStrictRegex
-              : this._monthsRegex);
+        return this._monthsParseExact ?
+          (a(this, "_monthsRegex") || mt.call(this),
+            e ? this._monthsStrictRegex : this._monthsRegex) :
+          (a(this, "_monthsRegex") || (this._monthsRegex = st),
+            this._monthsStrictRegex && e ?
+            this._monthsStrictRegex :
+            this._monthsRegex);
       }
 
       function mt() {
@@ -6040,29 +6153,29 @@ var app = (function () {
           i = [];
         for (t = 0; t < 12; t++)
           (n = m([2e3, t])),
-            r.push(this.monthsShort(n, "")),
-            s.push(this.months(n, "")),
-            i.push(this.months(n, "")),
-            i.push(this.monthsShort(n, ""));
+          r.push(this.monthsShort(n, "")),
+          s.push(this.months(n, "")),
+          i.push(this.months(n, "")),
+          i.push(this.monthsShort(n, ""));
         for (r.sort(e), s.sort(e), i.sort(e), t = 0; t < 12; t++)
           (r[t] = Ie(r[t])), (s[t] = Ie(s[t]));
         for (t = 0; t < 24; t++) i[t] = Ie(i[t]);
         (this._monthsRegex = new RegExp("^(" + i.join("|") + ")", "i")),
-          (this._monthsShortRegex = this._monthsRegex),
-          (this._monthsStrictRegex = new RegExp("^(" + s.join("|") + ")", "i")),
-          (this._monthsShortStrictRegex = new RegExp(
-            "^(" + r.join("|") + ")",
-            "i"
-          ));
+        (this._monthsShortRegex = this._monthsRegex),
+        (this._monthsStrictRegex = new RegExp("^(" + s.join("|") + ")", "i")),
+        (this._monthsShortStrictRegex = new RegExp(
+          "^(" + r.join("|") + ")",
+          "i"
+        ));
       }
 
       function pt(e) {
         return le(e) ? 366 : 365;
       }
       F("Y", 0, 0, function () {
-        var e = this.year();
-        return e <= 9999 ? N(e, 4) : "+" + e;
-      }),
+          var e = this.year();
+          return e <= 9999 ? N(e, 4) : "+" + e;
+        }),
         F(0, ["YY", 2], 0, function () {
           return this.year() % 100;
         }),
@@ -6098,10 +6211,10 @@ var app = (function () {
       function wt(e, t, n, r, s, i, o) {
         var a;
         return (
-          e < 100 && e >= 0
-            ? ((a = new Date(e + 400, t, n, r, s, i, o)),
-              isFinite(a.getFullYear()) && a.setFullYear(e))
-            : (a = new Date(e, t, n, r, s, i, o)),
+          e < 100 && e >= 0 ?
+          ((a = new Date(e + 400, t, n, r, s, i, o)),
+            isFinite(a.getFullYear()) && a.setFullYear(e)) :
+          (a = new Date(e, t, n, r, s, i, o)),
           a
         );
       }
@@ -6109,11 +6222,11 @@ var app = (function () {
       function kt(e) {
         var t, n;
         return (
-          e < 100 && e >= 0
-            ? (((n = Array.prototype.slice.call(arguments))[0] = e + 400),
-              (t = new Date(Date.UTC.apply(null, n))),
-              isFinite(t.getUTCFullYear()) && t.setUTCFullYear(e))
-            : (t = new Date(Date.UTC.apply(null, arguments))),
+          e < 100 && e >= 0 ?
+          (((n = Array.prototype.slice.call(arguments))[0] = e + 400),
+            (t = new Date(Date.UTC.apply(null, n))),
+            isFinite(t.getUTCFullYear()) && t.setUTCFullYear(e)) :
+          (t = new Date(Date.UTC.apply(null, arguments))),
           t
         );
       }
@@ -6128,12 +6241,11 @@ var app = (function () {
           o,
           a = 1 + 7 * (t - 1) + ((7 + n - r) % 7) + _t(e, r, s);
         return (
-          a <= 0
-            ? (o = pt((i = e - 1)) + a)
-            : a > pt(e)
-            ? ((i = e + 1), (o = a - pt(e)))
-            : ((i = e), (o = a)),
-          {
+          a <= 0 ?
+          (o = pt((i = e - 1)) + a) :
+          a > pt(e) ?
+          ((i = e + 1), (o = a - pt(e))) :
+          ((i = e), (o = a)), {
             year: i,
             dayOfYear: o,
           }
@@ -6146,12 +6258,11 @@ var app = (function () {
           i = _t(e.year(), t, n),
           o = Math.floor((e.dayOfYear() - i - 1) / 7) + 1;
         return (
-          o < 1
-            ? (r = o + St((s = e.year() - 1), t, n))
-            : o > St(e.year(), t, n)
-            ? ((r = o - St(e.year(), t, n)), (s = e.year() + 1))
-            : ((s = e.year()), (r = o)),
-          {
+          o < 1 ?
+          (r = o + St((s = e.year() - 1), t, n)) :
+          o > St(e.year(), t, n) ?
+          ((r = o - St(e.year(), t, n)), (s = e.year() + 1)) :
+          ((s = e.year()), (r = o)), {
             week: r,
             year: s,
           }
@@ -6204,21 +6315,21 @@ var app = (function () {
       }
 
       function Ot(e, t) {
-        return "string" != typeof e
-          ? e
-          : isNaN(e)
-          ? "number" == typeof (e = t.weekdaysParse(e))
-            ? e
-            : null
-          : parseInt(e, 10);
+        return "string" != typeof e ?
+          e :
+          isNaN(e) ?
+          "number" == typeof (e = t.weekdaysParse(e)) ?
+          e :
+          null :
+          parseInt(e, 10);
       }
 
       function Pt(e, t) {
-        return "string" == typeof e
-          ? t.weekdaysParse(e) % 7 || 7
-          : isNaN(e)
-          ? null
-          : e;
+        return "string" == typeof e ?
+          t.weekdaysParse(e) % 7 || 7 :
+          isNaN(e) ?
+          null :
+          e;
       }
 
       function At(e, t) {
@@ -6271,30 +6382,30 @@ var app = (function () {
         Rt = Ae;
 
       function Ft(e, t) {
-        var n = i(this._weekdays)
-          ? this._weekdays
-          : this._weekdays[
-              e && !0 !== e && this._weekdays.isFormat.test(t)
-                ? "format"
-                : "standalone"
-            ];
+        var n = i(this._weekdays) ?
+          this._weekdays :
+          this._weekdays[
+            e && !0 !== e && this._weekdays.isFormat.test(t) ?
+            "format" :
+            "standalone"
+          ];
         return !0 === e ? At(n, this._week.dow) : e ? n[e.day()] : n;
       }
 
       function Gt(e) {
-        return !0 === e
-          ? At(this._weekdaysShort, this._week.dow)
-          : e
-          ? this._weekdaysShort[e.day()]
-          : this._weekdaysShort;
+        return !0 === e ?
+          At(this._weekdaysShort, this._week.dow) :
+          e ?
+          this._weekdaysShort[e.day()] :
+          this._weekdaysShort;
       }
 
       function Et(e) {
-        return !0 === e
-          ? At(this._weekdaysMin, this._week.dow)
-          : e
-          ? this._weekdaysMin[e.day()]
-          : this._weekdaysMin;
+        return !0 === e ?
+          At(this._weekdaysMin, this._week.dow) :
+          e ?
+          this._weekdaysMin[e.day()] :
+          this._weekdaysMin;
       }
 
       function jt(e, t, n) {
@@ -6305,54 +6416,53 @@ var app = (function () {
         if (!this._weekdaysParse)
           for (
             this._weekdaysParse = [],
-              this._shortWeekdaysParse = [],
-              this._minWeekdaysParse = [],
-              r = 0;
-            r < 7;
+            this._shortWeekdaysParse = [],
+            this._minWeekdaysParse = [],
+            r = 0; r < 7;
             ++r
           )
             (i = m([2e3, 1]).day(r)),
-              (this._minWeekdaysParse[r] = this.weekdaysMin(
-                i,
-                ""
-              ).toLocaleLowerCase()),
-              (this._shortWeekdaysParse[r] = this.weekdaysShort(
-                i,
-                ""
-              ).toLocaleLowerCase()),
-              (this._weekdaysParse[r] = this.weekdays(
-                i,
-                ""
-              ).toLocaleLowerCase());
-        return n
-          ? "dddd" === t
-            ? -1 !== (s = Ee.call(this._weekdaysParse, o))
-              ? s
-              : null
-            : "ddd" === t
-            ? -1 !== (s = Ee.call(this._shortWeekdaysParse, o))
-              ? s
-              : null
-            : -1 !== (s = Ee.call(this._minWeekdaysParse, o))
-            ? s
-            : null
-          : "dddd" === t
-          ? -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._minWeekdaysParse, o))
-            ? s
-            : null
-          : "ddd" === t
-          ? -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._minWeekdaysParse, o))
-            ? s
-            : null
-          : -1 !== (s = Ee.call(this._minWeekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
-            -1 !== (s = Ee.call(this._shortWeekdaysParse, o))
-          ? s
-          : null;
+            (this._minWeekdaysParse[r] = this.weekdaysMin(
+              i,
+              ""
+            ).toLocaleLowerCase()),
+            (this._shortWeekdaysParse[r] = this.weekdaysShort(
+              i,
+              ""
+            ).toLocaleLowerCase()),
+            (this._weekdaysParse[r] = this.weekdays(
+              i,
+              ""
+            ).toLocaleLowerCase());
+        return n ?
+          "dddd" === t ?
+          -1 !== (s = Ee.call(this._weekdaysParse, o)) ?
+          s :
+          null :
+          "ddd" === t ?
+          -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ?
+          s :
+          null :
+          -1 !== (s = Ee.call(this._minWeekdaysParse, o)) ?
+          s :
+          null :
+          "dddd" === t ?
+          -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._minWeekdaysParse, o)) ?
+          s :
+          null :
+          "ddd" === t ?
+          -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._minWeekdaysParse, o)) ?
+          s :
+          null :
+          -1 !== (s = Ee.call(this._minWeekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._weekdaysParse, o)) ||
+          -1 !== (s = Ee.call(this._shortWeekdaysParse, o)) ?
+          s :
+          null;
       }
 
       function Bt(e, t, n) {
@@ -6360,40 +6470,38 @@ var app = (function () {
         if (this._weekdaysParseExact) return jt.call(this, e, t, n);
         for (
           this._weekdaysParse ||
-            ((this._weekdaysParse = []),
+          ((this._weekdaysParse = []),
             (this._minWeekdaysParse = []),
             (this._shortWeekdaysParse = []),
             (this._fullWeekdaysParse = [])),
-            r = 0;
-          r < 7;
-          r++
+          r = 0; r < 7; r++
         ) {
           if (
             ((s = m([2e3, 1]).day(r)),
-            n &&
+              n &&
               !this._fullWeekdaysParse[r] &&
               ((this._fullWeekdaysParse[r] = new RegExp(
-                "^" + this.weekdays(s, "").replace(".", "\\.?") + "$",
-                "i"
-              )),
-              (this._shortWeekdaysParse[r] = new RegExp(
-                "^" + this.weekdaysShort(s, "").replace(".", "\\.?") + "$",
-                "i"
-              )),
-              (this._minWeekdaysParse[r] = new RegExp(
-                "^" + this.weekdaysMin(s, "").replace(".", "\\.?") + "$",
-                "i"
-              ))),
-            this._weekdaysParse[r] ||
+                  "^" + this.weekdays(s, "").replace(".", "\\.?") + "$",
+                  "i"
+                )),
+                (this._shortWeekdaysParse[r] = new RegExp(
+                  "^" + this.weekdaysShort(s, "").replace(".", "\\.?") + "$",
+                  "i"
+                )),
+                (this._minWeekdaysParse[r] = new RegExp(
+                  "^" + this.weekdaysMin(s, "").replace(".", "\\.?") + "$",
+                  "i"
+                ))),
+              this._weekdaysParse[r] ||
               ((i =
-                "^" +
-                this.weekdays(s, "") +
-                "|^" +
-                this.weekdaysShort(s, "") +
-                "|^" +
-                this.weekdaysMin(s, "")),
-              (this._weekdaysParse[r] = new RegExp(i.replace(".", ""), "i"))),
-            n && "dddd" === t && this._fullWeekdaysParse[r].test(e))
+                  "^" +
+                  this.weekdays(s, "") +
+                  "|^" +
+                  this.weekdaysShort(s, "") +
+                  "|^" +
+                  this.weekdaysMin(s, "")),
+                (this._weekdaysParse[r] = new RegExp(i.replace(".", ""), "i"))),
+              n && "dddd" === t && this._fullWeekdaysParse[r].test(e))
           )
             return r;
           if (n && "ddd" === t && this._shortWeekdaysParse[r].test(e)) return r;
@@ -6405,9 +6513,9 @@ var app = (function () {
       function zt(e) {
         if (!this.isValid()) return null != e ? this : NaN;
         var t = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
-        return null != e
-          ? ((e = Ot(e, this.localeData())), this.add(e - t, "d"))
-          : t;
+        return null != e ?
+          ((e = Ot(e, this.localeData())), this.add(e - t, "d")) :
+          t;
       }
 
       function Ut(e) {
@@ -6426,33 +6534,33 @@ var app = (function () {
       }
 
       function Jt(e) {
-        return this._weekdaysParseExact
-          ? (a(this, "_weekdaysRegex") || qt.call(this),
-            e ? this._weekdaysStrictRegex : this._weekdaysRegex)
-          : (a(this, "_weekdaysRegex") || (this._weekdaysRegex = It),
-            this._weekdaysStrictRegex && e
-              ? this._weekdaysStrictRegex
-              : this._weekdaysRegex);
+        return this._weekdaysParseExact ?
+          (a(this, "_weekdaysRegex") || qt.call(this),
+            e ? this._weekdaysStrictRegex : this._weekdaysRegex) :
+          (a(this, "_weekdaysRegex") || (this._weekdaysRegex = It),
+            this._weekdaysStrictRegex && e ?
+            this._weekdaysStrictRegex :
+            this._weekdaysRegex);
       }
 
       function Kt(e) {
-        return this._weekdaysParseExact
-          ? (a(this, "_weekdaysRegex") || qt.call(this),
-            e ? this._weekdaysShortStrictRegex : this._weekdaysShortRegex)
-          : (a(this, "_weekdaysShortRegex") || (this._weekdaysShortRegex = Wt),
-            this._weekdaysShortStrictRegex && e
-              ? this._weekdaysShortStrictRegex
-              : this._weekdaysShortRegex);
+        return this._weekdaysParseExact ?
+          (a(this, "_weekdaysRegex") || qt.call(this),
+            e ? this._weekdaysShortStrictRegex : this._weekdaysShortRegex) :
+          (a(this, "_weekdaysShortRegex") || (this._weekdaysShortRegex = Wt),
+            this._weekdaysShortStrictRegex && e ?
+            this._weekdaysShortStrictRegex :
+            this._weekdaysShortRegex);
       }
 
       function Zt(e) {
-        return this._weekdaysParseExact
-          ? (a(this, "_weekdaysRegex") || qt.call(this),
-            e ? this._weekdaysMinStrictRegex : this._weekdaysMinRegex)
-          : (a(this, "_weekdaysMinRegex") || (this._weekdaysMinRegex = Rt),
-            this._weekdaysMinStrictRegex && e
-              ? this._weekdaysMinStrictRegex
-              : this._weekdaysMinRegex);
+        return this._weekdaysParseExact ?
+          (a(this, "_weekdaysRegex") || qt.call(this),
+            e ? this._weekdaysMinStrictRegex : this._weekdaysMinRegex) :
+          (a(this, "_weekdaysMinRegex") || (this._weekdaysMinRegex = Rt),
+            this._weekdaysMinStrictRegex && e ?
+            this._weekdaysMinStrictRegex :
+            this._weekdaysMinRegex);
       }
 
       function qt() {
@@ -6470,15 +6578,15 @@ var app = (function () {
           u = [];
         for (t = 0; t < 7; t++)
           (n = m([2e3, 1]).day(t)),
-            (r = Ie(this.weekdaysMin(n, ""))),
-            (s = Ie(this.weekdaysShort(n, ""))),
-            (i = Ie(this.weekdays(n, ""))),
-            o.push(r),
-            a.push(s),
-            l.push(i),
-            u.push(r),
-            u.push(s),
-            u.push(i);
+          (r = Ie(this.weekdaysMin(n, ""))),
+          (s = Ie(this.weekdaysShort(n, ""))),
+          (i = Ie(this.weekdays(n, ""))),
+          o.push(r),
+          a.push(s),
+          l.push(i),
+          u.push(r),
+          u.push(s),
+          u.push(i);
         o.sort(e),
           a.sort(e),
           l.sort(e),
@@ -6570,16 +6678,16 @@ var app = (function () {
         Re("hmm", function (e, t, n) {
           var r = e.length - 2;
           (t[Ue] = ce(e.substr(0, r))),
-            (t[Ve] = ce(e.substr(r))),
-            (g(n).bigHour = !0);
+          (t[Ve] = ce(e.substr(r))),
+          (g(n).bigHour = !0);
         }),
         Re("hmmss", function (e, t, n) {
           var r = e.length - 4,
             s = e.length - 2;
           (t[Ue] = ce(e.substr(0, r))),
-            (t[Ve] = ce(e.substr(r, 2))),
-            (t[Je] = ce(e.substr(s))),
-            (g(n).bigHour = !0);
+          (t[Ve] = ce(e.substr(r, 2))),
+          (t[Je] = ce(e.substr(s))),
+          (g(n).bigHour = !0);
         }),
         Re("Hmm", function (e, t, n) {
           var r = e.length - 2;
@@ -6589,8 +6697,8 @@ var app = (function () {
           var r = e.length - 4,
             s = e.length - 2;
           (t[Ue] = ce(e.substr(0, r))),
-            (t[Ve] = ce(e.substr(r, 2))),
-            (t[Je] = ce(e.substr(s)));
+          (t[Ve] = ce(e.substr(r, 2))),
+          (t[Je] = ce(e.substr(s)));
         });
       var rn = /[ap]\.?m?\.?/i,
         sn = de("Hours", !0);
@@ -6620,7 +6728,8 @@ var app = (function () {
       function dn(e, t) {
         var n,
           r = Math.min(e.length, t.length);
-        for (n = 0; n < r; n += 1) if (e[n] !== t[n]) return n;
+        for (n = 0; n < r; n += 1)
+          if (e[n] !== t[n]) return n;
         return r;
       }
 
@@ -6629,11 +6738,10 @@ var app = (function () {
       }
 
       function fn(e) {
-        for (var t, n, r, s, i = 0; i < e.length; ) {
+        for (var t, n, r, s, i = 0; i < e.length;) {
           for (
             t = (s = hn(e[i]).split("-")).length,
-              n = (n = hn(e[i + 1])) ? n.split("-") : null;
-            t > 0;
+            n = (n = hn(e[i + 1])) ? n.split("-") : null; t > 0;
 
           ) {
             if ((r = mn(s.slice(0, t).join("-")))) return r;
@@ -6660,13 +6768,13 @@ var app = (function () {
         var n;
         return (
           e &&
-            ((n = u(t) ? vn(e) : gn(e, t))
-              ? (an = n)
-              : "undefined" != typeof console &&
-                console.warn &&
-                console.warn(
-                  "Locale " + e + " not found. Did you forget to load it?"
-                )),
+          ((n = u(t) ? vn(e) : gn(e, t)) ?
+            (an = n) :
+            "undefined" != typeof console &&
+            console.warn &&
+            console.warn(
+              "Locale " + e + " not found. Did you forget to load it?"
+            )),
           an._abbr
         );
       }
@@ -6680,7 +6788,7 @@ var app = (function () {
               "defineLocaleOverride",
               "use moment.updateLocale(localeName, config) to change an existing locale. moment.defineLocale(localeName, config) should only be used for creating a new locale See http://momentjs.com/guides/#/warnings/define-locale/ for more info."
             ),
-              (r = un[e]._config);
+            (r = un[e]._config);
           else if (null != t.parentLocale)
             if (null != un[t.parentLocale]) r = un[t.parentLocale]._config;
             else {
@@ -6698,9 +6806,9 @@ var app = (function () {
           return (
             (un[e] = new P(O(r, t))),
             cn[e] &&
-              cn[e].forEach(function (e) {
-                gn(e.name, e.config);
-              }),
+            cn[e].forEach(function (e) {
+              gn(e.name, e.config);
+            }),
             pn(e),
             un[e]
           );
@@ -6713,9 +6821,9 @@ var app = (function () {
           var n,
             r,
             s = ln;
-          null != un[e] && null != un[e].parentLocale
-            ? un[e].set(O(un[e]._config, t))
-            : (null != (r = mn(e)) && (s = r._config),
+          null != un[e] && null != un[e].parentLocale ?
+            un[e].set(O(un[e]._config, t)) :
+            (null != (r = mn(e)) && (s = r._config),
               (t = O(s, t)),
               null == r && (t.abbr = e),
               ((n = new P(t)).parentLocale = un[e]),
@@ -6723,9 +6831,9 @@ var app = (function () {
             pn(e);
         } else
           null != un[e] &&
-            (null != un[e].parentLocale
-              ? ((un[e] = un[e].parentLocale), e === pn() && pn(e))
-              : null != un[e] && delete un[e]);
+          (null != un[e].parentLocale ?
+            ((un[e] = un[e].parentLocale), e === pn() && pn(e)) :
+            null != un[e] && delete un[e]);
         return un[e];
       }
 
@@ -6749,23 +6857,23 @@ var app = (function () {
           n = e._a;
         return (
           n &&
-            -2 === g(e).overflow &&
-            ((t =
-              n[Be] < 0 || n[Be] > 11
-                ? Be
-                : n[ze] < 1 || n[ze] > Qe(n[je], n[Be])
-                ? ze
-                : n[Ue] < 0 ||
-                  n[Ue] > 24 ||
-                  (24 === n[Ue] && (0 !== n[Ve] || 0 !== n[Je] || 0 !== n[Ke]))
-                ? Ue
-                : n[Ve] < 0 || n[Ve] > 59
-                ? Ve
-                : n[Je] < 0 || n[Je] > 59
-                ? Je
-                : n[Ke] < 0 || n[Ke] > 999
-                ? Ke
-                : -1),
+          -2 === g(e).overflow &&
+          ((t =
+              n[Be] < 0 || n[Be] > 11 ?
+              Be :
+              n[ze] < 1 || n[ze] > Qe(n[je], n[Be]) ?
+              ze :
+              n[Ue] < 0 ||
+              n[Ue] > 24 ||
+              (24 === n[Ue] && (0 !== n[Ve] || 0 !== n[Je] || 0 !== n[Ke])) ?
+              Ue :
+              n[Ve] < 0 || n[Ve] > 59 ?
+              Ve :
+              n[Je] < 0 || n[Je] > 59 ?
+              Je :
+              n[Ke] < 0 || n[Ke] > 999 ?
+              Ke :
+              -1),
             g(e)._overflowDayOfYear && (t < je || t > ze) && (t = ze),
             g(e)._overflowWeeks && -1 === t && (t = Ze),
             g(e)._overflowWeekday && -1 === t && (t = qe),
@@ -6774,9 +6882,9 @@ var app = (function () {
         );
       }
       var _n =
-          /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+        /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         xn =
-          /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+        /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d|))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([+-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         bn = /Z|[+-]\d\d(?::?\d\d)?/,
         Sn = [
           ["YYYYYY-MM-DD", /[+-]\d{6}-\d\d-\d\d/],
@@ -6806,7 +6914,7 @@ var app = (function () {
         ],
         $n = /^\/?Date\((-?\d+)/i,
         Dn =
-          /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/,
+        /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|([+-]\d{4}))$/,
         Tn = {
           UT: 0,
           GMT: 0,
@@ -6835,18 +6943,18 @@ var app = (function () {
               (s = Sn[t][0]), (r = !1 !== Sn[t][2]);
               break;
             }
-          if (null == s) return void (e._isValid = !1);
+          if (null == s) return void(e._isValid = !1);
           if (l[3]) {
             for (t = 0, n = Mn.length; t < n; t++)
               if (Mn[t][1].exec(l[3])) {
                 i = (l[2] || " ") + Mn[t][0];
                 break;
               }
-            if (null == i) return void (e._isValid = !1);
+            if (null == i) return void(e._isValid = !1);
           }
-          if (!r && null != i) return void (e._isValid = !1);
+          if (!r && null != i) return void(e._isValid = !1);
           if (l[4]) {
-            if (!bn.exec(l[4])) return void (e._isValid = !1);
+            if (!bn.exec(l[4])) return void(e._isValid = !1);
             o = "Z";
           }
           (e._f = s + (i || "") + (o || "")), Gn(e);
@@ -6900,24 +7008,24 @@ var app = (function () {
           if (((t = Cn(n[4], n[3], n[2], n[5], n[6], n[7])), !An(n[1], t, e)))
             return;
           (e._a = t),
-            (e._tzm = Ln(n[8], n[9], n[10])),
-            (e._d = kt.apply(null, e._a)),
-            e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm),
+          (e._tzm = Ln(n[8], n[9], n[10])),
+          (e._d = kt.apply(null, e._a)),
+          e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm),
             (g(e).rfc2822 = !0);
         } else e._isValid = !1;
       }
 
       function Hn(e) {
         var t = $n.exec(e._i);
-        null === t
-          ? (Yn(e),
+        null === t ?
+          (Yn(e),
             !1 === e._isValid &&
-              (delete e._isValid,
+            (delete e._isValid,
               Nn(e),
               !1 === e._isValid &&
-                (delete e._isValid,
-                e._strict ? (e._isValid = !1) : r.createFromInputFallback(e))))
-          : (e._d = new Date(+t[1]));
+              (delete e._isValid,
+                e._strict ? (e._isValid = !1) : r.createFromInputFallback(e)))) :
+          (e._d = new Date(+t[1]));
       }
 
       function In(e, t, n) {
@@ -6926,9 +7034,9 @@ var app = (function () {
 
       function Wn(e) {
         var t = new Date(r.now());
-        return e._useUTC
-          ? [t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()]
-          : [t.getFullYear(), t.getMonth(), t.getDate()];
+        return e._useUTC ?
+          [t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()] :
+          [t.getFullYear(), t.getMonth(), t.getDate()];
       }
 
       function Rn(e) {
@@ -6941,16 +7049,15 @@ var app = (function () {
         if (!e._d) {
           for (
             r = Wn(e),
-              e._w && null == e._a[ze] && null == e._a[Be] && Fn(e),
-              null != e._dayOfYear &&
-                ((i = In(e._a[je], r[je])),
-                (e._dayOfYear > pt(i) || 0 === e._dayOfYear) &&
-                  (g(e)._overflowDayOfYear = !0),
-                (n = kt(i, 0, e._dayOfYear)),
-                (e._a[Be] = n.getUTCMonth()),
-                (e._a[ze] = n.getUTCDate())),
-              t = 0;
-            t < 3 && null == e._a[t];
+            e._w && null == e._a[ze] && null == e._a[Be] && Fn(e),
+            null != e._dayOfYear &&
+            ((i = In(e._a[je], r[je])),
+              (e._dayOfYear > pt(i) || 0 === e._dayOfYear) &&
+              (g(e)._overflowDayOfYear = !0),
+              (n = kt(i, 0, e._dayOfYear)),
+              (e._a[Be] = n.getUTCMonth()),
+              (e._a[ze] = n.getUTCDate())),
+            t = 0; t < 3 && null == e._a[t];
             ++t
           )
             e._a[t] = o[t] = r[t];
@@ -6966,37 +7073,37 @@ var app = (function () {
             null != e._tzm && e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm),
             e._nextDay && (e._a[Ue] = 24),
             e._w &&
-              void 0 !== e._w.d &&
-              e._w.d !== s &&
-              (g(e).weekdayMismatch = !0);
+            void 0 !== e._w.d &&
+            e._w.d !== s &&
+            (g(e).weekdayMismatch = !0);
         }
       }
 
       function Fn(e) {
         var t, n, r, s, i, o, a, l, u;
-        null != (t = e._w).GG || null != t.W || null != t.E
-          ? ((i = 1),
+        null != (t = e._w).GG || null != t.W || null != t.E ?
+          ((i = 1),
             (o = 4),
             (n = In(t.GG, e._a[je], bt(Kn(), 1, 4).year)),
             (r = In(t.W, 1)),
-            ((s = In(t.E, 1)) < 1 || s > 7) && (l = !0))
-          : ((i = e._locale._week.dow),
+            ((s = In(t.E, 1)) < 1 || s > 7) && (l = !0)) :
+          ((i = e._locale._week.dow),
             (o = e._locale._week.doy),
             (u = bt(Kn(), i, o)),
             (n = In(t.gg, e._a[je], u.year)),
             (r = In(t.w, u.week)),
-            null != t.d
-              ? ((s = t.d) < 0 || s > 6) && (l = !0)
-              : null != t.e
-              ? ((s = t.e + i), (t.e < 0 || t.e > 6) && (l = !0))
-              : (s = i)),
-          r < 1 || r > St(n, i, o)
-            ? (g(e)._overflowWeeks = !0)
-            : null != l
-            ? (g(e)._overflowWeekday = !0)
-            : ((a = xt(n, r, s, i, o)),
-              (e._a[je] = a.year),
-              (e._dayOfYear = a.dayOfYear));
+            null != t.d ?
+            ((s = t.d) < 0 || s > 6) && (l = !0) :
+            null != t.e ?
+            ((s = t.e + i), (t.e < 0 || t.e > 6) && (l = !0)) :
+            (s = i)),
+          r < 1 || r > St(n, i, o) ?
+          (g(e)._overflowWeeks = !0) :
+          null != l ?
+          (g(e)._overflowWeekday = !0) :
+          ((a = xt(n, r, s, i, o)),
+            (e._a[je] = a.year),
+            (e._dayOfYear = a.dayOfYear));
       }
 
       function Gn(e) {
@@ -7013,31 +7120,29 @@ var app = (function () {
               u = l.length,
               c = 0;
             for (
-              s = B(e._f, e._locale).match(H) || [], t = 0;
-              t < s.length;
-              t++
+              s = B(e._f, e._locale).match(H) || [], t = 0; t < s.length; t++
             )
               (i = s[t]),
-                (n = (l.match(Ne(i, e)) || [])[0]) &&
-                  ((o = l.substr(0, l.indexOf(n))).length > 0 &&
-                    g(e).unusedInput.push(o),
-                  (l = l.slice(l.indexOf(n) + n.length)),
-                  (c += n.length)),
-                R[i]
-                  ? (n ? (g(e).empty = !1) : g(e).unusedTokens.push(i),
-                    Ge(i, n, e))
-                  : e._strict && !n && g(e).unusedTokens.push(i);
+              (n = (l.match(Ne(i, e)) || [])[0]) &&
+              ((o = l.substr(0, l.indexOf(n))).length > 0 &&
+                g(e).unusedInput.push(o),
+                (l = l.slice(l.indexOf(n) + n.length)),
+                (c += n.length)),
+              R[i] ?
+              (n ? (g(e).empty = !1) : g(e).unusedTokens.push(i),
+                Ge(i, n, e)) :
+              e._strict && !n && g(e).unusedTokens.push(i);
             (g(e).charsLeftOver = u - c),
-              l.length > 0 && g(e).unusedInput.push(l),
+            l.length > 0 && g(e).unusedInput.push(l),
               e._a[Ue] <= 12 &&
-                !0 === g(e).bigHour &&
-                e._a[Ue] > 0 &&
-                (g(e).bigHour = void 0),
+              !0 === g(e).bigHour &&
+              e._a[Ue] > 0 &&
+              (g(e).bigHour = void 0),
               (g(e).parsedDateParts = e._a.slice(0)),
               (g(e).meridiem = e._meridiem),
               (e._a[Ue] = En(e._locale, e._a[Ue], e._meridiem)),
               null !== (a = g(e).era) &&
-                (e._a[je] = e._locale.erasConvertYear(a, e._a[je])),
+              (e._a[je] = e._locale.erasConvertYear(a, e._a[je])),
               Rn(e),
               kn(e);
           } else Nn(e);
@@ -7046,15 +7151,15 @@ var app = (function () {
 
       function En(e, t, n) {
         var r;
-        return null == n
-          ? t
-          : null != e.meridiemHour
-          ? e.meridiemHour(t, n)
-          : null != e.isPM
-          ? ((r = e.isPM(n)) && t < 12 && (t += 12),
+        return null == n ?
+          t :
+          null != e.meridiemHour ?
+          e.meridiemHour(t, n) :
+          null != e.isPM ?
+          ((r = e.isPM(n)) && t < 12 && (t += 12),
             r || 12 !== t || (t = 0),
-            t)
-          : t;
+            t) :
+          t;
       }
 
       function jn(e) {
@@ -7066,21 +7171,21 @@ var app = (function () {
           o,
           a = !1;
         if (0 === e._f.length)
-          return (g(e).invalidFormat = !0), void (e._d = new Date(NaN));
+          return (g(e).invalidFormat = !0), void(e._d = new Date(NaN));
         for (s = 0; s < e._f.length; s++)
           (i = 0),
-            (o = !1),
-            (t = _({}, e)),
-            null != e._useUTC && (t._useUTC = e._useUTC),
-            (t._f = e._f[s]),
-            Gn(t),
-            y(t) && (o = !0),
-            (i += g(t).charsLeftOver),
-            (i += 10 * g(t).unusedTokens.length),
-            (g(t).score = i),
-            a
-              ? i < r && ((r = i), (n = t))
-              : (null == r || i < r || o) && ((r = i), (n = t), o && (a = !0));
+          (o = !1),
+          (t = _({}, e)),
+          null != e._useUTC && (t._useUTC = e._useUTC),
+          (t._f = e._f[s]),
+          Gn(t),
+          y(t) && (o = !0),
+          (i += g(t).charsLeftOver),
+          (i += 10 * g(t).unusedTokens.length),
+          (g(t).score = i),
+          a ?
+          i < r && ((r = i), (n = t)) :
+          (null == r || i < r || o) && ((r = i), (n = t), o && (a = !0));
         f(e, n || t);
       }
 
@@ -7094,7 +7199,7 @@ var app = (function () {
               return e && parseInt(e, 10);
             }
           )),
-            Rn(e);
+          Rn(e);
         }
       }
 
@@ -7108,37 +7213,37 @@ var app = (function () {
           n = e._f;
         return (
           (e._locale = e._locale || vn(e._l)),
-          null === t || (void 0 === n && "" === t)
-            ? v({
-                nullInput: !0,
-              })
-            : ("string" == typeof t && (e._i = t = e._locale.preparse(t)),
-              b(t)
-                ? new x(kn(t))
-                : (d(t) ? (e._d = t) : i(n) ? jn(e) : n ? Gn(e) : Vn(e),
-                  y(e) || (e._d = null),
-                  e))
+          null === t || (void 0 === n && "" === t) ?
+          v({
+            nullInput: !0,
+          }) :
+          ("string" == typeof t && (e._i = t = e._locale.preparse(t)),
+            b(t) ?
+            new x(kn(t)) :
+            (d(t) ? (e._d = t) : i(n) ? jn(e) : n ? Gn(e) : Vn(e),
+              y(e) || (e._d = null),
+              e))
         );
       }
 
       function Vn(e) {
         var t = e._i;
-        u(t)
-          ? (e._d = new Date(r.now()))
-          : d(t)
-          ? (e._d = new Date(t.valueOf()))
-          : "string" == typeof t
-          ? Hn(e)
-          : i(t)
-          ? ((e._a = h(t.slice(0), function (e) {
+        u(t) ?
+          (e._d = new Date(r.now())) :
+          d(t) ?
+          (e._d = new Date(t.valueOf())) :
+          "string" == typeof t ?
+          Hn(e) :
+          i(t) ?
+          ((e._a = h(t.slice(0), function (e) {
               return parseInt(e, 10);
             })),
-            Rn(e))
-          : o(t)
-          ? Bn(e)
-          : c(t)
-          ? (e._d = new Date(t))
-          : r.createFromInputFallback(e);
+            Rn(e)) :
+          o(t) ?
+          Bn(e) :
+          c(t) ?
+          (e._d = new Date(t)) :
+          r.createFromInputFallback(e);
       }
 
       function Jn(e, t, n, r, s) {
@@ -7166,8 +7271,8 @@ var app = (function () {
           e._d = new Date(e._i + (e._useUTC ? " UTC" : ""));
         }
       )),
-        (r.ISO_8601 = function () {}),
-        (r.RFC_2822 = function () {});
+      (r.ISO_8601 = function () {}),
+      (r.RFC_2822 = function () {});
       var Zn = M(
           "moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",
           function () {
@@ -7251,12 +7356,12 @@ var app = (function () {
           u = t.second || 0,
           c = t.millisecond || 0;
         (this._isValid = rr(t)),
-          (this._milliseconds = +c + 1e3 * u + 6e4 * l + 1e3 * a * 60 * 60),
-          (this._days = +o + 7 * i),
-          (this._months = +s + 3 * r + 12 * n),
-          (this._data = {}),
-          (this._locale = vn()),
-          this._bubble();
+        (this._milliseconds = +c + 1e3 * u + 6e4 * l + 1e3 * a * 60 * 60),
+        (this._days = +o + 7 * i),
+        (this._months = +s + 3 * r + 12 * n),
+        (this._data = {}),
+        (this._locale = vn()),
+        this._bubble();
       }
 
       function ar(e) {
@@ -7300,32 +7405,32 @@ var app = (function () {
         var n,
           r,
           s = (t || "").match(e);
-        return null === s
-          ? null
-          : 0 ===
-            (r =
-              60 *
-                (n = ((s[s.length - 1] || []) + "").match(dr) || [
-                  "-",
-                  0,
-                  0,
-                ])[1] +
-              ce(n[2]))
-          ? 0
-          : "+" === n[0]
-          ? r
-          : -r;
+        return null === s ?
+          null :
+          0 ===
+          (r =
+            60 *
+            (n = ((s[s.length - 1] || []) + "").match(dr) || [
+              "-",
+              0,
+              0,
+            ])[1] +
+            ce(n[2])) ?
+          0 :
+          "+" === n[0] ?
+          r :
+          -r;
       }
 
       function fr(e, t) {
         var n, s;
-        return t._isUTC
-          ? ((n = t.clone()),
+        return t._isUTC ?
+          ((n = t.clone()),
             (s = (b(e) || d(e) ? e.valueOf() : Kn(e).valueOf()) - n.valueOf()),
             n._d.setTime(n._d.valueOf() + s),
             r.updateOffset(n, !1),
-            n)
-          : Kn(e).local();
+            n) :
+          Kn(e).local();
       }
 
       function mr(e) {
@@ -7346,12 +7451,12 @@ var app = (function () {
             (this._isUTC = !0),
             null != s && this.add(s, "m"),
             i !== e &&
-              (!t || this._changeInProgress
-                ? Ar(this, Tr(e - i, "m"), 1, !1)
-                : this._changeInProgress ||
-                  ((this._changeInProgress = !0),
-                  r.updateOffset(this, !0),
-                  (this._changeInProgress = null))),
+            (!t || this._changeInProgress ?
+              Ar(this, Tr(e - i, "m"), 1, !1) :
+              this._changeInProgress ||
+              ((this._changeInProgress = !0),
+                r.updateOffset(this, !0),
+                (this._changeInProgress = null))),
             this
           );
         }
@@ -7359,9 +7464,9 @@ var app = (function () {
       }
 
       function gr(e, t) {
-        return null != e
-          ? ("string" != typeof e && (e = -e), this.utcOffset(e, t), this)
-          : -this.utcOffset();
+        return null != e ?
+          ("string" != typeof e && (e = -e), this.utcOffset(e, t), this) :
+          -this.utcOffset();
       }
 
       function yr(e) {
@@ -7371,7 +7476,7 @@ var app = (function () {
       function vr(e) {
         return (
           this._isUTC &&
-            (this.utcOffset(0, e),
+          (this.utcOffset(0, e),
             (this._isUTC = !1),
             e && this.subtract(mr(this), "m")),
           this
@@ -7407,11 +7512,11 @@ var app = (function () {
           t = {};
         return (
           _(t, this),
-          (t = Un(t))._a
-            ? ((e = t._isUTC ? m(t._a) : Kn(t._a)),
-              (this._isDSTShifted =
-                this.isValid() && ur(t._a, e.toArray()) > 0))
-            : (this._isDSTShifted = !1),
+          (t = Un(t))._a ?
+          ((e = t._isUTC ? m(t._a) : Kn(t._a)),
+            (this._isDSTShifted =
+              this.isValid() && ur(t._a, e.toArray()) > 0)) :
+          (this._isDSTShifted = !1),
           this._isDSTShifted
         );
       }
@@ -7430,7 +7535,7 @@ var app = (function () {
       r.updateOffset = function () {};
       var $r = /^(-|\+)?(?:(\d*)[. ])?(\d+):(\d+)(?::(\d+)(\.\d*)?)?$/,
         Dr =
-          /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
+        /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
 
       function Tr(e, t) {
         var n,
@@ -7439,42 +7544,42 @@ var app = (function () {
           i = e,
           o = null;
         return (
-          ar(e)
-            ? (i = {
-                ms: e._milliseconds,
-                d: e._days,
-                M: e._months,
-              })
-            : c(e) || !isNaN(+e)
-            ? ((i = {}), t ? (i[t] = +e) : (i.milliseconds = +e))
-            : (o = $r.exec(e))
-            ? ((n = "-" === o[1] ? -1 : 1),
-              (i = {
-                y: 0,
-                d: ce(o[ze]) * n,
-                h: ce(o[Ue]) * n,
-                m: ce(o[Ve]) * n,
-                s: ce(o[Je]) * n,
-                ms: ce(lr(1e3 * o[Ke])) * n,
-              }))
-            : (o = Dr.exec(e))
-            ? ((n = "-" === o[1] ? -1 : 1),
-              (i = {
-                y: Yr(o[2], n),
-                M: Yr(o[3], n),
-                w: Yr(o[4], n),
-                d: Yr(o[5], n),
-                h: Yr(o[6], n),
-                m: Yr(o[7], n),
-                s: Yr(o[8], n),
-              }))
-            : null == i
-            ? (i = {})
-            : "object" == typeof i &&
-              ("from" in i || "to" in i) &&
-              ((s = Or(Kn(i.from), Kn(i.to))),
-              ((i = {}).ms = s.milliseconds),
-              (i.M = s.months)),
+          ar(e) ?
+          (i = {
+            ms: e._milliseconds,
+            d: e._days,
+            M: e._months,
+          }) :
+          c(e) || !isNaN(+e) ?
+          ((i = {}), t ? (i[t] = +e) : (i.milliseconds = +e)) :
+          (o = $r.exec(e)) ?
+          ((n = "-" === o[1] ? -1 : 1),
+            (i = {
+              y: 0,
+              d: ce(o[ze]) * n,
+              h: ce(o[Ue]) * n,
+              m: ce(o[Ve]) * n,
+              s: ce(o[Je]) * n,
+              ms: ce(lr(1e3 * o[Ke])) * n,
+            })) :
+          (o = Dr.exec(e)) ?
+          ((n = "-" === o[1] ? -1 : 1),
+            (i = {
+              y: Yr(o[2], n),
+              M: Yr(o[3], n),
+              w: Yr(o[4], n),
+              d: Yr(o[5], n),
+              h: Yr(o[6], n),
+              m: Yr(o[7], n),
+              s: Yr(o[8], n),
+            })) :
+          null == i ?
+          (i = {}) :
+          "object" == typeof i &&
+          ("from" in i || "to" in i) &&
+          ((s = Or(Kn(i.from), Kn(i.to))),
+            ((i = {}).ms = s.milliseconds),
+            (i.M = s.months)),
           (r = new or(i)),
           ar(e) && a(e, "_locale") && (r._locale = e._locale),
           ar(e) && a(e, "_isValid") && (r._isValid = e._isValid),
@@ -7499,17 +7604,17 @@ var app = (function () {
 
       function Or(e, t) {
         var n;
-        return e.isValid() && t.isValid()
-          ? ((t = fr(t, e)),
-            e.isBefore(t)
-              ? (n = Cr(e, t))
-              : (((n = Cr(t, e)).milliseconds = -n.milliseconds),
-                (n.months = -n.months)),
-            n)
-          : {
-              milliseconds: 0,
-              months: 0,
-            };
+        return e.isValid() && t.isValid() ?
+          ((t = fr(t, e)),
+            e.isBefore(t) ?
+            (n = Cr(e, t)) :
+            (((n = Cr(t, e)).milliseconds = -n.milliseconds),
+              (n.months = -n.months)),
+            n) :
+          {
+            milliseconds: 0,
+            months: 0,
+          };
       }
 
       function Pr(e, t) {
@@ -7517,14 +7622,14 @@ var app = (function () {
           var s;
           return (
             null === r ||
-              isNaN(+r) ||
-              (T(
+            isNaN(+r) ||
+            (T(
                 t,
                 "moment()." +
-                  t +
-                  "(period, number) is deprecated. Please use moment()." +
-                  t +
-                  "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."
+                t +
+                "(period, number) is deprecated. Please use moment()." +
+                t +
+                "(number, period). See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info."
               ),
               (s = n),
               (n = r),
@@ -7541,10 +7646,10 @@ var app = (function () {
           a = lr(t._months);
         e.isValid() &&
           ((s = null == s || s),
-          a && ut(e, he(e, "Month") + a * n),
-          o && fe(e, "Date", he(e, "Date") + o * n),
-          i && e._d.setTime(e._d.valueOf() + i * n),
-          s && r.updateOffset(e, o || a));
+            a && ut(e, he(e, "Month") + a * n),
+            o && fe(e, "Date", he(e, "Date") + o * n),
+            i && e._d.setTime(e._d.valueOf() + i * n),
+            s && r.updateOffset(e, o || a));
       }
       (Tr.fn = or.prototype), (Tr.invalid = ir);
       var Lr = Pr(1, "add"),
@@ -7589,7 +7694,7 @@ var app = (function () {
             "millisecond",
             "ms",
           ];
-        for (t = 0; t < i.length; t += 1) (n = i[t]), (s = s || a(e, n));
+        for (t = 0; t < i.length; t += 1)(n = i[t]), (s = s || a(e, n));
         return r && s;
       }
 
@@ -7598,11 +7703,11 @@ var app = (function () {
           n = !1;
         return (
           t &&
-            (n =
-              0 ===
-              e.filter(function (t) {
-                return !c(t) && Hr(e);
-              }).length),
+          (n =
+            0 ===
+            e.filter(function (t) {
+              return !c(t) && Hr(e);
+            }).length),
           t && n
         );
       }
@@ -7620,34 +7725,34 @@ var app = (function () {
             "lastWeek",
             "sameElse",
           ];
-        for (t = 0; t < i.length; t += 1) (n = i[t]), (s = s || a(e, n));
+        for (t = 0; t < i.length; t += 1)(n = i[t]), (s = s || a(e, n));
         return r && s;
       }
 
       function Gr(e, t) {
         var n = e.diff(t, "days", !0);
-        return n < -6
-          ? "sameElse"
-          : n < -1
-          ? "lastWeek"
-          : n < 0
-          ? "lastDay"
-          : n < 1
-          ? "sameDay"
-          : n < 2
-          ? "nextDay"
-          : n < 7
-          ? "nextWeek"
-          : "sameElse";
+        return n < -6 ?
+          "sameElse" :
+          n < -1 ?
+          "lastWeek" :
+          n < 0 ?
+          "lastDay" :
+          n < 1 ?
+          "sameDay" :
+          n < 2 ?
+          "nextDay" :
+          n < 7 ?
+          "nextWeek" :
+          "sameElse";
       }
 
       function Er(e, t) {
         1 === arguments.length &&
-          (arguments[0]
-            ? Ir(arguments[0])
-              ? ((e = arguments[0]), (t = void 0))
-              : Fr(arguments[0]) && ((t = arguments[0]), (e = void 0))
-            : ((e = void 0), (t = void 0)));
+          (arguments[0] ?
+            Ir(arguments[0]) ?
+            ((e = arguments[0]), (t = void 0)) :
+            Fr(arguments[0]) && ((t = arguments[0]), (e = void 0)) :
+            ((e = void 0), (t = void 0)));
         var n = e || Kn(),
           s = fr(n, this).startOf("day"),
           i = r.calendarFormat(this, s) || "sameElse",
@@ -7663,9 +7768,9 @@ var app = (function () {
         var n = b(e) ? e : Kn(e);
         return (
           !(!this.isValid() || !n.isValid()) &&
-          ("millisecond" === (t = re(t) || "millisecond")
-            ? this.valueOf() > n.valueOf()
-            : n.valueOf() < this.clone().startOf(t).valueOf())
+          ("millisecond" === (t = re(t) || "millisecond") ?
+            this.valueOf() > n.valueOf() :
+            n.valueOf() < this.clone().startOf(t).valueOf())
         );
       }
 
@@ -7673,9 +7778,9 @@ var app = (function () {
         var n = b(e) ? e : Kn(e);
         return (
           !(!this.isValid() || !n.isValid()) &&
-          ("millisecond" === (t = re(t) || "millisecond")
-            ? this.valueOf() < n.valueOf()
-            : this.clone().endOf(t).valueOf() < n.valueOf())
+          ("millisecond" === (t = re(t) || "millisecond") ?
+            this.valueOf() < n.valueOf() :
+            this.clone().endOf(t).valueOf() < n.valueOf())
         );
       }
 
@@ -7684,9 +7789,9 @@ var app = (function () {
           i = b(t) ? t : Kn(t);
         return (
           !!(this.isValid() && s.isValid() && i.isValid()) &&
-          ("(" === (r = r || "()")[0]
-            ? this.isAfter(s, n)
-            : !this.isBefore(s, n)) &&
+          ("(" === (r = r || "()")[0] ?
+            this.isAfter(s, n) :
+            !this.isBefore(s, n)) &&
           (")" === r[1] ? this.isBefore(i, n) : !this.isAfter(i, n))
         );
       }
@@ -7696,11 +7801,11 @@ var app = (function () {
           r = b(e) ? e : Kn(e);
         return (
           !(!this.isValid() || !r.isValid()) &&
-          ("millisecond" === (t = re(t) || "millisecond")
-            ? this.valueOf() === r.valueOf()
-            : ((n = r.valueOf()),
+          ("millisecond" === (t = re(t) || "millisecond") ?
+            this.valueOf() === r.valueOf() :
+            ((n = r.valueOf()),
               this.clone().startOf(t).valueOf() <= n &&
-                n <= this.clone().endOf(t).valueOf()))
+              n <= this.clone().endOf(t).valueOf()))
         );
       }
 
@@ -7754,9 +7859,9 @@ var app = (function () {
         return (
           -(
             n +
-            (t - r < 0
-              ? (t - r) / (r - e.clone().add(n - 1, "months"))
-              : (t - r) / (e.clone().add(n + 1, "months") - r))
+            (t - r < 0 ?
+              (t - r) / (r - e.clone().add(n - 1, "months")) :
+              (t - r) / (e.clone().add(n + 1, "months") - r))
           ) || 0
         );
       }
@@ -7771,23 +7876,23 @@ var app = (function () {
         if (!this.isValid()) return null;
         var t = !0 !== e,
           n = t ? this.clone().utc() : this;
-        return n.year() < 0 || n.year() > 9999
-          ? j(
-              n,
-              t
-                ? "YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]"
-                : "YYYYYY-MM-DD[T]HH:mm:ss.SSSZ"
-            )
-          : Y(Date.prototype.toISOString)
-          ? t
-            ? this.toDate().toISOString()
-            : new Date(this.valueOf() + 60 * this.utcOffset() * 1e3)
-                .toISOString()
-                .replace("Z", j(n, "Z"))
-          : j(
-              n,
-              t ? "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]" : "YYYY-MM-DD[T]HH:mm:ss.SSSZ"
-            );
+        return n.year() < 0 || n.year() > 9999 ?
+          j(
+            n,
+            t ?
+            "YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]" :
+            "YYYYYY-MM-DD[T]HH:mm:ss.SSSZ"
+          ) :
+          Y(Date.prototype.toISOString) ?
+          t ?
+          this.toDate().toISOString() :
+          new Date(this.valueOf() + 60 * this.utcOffset() * 1e3)
+          .toISOString()
+          .replace("Z", j(n, "Z")) :
+          j(
+            n,
+            t ? "YYYY-MM-DD[T]HH:mm:ss.SSS[Z]" : "YYYY-MM-DD[T]HH:mm:ss.SSSZ"
+          );
       }
 
       function es() {
@@ -7800,7 +7905,7 @@ var app = (function () {
           i = "";
         return (
           this.isLocal() ||
-            ((s = 0 === this.utcOffset() ? "moment.utc" : "moment.parseZone"),
+          ((s = 0 === this.utcOffset() ? "moment.utc" : "moment.parseZone"),
             (i = "Z")),
           (e = "[" + s + '("]'),
           (t = 0 <= this.year() && this.year() <= 9999 ? "YYYY" : "YYYYYY"),
@@ -7817,14 +7922,14 @@ var app = (function () {
       }
 
       function ns(e, t) {
-        return this.isValid() && ((b(e) && e.isValid()) || Kn(e).isValid())
-          ? Tr({
-              to: this,
-              from: e,
-            })
-              .locale(this.locale())
-              .humanize(!t)
-          : this.localeData().invalidDate();
+        return this.isValid() && ((b(e) && e.isValid()) || Kn(e).isValid()) ?
+          Tr({
+            to: this,
+            from: e,
+          })
+          .locale(this.locale())
+          .humanize(!t) :
+          this.localeData().invalidDate();
       }
 
       function rs(e) {
@@ -7832,14 +7937,14 @@ var app = (function () {
       }
 
       function ss(e, t) {
-        return this.isValid() && ((b(e) && e.isValid()) || Kn(e).isValid())
-          ? Tr({
-              from: this,
-              to: e,
-            })
-              .locale(this.locale())
-              .humanize(!t)
-          : this.localeData().invalidDate();
+        return this.isValid() && ((b(e) && e.isValid()) || Kn(e).isValid()) ?
+          Tr({
+            from: this,
+            to: e,
+          })
+          .locale(this.locale())
+          .humanize(!t) :
+          this.localeData().invalidDate();
       }
 
       function is(e) {
@@ -7848,12 +7953,12 @@ var app = (function () {
 
       function os(e) {
         var t;
-        return void 0 === e
-          ? this._locale._abbr
-          : (null != (t = vn(e)) && (this._locale = t), this);
+        return void 0 === e ?
+          this._locale._abbr :
+          (null != (t = vn(e)) && (this._locale = t), this);
       }
       (r.defaultFormat = "YYYY-MM-DDTHH:mm:ssZ"),
-        (r.defaultFormatUtc = "YYYY-MM-DDTHH:mm:ss[Z]");
+      (r.defaultFormatUtc = "YYYY-MM-DDTHH:mm:ss[Z]");
       var as = M(
         "moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.",
         function (e) {
@@ -7874,15 +7979,15 @@ var app = (function () {
       }
 
       function ms(e, t, n) {
-        return e < 100 && e >= 0
-          ? new Date(e + 400, t, n) - hs
-          : new Date(e, t, n).valueOf();
+        return e < 100 && e >= 0 ?
+          new Date(e + 400, t, n) - hs :
+          new Date(e, t, n).valueOf();
       }
 
       function ps(e, t, n) {
-        return e < 100 && e >= 0
-          ? Date.UTC(e + 400, t, n) - hs
-          : Date.UTC(e, t, n);
+        return e < 100 && e >= 0 ?
+          Date.UTC(e + 400, t, n) - hs :
+          Date.UTC(e, t, n);
       }
 
       function gs(e) {
@@ -7915,7 +8020,7 @@ var app = (function () {
             break;
           case "hour":
             (t = this._d.valueOf()),
-              (t -= fs(t + (this._isUTC ? 0 : this.utcOffset() * cs), ds));
+            (t -= fs(t + (this._isUTC ? 0 : this.utcOffset() * cs), ds));
             break;
           case "minute":
             (t = this._d.valueOf()), (t -= fs(t, cs));
@@ -7959,8 +8064,8 @@ var app = (function () {
             break;
           case "hour":
             (t = this._d.valueOf()),
-              (t +=
-                ds - fs(t + (this._isUTC ? 0 : this.utcOffset() * cs), ds) - 1);
+            (t +=
+              ds - fs(t + (this._isUTC ? 0 : this.utcOffset() * cs), ds) - 1);
             break;
           case "minute":
             (t = this._d.valueOf()), (t += cs - fs(t, cs) - 1);
@@ -8044,14 +8149,14 @@ var app = (function () {
           switch (
             ("string" == typeof o[n].since &&
               ((i = r(o[n].since).startOf("day")), (o[n].since = i.valueOf())),
-            typeof o[n].until)
+              typeof o[n].until)
           ) {
             case "undefined":
               o[n].until = 1 / 0;
               break;
             case "string":
               (i = r(o[n].until).startOf("day").valueOf()),
-                (o[n].until = i.valueOf());
+              (o[n].until = i.valueOf());
           }
         return o;
       }
@@ -8066,9 +8171,9 @@ var app = (function () {
         for (e = e.toUpperCase(), r = 0, s = l.length; r < s; ++r)
           if (
             ((i = l[r].name.toUpperCase()),
-            (o = l[r].abbr.toUpperCase()),
-            (a = l[r].narrow.toUpperCase()),
-            n)
+              (o = l[r].abbr.toUpperCase()),
+              (a = l[r].narrow.toUpperCase()),
+              n)
           )
             switch (t) {
               case "N":
@@ -8082,14 +8187,14 @@ var app = (function () {
               case "NNNNN":
                 if (a === e) return l[r];
             }
-          else if ([i, o, a].indexOf(e) >= 0) return l[r];
+        else if ([i, o, a].indexOf(e) >= 0) return l[r];
       }
 
       function Cs(e, t) {
         var n = e.since <= e.until ? 1 : -1;
-        return void 0 === t
-          ? r(e.since).year()
-          : r(e.since).year() + (t - e.offset) * n;
+        return void 0 === t ?
+          r(e.since).year() :
+          r(e.since).year() + (t - e.offset) * n;
       }
 
       function Os() {
@@ -8100,7 +8205,7 @@ var app = (function () {
         for (e = 0, t = r.length; e < t; ++e) {
           if (
             ((n = this.clone().startOf("day").valueOf()),
-            r[e].since <= n && n <= r[e].until)
+              r[e].since <= n && n <= r[e].until)
           )
             return r[e].name;
           if (r[e].until <= n && n <= r[e].since) return r[e].name;
@@ -8116,7 +8221,7 @@ var app = (function () {
         for (e = 0, t = r.length; e < t; ++e) {
           if (
             ((n = this.clone().startOf("day").valueOf()),
-            r[e].since <= n && n <= r[e].until)
+              r[e].since <= n && n <= r[e].until)
           )
             return r[e].narrow;
           if (r[e].until <= n && n <= r[e].since) return r[e].narrow;
@@ -8132,7 +8237,7 @@ var app = (function () {
         for (e = 0, t = r.length; e < t; ++e) {
           if (
             ((n = this.clone().startOf("day").valueOf()),
-            r[e].since <= n && n <= r[e].until)
+              r[e].since <= n && n <= r[e].until)
           )
             return r[e].abbr;
           if (r[e].until <= n && n <= r[e].since) return r[e].abbr;
@@ -8149,8 +8254,8 @@ var app = (function () {
         for (e = 0, t = i.length; e < t; ++e)
           if (
             ((n = i[e].since <= i[e].until ? 1 : -1),
-            (s = this.clone().startOf("day").valueOf()),
-            (i[e].since <= s && s <= i[e].until) ||
+              (s = this.clone().startOf("day").valueOf()),
+              (i[e].since <= s && s <= i[e].until) ||
               (i[e].until <= s && s <= i[e].since))
           )
             return (this.year() - r(i[e].since).year()) * n + i[e].offset;
@@ -8204,15 +8309,15 @@ var app = (function () {
           o = this.eras();
         for (e = 0, t = o.length; e < t; ++e)
           r.push(Ie(o[e].name)),
-            n.push(Ie(o[e].abbr)),
-            s.push(Ie(o[e].narrow)),
-            i.push(Ie(o[e].name)),
-            i.push(Ie(o[e].abbr)),
-            i.push(Ie(o[e].narrow));
+          n.push(Ie(o[e].abbr)),
+          s.push(Ie(o[e].narrow)),
+          i.push(Ie(o[e].name)),
+          i.push(Ie(o[e].abbr)),
+          i.push(Ie(o[e].narrow));
         (this._erasRegex = new RegExp("^(" + i.join("|") + ")", "i")),
-          (this._erasNameRegex = new RegExp("^(" + r.join("|") + ")", "i")),
-          (this._erasAbbrRegex = new RegExp("^(" + n.join("|") + ")", "i")),
-          (this._erasNarrowRegex = new RegExp("^(" + s.join("|") + ")", "i"));
+        (this._erasNameRegex = new RegExp("^(" + r.join("|") + ")", "i")),
+        (this._erasAbbrRegex = new RegExp("^(" + n.join("|") + ")", "i")),
+        (this._erasNarrowRegex = new RegExp("^(" + s.join("|") + ")", "i"));
       }
 
       function js(e, t) {
@@ -8254,9 +8359,9 @@ var app = (function () {
 
       function Zs(e, t, n, r, s) {
         var i;
-        return null == e
-          ? bt(this, r, s).year
-          : (t > (i = St(e, r, s)) && (t = i), qs.call(this, e, t, n, r, s));
+        return null == e ?
+          bt(this, r, s).year :
+          (t > (i = St(e, r, s)) && (t = i), qs.call(this, e, t, n, r, s));
       }
 
       function qs(e, t, n, r, s) {
@@ -8271,9 +8376,9 @@ var app = (function () {
       }
 
       function Xs(e) {
-        return null == e
-          ? Math.ceil((this.month() + 1) / 3)
-          : this.month(3 * (e - 1) + (this.month() % 3));
+        return null == e ?
+          Math.ceil((this.month() + 1) / 3) :
+          this.month(3 * (e - 1) + (this.month() % 3));
       }
       F("N", 0, 0, "eraAbbr"),
         F("NN", 0, 0, "eraAbbr"),
@@ -8303,9 +8408,9 @@ var app = (function () {
           var s;
           n._locale._eraYearOrdinalRegex &&
             (s = e.match(n._locale._eraYearOrdinalRegex)),
-            n._locale.eraYearOrdinalParse
-              ? (t[je] = n._locale.eraYearOrdinalParse(e, s))
-              : (t[je] = parseInt(e, 10));
+            n._locale.eraYearOrdinalParse ?
+            (t[je] = n._locale.eraYearOrdinalParse(e, s)) :
+            (t[je] = parseInt(e, 10));
         }),
         F(0, ["gg", 2], 0, function () {
           return this.weekYear() % 100;
@@ -8348,9 +8453,9 @@ var app = (function () {
         Le("D", xe),
         Le("DD", xe, ve),
         Le("Do", function (e, t) {
-          return e
-            ? t._dayOfMonthOrdinalParse || t._ordinalParse
-            : t._dayOfMonthOrdinalParseLenient;
+          return e ?
+            t._dayOfMonthOrdinalParse || t._ordinalParse :
+            t._dayOfMonthOrdinalParseLenient;
         }),
         Re(["D", "DD"], ze),
         Re("Do", function (e, t) {
@@ -8393,36 +8498,34 @@ var app = (function () {
         F("S", 0, 0, function () {
           return ~~(this.millisecond() / 100);
         }),
-          F(0, ["SS", 2], 0, function () {
-            return ~~(this.millisecond() / 10);
-          }),
-          F(0, ["SSS", 3], 0, "millisecond"),
-          F(0, ["SSSS", 4], 0, function () {
-            return 10 * this.millisecond();
-          }),
-          F(0, ["SSSSS", 5], 0, function () {
-            return 100 * this.millisecond();
-          }),
-          F(0, ["SSSSSS", 6], 0, function () {
-            return 1e3 * this.millisecond();
-          }),
-          F(0, ["SSSSSSS", 7], 0, function () {
-            return 1e4 * this.millisecond();
-          }),
-          F(0, ["SSSSSSSS", 8], 0, function () {
-            return 1e5 * this.millisecond();
-          }),
-          F(0, ["SSSSSSSSS", 9], 0, function () {
-            return 1e6 * this.millisecond();
-          }),
-          ne("millisecond", "ms"),
-          oe("millisecond", 16),
-          Le("S", Me, ye),
-          Le("SS", Me, ve),
-          Le("SSS", Me, we),
-          ni = "SSSS";
-        ni.length <= 9;
-        ni += "S"
+        F(0, ["SS", 2], 0, function () {
+          return ~~(this.millisecond() / 10);
+        }),
+        F(0, ["SSS", 3], 0, "millisecond"),
+        F(0, ["SSSS", 4], 0, function () {
+          return 10 * this.millisecond();
+        }),
+        F(0, ["SSSSS", 5], 0, function () {
+          return 100 * this.millisecond();
+        }),
+        F(0, ["SSSSSS", 6], 0, function () {
+          return 1e3 * this.millisecond();
+        }),
+        F(0, ["SSSSSSS", 7], 0, function () {
+          return 1e4 * this.millisecond();
+        }),
+        F(0, ["SSSSSSSS", 8], 0, function () {
+          return 1e5 * this.millisecond();
+        }),
+        F(0, ["SSSSSSSSS", 9], 0, function () {
+          return 1e6 * this.millisecond();
+        }),
+        ne("millisecond", "ms"),
+        oe("millisecond", 16),
+        Le("S", Me, ye),
+        Le("SS", Me, ve),
+        Le("SSS", Me, we),
+        ni = "SSSS"; ni.length <= 9; ni += "S"
       )
         Le(ni, Te);
 
@@ -8439,7 +8542,7 @@ var app = (function () {
         return this._isUTC ? "Coordinated Universal Time" : "";
       }
       (ri = de("Milliseconds", !1)),
-        F("z", 0, 0, "zoneAbbr"),
+      F("z", 0, 0, "zoneAbbr"),
         F("zz", 0, 0, "zoneName");
       var li = x.prototype;
 
@@ -8455,43 +8558,43 @@ var app = (function () {
         return e;
       }
       (li.add = Lr),
-        (li.calendar = Er),
-        (li.clone = jr),
-        (li.diff = Zr),
-        (li.endOf = ys),
-        (li.format = ts),
-        (li.from = ns),
-        (li.fromNow = rs),
-        (li.to = ss),
-        (li.toNow = is),
-        (li.get = me),
-        (li.invalidAt = $s),
-        (li.isAfter = Br),
-        (li.isBefore = zr),
-        (li.isBetween = Ur),
-        (li.isSame = Vr),
-        (li.isSameOrAfter = Jr),
-        (li.isSameOrBefore = Kr),
-        (li.isValid = Ss),
-        (li.lang = as),
-        (li.locale = os),
-        (li.localeData = ls),
-        (li.max = qn),
-        (li.min = Zn),
-        (li.parsingFlags = Ms),
-        (li.set = pe),
-        (li.startOf = gs),
-        (li.subtract = Nr),
-        (li.toArray = _s),
-        (li.toObject = xs),
-        (li.toDate = ks),
-        (li.toISOString = Qr),
-        (li.inspect = es),
-        "undefined" != typeof Symbol &&
-          null != Symbol.for &&
-          (li[Symbol.for("nodejs.util.inspect.custom")] = function () {
-            return "Moment<" + this.format() + ">";
-          }),
+      (li.calendar = Er),
+      (li.clone = jr),
+      (li.diff = Zr),
+      (li.endOf = ys),
+      (li.format = ts),
+      (li.from = ns),
+      (li.fromNow = rs),
+      (li.to = ss),
+      (li.toNow = is),
+      (li.get = me),
+      (li.invalidAt = $s),
+      (li.isAfter = Br),
+      (li.isBefore = zr),
+      (li.isBetween = Ur),
+      (li.isSame = Vr),
+      (li.isSameOrAfter = Jr),
+      (li.isSameOrBefore = Kr),
+      (li.isValid = Ss),
+      (li.lang = as),
+      (li.locale = os),
+      (li.localeData = ls),
+      (li.max = qn),
+      (li.min = Zn),
+      (li.parsingFlags = Ms),
+      (li.set = pe),
+      (li.startOf = gs),
+      (li.subtract = Nr),
+      (li.toArray = _s),
+      (li.toObject = xs),
+      (li.toDate = ks),
+      (li.toISOString = Qr),
+      (li.inspect = es),
+      "undefined" != typeof Symbol &&
+        null != Symbol.for &&
+        (li[Symbol.for("nodejs.util.inspect.custom")] = function () {
+          return "Moment<" + this.format() + ">";
+        }),
         (li.toJSON = bs),
         (li.toString = Xr),
         (li.unix = ws),
@@ -8565,8 +8668,9 @@ var app = (function () {
 
       function pi(e, t, n, r) {
         "boolean" == typeof e
-          ? (c(t) && ((n = t), (t = void 0)), (t = t || ""))
-          : ((n = t = e),
+          ?
+          (c(t) && ((n = t), (t = void 0)), (t = t || "")) :
+          ((n = t = e),
             (e = !1),
             c(t) && ((n = t), (t = void 0)),
             (t = t || ""));
@@ -8599,40 +8703,39 @@ var app = (function () {
         return pi(e, t, n, "weekdaysMin");
       }
       (hi.calendar = L),
-        (hi.longDateFormat = U),
-        (hi.invalidDate = J),
-        (hi.ordinal = q),
-        (hi.preparse = di),
-        (hi.postformat = di),
-        (hi.relativeTime = Q),
-        (hi.pastFuture = ee),
-        (hi.set = C),
-        (hi.eras = Ts),
-        (hi.erasParse = Ys),
-        (hi.erasConvertYear = Cs),
-        (hi.erasAbbrRegex = Hs),
-        (hi.erasNameRegex = Ns),
-        (hi.erasNarrowRegex = Is),
-        (hi.months = it),
-        (hi.monthsShort = ot),
-        (hi.monthsParse = lt),
-        (hi.monthsRegex = ft),
-        (hi.monthsShortRegex = ht),
-        (hi.week = Mt),
-        (hi.firstDayOfYear = Tt),
-        (hi.firstDayOfWeek = Dt),
-        (hi.weekdays = Ft),
-        (hi.weekdaysMin = Et),
-        (hi.weekdaysShort = Gt),
-        (hi.weekdaysParse = Bt),
-        (hi.weekdaysRegex = Jt),
-        (hi.weekdaysShortRegex = Kt),
-        (hi.weekdaysMinRegex = Zt),
-        (hi.isPM = nn),
-        (hi.meridiem = on),
-        pn("en", {
-          eras: [
-            {
+      (hi.longDateFormat = U),
+      (hi.invalidDate = J),
+      (hi.ordinal = q),
+      (hi.preparse = di),
+      (hi.postformat = di),
+      (hi.relativeTime = Q),
+      (hi.pastFuture = ee),
+      (hi.set = C),
+      (hi.eras = Ts),
+      (hi.erasParse = Ys),
+      (hi.erasConvertYear = Cs),
+      (hi.erasAbbrRegex = Hs),
+      (hi.erasNameRegex = Ns),
+      (hi.erasNarrowRegex = Is),
+      (hi.months = it),
+      (hi.monthsShort = ot),
+      (hi.monthsParse = lt),
+      (hi.monthsRegex = ft),
+      (hi.monthsShortRegex = ht),
+      (hi.week = Mt),
+      (hi.firstDayOfYear = Tt),
+      (hi.firstDayOfWeek = Dt),
+      (hi.weekdays = Ft),
+      (hi.weekdaysMin = Et),
+      (hi.weekdaysShort = Gt),
+      (hi.weekdaysParse = Bt),
+      (hi.weekdaysRegex = Jt),
+      (hi.weekdaysShortRegex = Kt),
+      (hi.weekdaysMinRegex = Zt),
+      (hi.isPM = nn),
+      (hi.meridiem = on),
+      pn("en", {
+          eras: [{
               since: "0001-01-01",
               until: 1 / 0,
               offset: 1,
@@ -8654,15 +8757,15 @@ var app = (function () {
             var t = e % 10;
             return (
               e +
-              (1 === ce((e % 100) / 10)
-                ? "th"
-                : 1 === t
-                ? "st"
-                : 2 === t
-                ? "nd"
-                : 3 === t
-                ? "rd"
-                : "th")
+              (1 === ce((e % 100) / 10) ?
+                "th" :
+                1 === t ?
+                "st" :
+                2 === t ?
+                "nd" :
+                3 === t ?
+                "rd" :
+                "th")
             );
           },
         }),
@@ -8726,8 +8829,8 @@ var app = (function () {
           l = this._data;
         return (
           (i >= 0 && o >= 0 && a >= 0) ||
-            (i <= 0 && o <= 0 && a <= 0) ||
-            ((i += 864e5 * $i(Yi(a) + o)), (o = 0), (a = 0)),
+          (i <= 0 && o <= 0 && a <= 0) ||
+          ((i += 864e5 * $i(Yi(a) + o)), (o = 0), (a = 0)),
           (l.milliseconds = i % 1e3),
           (e = ue(i / 1e3)),
           (l.seconds = e % 60),
@@ -8791,12 +8894,12 @@ var app = (function () {
       }
 
       function Oi() {
-        return this.isValid()
-          ? this._milliseconds +
-              864e5 * this._days +
-              (this._months % 12) * 2592e6 +
-              31536e6 * ce(this._months / 12)
-          : NaN;
+        return this.isValid() ?
+          this._milliseconds +
+          864e5 * this._days +
+          (this._months % 12) * 2592e6 +
+          31536e6 * ce(this._months / 12) :
+          NaN;
       }
 
       function Pi(e) {
@@ -8863,14 +8966,14 @@ var app = (function () {
           c = Qi(s.as("w")),
           d = Qi(s.as("y")),
           h =
-            (i <= n.ss && ["s", i]) ||
-            (i < n.s && ["ss", i]) ||
-            (o <= 1 && ["m"]) ||
-            (o < n.m && ["mm", o]) ||
-            (a <= 1 && ["h"]) ||
-            (a < n.h && ["hh", a]) ||
-            (l <= 1 && ["d"]) ||
-            (l < n.d && ["dd", l]);
+          (i <= n.ss && ["s", i]) ||
+          (i < n.s && ["ss", i]) ||
+          (o <= 1 && ["m"]) ||
+          (o < n.m && ["mm", o]) ||
+          (a <= 1 && ["h"]) ||
+          (a < n.h && ["hh", a]) ||
+          (l <= 1 && ["d"]) ||
+          (l < n.d && ["dd", l]);
         return (
           null != n.w && (h = h || (c <= 1 && ["w"]) || (c < n.w && ["ww", c])),
           ((h = h ||
@@ -8890,9 +8993,9 @@ var app = (function () {
       function so(e, t) {
         return (
           void 0 !== eo[e] &&
-          (void 0 === t
-            ? eo[e]
-            : ((eo[e] = t), "s" === e && (eo.ss = t - 1), !0))
+          (void 0 === t ?
+            eo[e] :
+            ((eo[e] = t), "s" === e && (eo.ss = t - 1), !0))
         );
       }
 
@@ -8906,7 +9009,7 @@ var app = (function () {
           "object" == typeof e && ((t = e), (e = !1)),
           "boolean" == typeof e && (s = e),
           "object" == typeof t &&
-            ((i = Object.assign({}, eo, t)),
+          ((i = Object.assign({}, eo, t)),
             null != t.s && null == t.ss && (i.ss = t.s - 1)),
           (r = no(this, !s, i, (n = this.localeData()))),
           s && (r = n.pastFuture(+this, r)),
@@ -8933,8 +9036,8 @@ var app = (function () {
           u = oo(this._days),
           c = oo(this._months),
           d = this.asSeconds();
-        return d
-          ? ((e = ue(l / 60)),
+        return d ?
+          ((e = ue(l / 60)),
             (t = ue(e / 60)),
             (l %= 60),
             (e %= 60),
@@ -8946,15 +9049,15 @@ var app = (function () {
             (o = ao(this._days) !== ao(d) ? "-" : ""),
             (a = ao(this._milliseconds) !== ao(d) ? "-" : ""),
             s +
-              "P" +
-              (n ? i + n + "Y" : "") +
-              (c ? i + c + "M" : "") +
-              (u ? o + u + "D" : "") +
-              (t || e || l ? "T" : "") +
-              (t ? a + t + "H" : "") +
-              (e ? a + e + "M" : "") +
-              (l ? a + r + "S" : ""))
-          : "P0D";
+            "P" +
+            (n ? i + n + "Y" : "") +
+            (c ? i + c + "M" : "") +
+            (u ? o + u + "D" : "") +
+            (t || e || l ? "T" : "") +
+            (t ? a + t + "H" : "") +
+            (e ? a + e + "M" : "") +
+            (l ? a + r + "S" : "")) :
+          "P0D";
       }
       var uo = or.prototype;
       return (
@@ -9299,8 +9402,7 @@ var app = (function () {
     //Estas pos ya las canciones guardadas con su link pa que suenen etc
     On = {
       subscribe: ue(
-        [
-          {
+        [{
             answer: "Miguel Bosé - Morenamía ", //27-Marzo-2022
             url: "https://soundcloud.com/bosemiguel/morenamia-dueto-2007",
           },
@@ -9403,8 +9505,7 @@ var app = (function () {
             url: "https://soundcloud.com/celtas-cortos-official/20-de-abril-1#t=00:03",
           },
           {
-            answer:
-              "Manolo García - A San Fernando un Ratito a Pie y Otro Caminando",
+            answer: "Manolo García - A San Fernando un Ratito a Pie y Otro Caminando",
             url: "https://soundcloud.com/manolo-garcia-official/a-san-fernando-un-ratito-a-pie",
             timeout: 3000,
           },
@@ -9508,7 +9609,7 @@ var app = (function () {
             url: "https://soundcloud.com/bustamante-official/no-soy-un-superman-album",
             answer: "Bustamante - No Soy Un Superman",
           },
-          
+
           {
             answer: "Marta Sánchez - Soy Yo",
             url: "https://soundcloud.com/marta-sanchez-official/soy-yo-album-version",
@@ -9552,8 +9653,7 @@ var app = (function () {
           },
           {
             url: "https://soundcloud.com/djsnake/taki-taki-feat-selena-gomez",
-            answer:
-              "DJ Snake - Taki Taki ft. Selena Gomez, Ozuna, Cardi B",
+            answer: "DJ Snake - Taki Taki ft. Selena Gomez, Ozuna, Cardi B",
           },
           {
             url: "https://soundcloud.com/el-canto-del-loco/la-madre-de-jose",
@@ -9569,142 +9669,142 @@ var app = (function () {
             url: "https://soundcloud.com/shakira/lo-hecho-est-hecho",
           },
           {
-            url: "https://soundcloud.com/lacasaazul-music/la-revolucion-sexual", 
+            url: "https://soundcloud.com/lacasaazul-music/la-revolucion-sexual",
             answer: "La Casa Azul - La Revolución Sexual",
           },
           {
             url: "https://soundcloud.com/raffaella-carra-official/hay-quel-venir-al-sur",
             answer: "Raffaella Carra - Hay Quel Venir al Sur",
           },
-         {
-           answer: "Mecano - Mujer contra mujer", //1
-           url: "https://soundcloud.com/mecano-official/mujer-contra-mujer",
-           timeout:500
-         },
-         {
-           answer: "Mónica Naranjo - Sobreviviré", //2
+          {
+            answer: "Mecano - Mujer contra mujer", //1
+            url: "https://soundcloud.com/mecano-official/mujer-contra-mujer",
+            timeout: 500
+          },
+          {
+            answer: "Mónica Naranjo - Sobreviviré", //2
             url: "https://soundcloud.com/monica-naranjo-official/sobrevivir",
-         },
-         {   
-           "answer": "Chenoa - Cuando Tú Vas",
-           "url": "https://soundcloud.com/chenoa-official/cuando-t-vas-album-version?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Los Ronaldos - No Puedo Vivir Sin Ti",
-             "url": "https://soundcloud.com/losronaldos/no-puedo-vivir-sin-ti-2?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Tino Casal - Embrujada",
-             "url": "https://soundcloud.com/tino-casal-official/embrujada?in=clo-matik/sets/orgullo/",
-             timeout: 600,
-         },
-         {
-             "answer": "Rocio Durcal - La Gata Bajo la Lluvia",
-             "url": "https://soundcloud.com/rocio-durcal-official/la-gata-bajo-la-lluvia?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Raphael - Qué sabe nadie",
-             "url": "https://soundcloud.com/raphael-official/qu-sabe-nadie-1?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Calle 13 - Atrévete-Te-Te",
-             "url": "https://soundcloud.com/calle13music/atr-vete-te-te-album-version?in=clo-matik/sets/orgullo/"
-         } ,
-         {
-             "answer": "Cristina 'La Veneno' - Veneno Pa Tu Piel",
-             "url": "https://soundcloud.com/cristinalaveneno-music/sets/veneno-pa-tu-piel?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
-         },
-         {
-             "answer": "Yuri - Este Amor Ya No Se Toca",
-             "url": "https://soundcloud.com/rosj694gw/este-amor-ya-no-se-toca?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Esteman - Amor Libre",
-             "url": "https://soundcloud.com/esteman-official/amor-libre-1?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Miguel Bosé - Amante bandido 99",
-             "url": "https://soundcloud.com/bosemiguel/amante-bandido-99?in=clo-matik/sets/orgullo/"
-         },
+          },
+          {
+            "answer": "Chenoa - Cuando Tú Vas",
+            "url": "https://soundcloud.com/chenoa-official/cuando-t-vas-album-version?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Los Ronaldos - No Puedo Vivir Sin Ti",
+            "url": "https://soundcloud.com/losronaldos/no-puedo-vivir-sin-ti-2?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Tino Casal - Embrujada",
+            "url": "https://soundcloud.com/tino-casal-official/embrujada?in=clo-matik/sets/orgullo/",
+            timeout: 600,
+          },
+          {
+            "answer": "Rocio Durcal - La Gata Bajo la Lluvia",
+            "url": "https://soundcloud.com/rocio-durcal-official/la-gata-bajo-la-lluvia?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Raphael - Qué sabe nadie",
+            "url": "https://soundcloud.com/raphael-official/qu-sabe-nadie-1?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Calle 13 - Atrévete-Te-Te",
+            "url": "https://soundcloud.com/calle13music/atr-vete-te-te-album-version?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Cristina 'La Veneno' - Veneno Pa Tu Piel",
+            "url": "https://soundcloud.com/cristinalaveneno-music/sets/veneno-pa-tu-piel?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+          },
+          {
+            "answer": "Yuri - Este Amor Ya No Se Toca",
+            "url": "https://soundcloud.com/rosj694gw/este-amor-ya-no-se-toca?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Esteman - Amor Libre",
+            "url": "https://soundcloud.com/esteman-official/amor-libre-1?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Miguel Bosé - Amante bandido 99",
+            "url": "https://soundcloud.com/bosemiguel/amante-bandido-99?in=clo-matik/sets/orgullo/"
+          },
 
-         {
-             "answer": "Raphael - Escándalo",
-             "url": "https://soundcloud.com/raphael-official/escandalo-remastered?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
-         },
-         {
-             "answer": "Miss Caffeina - Mira cómo vuelo",
-             "url": "https://soundcloud.com/miss-caffeina-official/mira-c-mo-vuelo?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "La Unión - Vuelve el amor",
-             "url": "https://soundcloud.com/la-union-official/vuelve-el-amor?in=clo-matik/sets/orgullo/",
-           timeout:2500,
-         },
-         {
-             "answer": "Ricky Martin - Pégate",
-             "url": "https://soundcloud.com/ricky-martin-official/p-gate-mtv-unplugged-version?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Shakira - Loba",
-             "url": "https://soundcloud.com/shakira/loba?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Marta Sánchez - Soy Yo",
-             "url": "https://soundcloud.com/marta-sanchez-official/soy-yo-album-version?in=clo-matik/sets/orgullo/",
-           timeout:1200,
-         },
-         {
-             "answer": "Camilo Sesto - Vivir Así Es Morir de Amor",
-             "url": "https://soundcloud.com/camilo-sesto-official/vivir-as-es-morir-de-amor-1?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Fangoria - A quién le importa",
-             "url": "https://soundcloud.com/fangoria-official/a-quien-le-importa?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Mecano - Stereosexual",
-             "url": "https://soundcloud.com/mecano-official/stereosexual?in=clo-matik/sets/orgullo/",
-           timeout:600,
-         },
-         // {
-         //     "answer": "Ladilla Rusa - KITT y los coches del pasado (feat. Joan Colomo, Los Ganglios, Laura Santos &amp; Lady Gipsy)",
-         //     "url": "https://soundcloud.com/ladillarusa/kitt-y-los-coches-del-pasado?in=clo-matik/sets/orgullo/",
-         //   timeout:2300,
-         // },
-         {
+          {
+            "answer": "Raphael - Escándalo",
+            "url": "https://soundcloud.com/raphael-official/escandalo-remastered?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"
+          },
+          {
+            "answer": "Miss Caffeina - Mira cómo vuelo",
+            "url": "https://soundcloud.com/miss-caffeina-official/mira-c-mo-vuelo?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "La Unión - Vuelve el amor",
+            "url": "https://soundcloud.com/la-union-official/vuelve-el-amor?in=clo-matik/sets/orgullo/",
+            timeout: 2500,
+          },
+          {
+            "answer": "Ricky Martin - Pégate",
+            "url": "https://soundcloud.com/ricky-martin-official/p-gate-mtv-unplugged-version?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Shakira - Loba",
+            "url": "https://soundcloud.com/shakira/loba?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Marta Sánchez - Soy Yo",
+            "url": "https://soundcloud.com/marta-sanchez-official/soy-yo-album-version?in=clo-matik/sets/orgullo/",
+            timeout: 1200,
+          },
+          {
+            "answer": "Camilo Sesto - Vivir Así Es Morir de Amor",
+            "url": "https://soundcloud.com/camilo-sesto-official/vivir-as-es-morir-de-amor-1?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Fangoria - A quién le importa",
+            "url": "https://soundcloud.com/fangoria-official/a-quien-le-importa?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Mecano - Stereosexual",
+            "url": "https://soundcloud.com/mecano-official/stereosexual?in=clo-matik/sets/orgullo/",
+            timeout: 600,
+          },
+          // {
+          //     "answer": "Ladilla Rusa - KITT y los coches del pasado (feat. Joan Colomo, Los Ganglios, Laura Santos &amp; Lady Gipsy)",
+          //     "url": "https://soundcloud.com/ladillarusa/kitt-y-los-coches-del-pasado?in=clo-matik/sets/orgullo/",
+          //   timeout:2300,
+          // },
+          {
             answer: "Mónica Naranjo - Desátame",
             url: "https://soundcloud.com/monica-naranjo-official/des-tame-1",
           },
 
-         {
-             "answer": "Rosalia - BIZCOCHITO",
-             "url": "https://soundcloud.com/rosaliaofficial/bizcochito?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Bustamante - Dos Hombres Y Un Destino",
-             "url": "https://soundcloud.com/bustamante-official/dos-hombres-y-un-destino-a-duo?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "BADGYAL - Fiebre (Prod. King DouDou)",
-             "url": "https://soundcloud.com/badgyalsc/fiebre-prod-king-doudou?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Julieta Venegas - Limón y Sal",
-             "url": "https://soundcloud.com/julietav/lim-n-y-sal?in=clo-matik/sets/orgullo/"
-         },
-         {
-             "answer": "Gloria Trevi - Todos Me Miran",
-             "url": "https://soundcloud.com/gloria-trevi-official/todos-me-miran-album-version?in=clo-matik/sets/orgullo/"
-         },
           {
-             "answer": "María Peláe - Mi Tio Juan",
-             "url": "https://soundcloud.com/mariapelae-music/mi-tio-juan?in=clo-matik/sets/orgullo/",
-           timeout:500,
-         },
+            "answer": "Rosalia - BIZCOCHITO",
+            "url": "https://soundcloud.com/rosaliaofficial/bizcochito?in=clo-matik/sets/orgullo/"
+          },
           {
-              "answer": "Super-G - El Armario Quedó Atrás",
-              "url": "https://soundcloud.com/supergofficial/el-armario-quedo-atras?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
-              timeout:3500
+            "answer": "Bustamante - Dos Hombres Y Un Destino",
+            "url": "https://soundcloud.com/bustamante-official/dos-hombres-y-un-destino-a-duo?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "BADGYAL - Fiebre (Prod. King DouDou)",
+            "url": "https://soundcloud.com/badgyalsc/fiebre-prod-king-doudou?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Julieta Venegas - Limón y Sal",
+            "url": "https://soundcloud.com/julietav/lim-n-y-sal?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "Gloria Trevi - Todos Me Miran",
+            "url": "https://soundcloud.com/gloria-trevi-official/todos-me-miran-album-version?in=clo-matik/sets/orgullo/"
+          },
+          {
+            "answer": "María Peláe - Mi Tio Juan",
+            "url": "https://soundcloud.com/mariapelae-music/mi-tio-juan?in=clo-matik/sets/orgullo/",
+            timeout: 500,
+          },
+          {
+            "answer": "Super-G - El Armario Quedó Atrás",
+            "url": "https://soundcloud.com/supergofficial/el-armario-quedo-atras?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+            timeout: 3500
           },
           {
             url: "https://soundcloud.com/troupbandofficial/la-cancion-del-velero",
@@ -9753,7 +9853,7 @@ var app = (function () {
             answer: "Shakira - Ciega, Sordomuda",
             url: "https://soundcloud.com/shakira/ciega-sordomuda",
           },
-         
+
           {
             answer: "La Oreja De Van Gogh - Jueves",
             url: "https://soundcloud.com/la-oreja-de-van-gogh/jueves",
@@ -9766,7 +9866,7 @@ var app = (function () {
           {
             url: "https://soundcloud.com/tino-casal-official/eloise",
             answer: "Tino Casal - Eloise",
-            timeout:1900
+            timeout: 1900
           },
           {
             answer: "Chambao - Pokito a Poko",
@@ -9779,7 +9879,7 @@ var app = (function () {
           {
             answer: "El sueño de Morfeo - Nunca volverá",
             url: "https://soundcloud.com/el-sueno-de-morfeo/nunca-volvera",
-            timeout:3000
+            timeout: 3000
           },
           {
             answer: "La Guardia - El Mundo Tras el Cristal",
@@ -9793,7 +9893,7 @@ var app = (function () {
             answer: "Estopa - Pastillas para Dormir",
             url: "https://soundcloud.com/estopa-official/pastillas-para-dormir",
           },
-          
+
           {
             answer: "La Oreja De Van Gogh - El Primer Día del Resto de Mi Vida",
             url: "https://soundcloud.com/la-oreja-de-van-gogh/el-primer-d-a-del-resto-de",
@@ -9803,11 +9903,11 @@ var app = (function () {
             answer: "Rosario - Cómo Quieres Que Te Quiera",
           },
           {
-            answer: "Mecano - Hoy no me puedo levantar", 
+            answer: "Mecano - Hoy no me puedo levantar",
             url: "https://soundcloud.com/mecano-official/hoy-no-me-puedo-levantar-1",
           },
           {
-            answer: "Aleks Syntek - Duele El Amor", 
+            answer: "Aleks Syntek - Duele El Amor",
             url: "https://soundcloud.com/aleks-syntek/duele-el-amor-album-version",
           },
           {
@@ -9815,7 +9915,7 @@ var app = (function () {
             answer: "Azucar Moreno - Bandido",
           },
           {
-            url: "https://soundcloud.com/carlossadness/amor-papaya", 
+            url: "https://soundcloud.com/carlossadness/amor-papaya",
             answer: "Carlos Sadness - Amor Papaya",
           },
           {
@@ -9829,30 +9929,30 @@ var app = (function () {
           {
             answer: "Fito & Fitipaldis - Entre la espada y la pared",
             url: "https://soundcloud.com/fitoyfitipaldis/entre-la-espada-y-la-pared",
-            timeout:700
+            timeout: 700
           },
           {
             answer: "Juanes - Fotografía",
             url: "https://soundcloud.com/juanes-unplugged/fotografia",
           },
           {
-            answer: "Chambao - Ahí Estás Tú", 
+            answer: "Chambao - Ahí Estás Tú",
             url: "https://soundcloud.com/chambao/ah-est-s-t",
-            timeout:1000
+            timeout: 1000
           },
           {
             answer: "Paulina Rubio - Ni Rosas Ni Juguetes",
             url: "https://soundcloud.com/paulina-rubio-official/ni-rosas-ni-juguetes-album",
           },
           {
-            answer: "Rosario - No Dudaría", 
+            answer: "Rosario - No Dudaría",
             url: "https://soundcloud.com/rosario-official/no-dudar-a-album-version",
-            timeout:2000
+            timeout: 2000
           },
           {
             answer: "M-Clan - Llamando a la tierra (Serenade From the Stars)",
             url: "https://soundcloud.com/m-clan-official/llamando-a-la-tierra-serenade",
-            timeout:1000
+            timeout: 1000
           },
           {
             answer: "Juanes - Volverte A Ver",
@@ -9861,12 +9961,12 @@ var app = (function () {
           {
             url: "https://soundcloud.com/camaron-de-la-isla/soy-gitano-1",
             answer: "Camaron De La Isla - Soy Gitano",
-            timeout:1000
+            timeout: 1000
           },
           {
             url: "https://soundcloud.com/duncan-dhu/cien-gaviotas",
             answer: "Duncan Dhu - Cien gaviotas",
-            timeout:800
+            timeout: 800
           },
           {
             answer: "Amaral - Marta, Sebas, Guille y los demás",
@@ -9911,12 +10011,12 @@ var app = (function () {
           {
             answer: "Las Niñas - Oju",
             url: "https://soundcloud.com/lasninasofficial/oju",
-            timeout:500
+            timeout: 500
           },
           {
             answer: "Mecano - Ay, qué pesado",
             url: "https://soundcloud.com/mecano-official/ay-que-pesado",
-            timeout:500
+            timeout: 500
           },
           {
             answer: "Raphael - Mi gran noche",
@@ -9929,7 +10029,7 @@ var app = (function () {
           {
             answer: "Fito & Fitipaldis - Por la boca vive el pez",
             url: "https://soundcloud.com/fitoyfitipaldis/por-la-boca-vive-el-pez-1",
-            timeout:1000
+            timeout: 1000
           },
           {
             answer: "Pereza - Todo",
@@ -9942,31 +10042,30 @@ var app = (function () {
           {
             url: "https://soundcloud.com/pimpinela-official/olv-dame-y-pega-la-vuelta",
             answer: "Pimpinela - Olvídame y Pega la Vuelta",
-            timeout:2000
+            timeout: 2000
           },
           {
-            answer: "Amaral - Kamikaze", 
+            answer: "Amaral - Kamikaze",
             url: "https://soundcloud.com/amaral-official/kamikaze",
           },
           {
             answer: "La Quinta Estación - Que Te Quería",
             url: "https://soundcloud.com/laquintaestacion/que-te-queria",
-            timeout:12000
+            timeout: 12000
           },
           {
             answer: "El Arrebato - Buscate Un Hombre Que Te Quiera",
             url: "https://soundcloud.com/el-arrebato/buscate-un-hombre-que-te",
-            timeout:2000
+            timeout: 2000
           },
           {
             answer: "Alejandro Sanz - No es lo mismo",
             url: "https://soundcloud.com/warnermusicspain/no-es-lo-mismo",
-            timeout:2000
+            timeout: 2000
           },
           {
             url: "https://soundcloud.com/enriqueiglesias/subeme-la-radio",
-            answer:
-              "Enrique Iglesias - SUBEME LA RADIO (feat. Descemer Bueno & Zion & Lennox)",
+            answer: "Enrique Iglesias - SUBEME LA RADIO (feat. Descemer Bueno & Zion & Lennox)",
           },
           {
             answer: "Melendi - Lágrimas desordenadas",
@@ -9979,7 +10078,7 @@ var app = (function () {
           {
             url: "https://soundcloud.com/paulina-rubio-official/y-yo-sigo-aqui",
             answer: "Paulina Rubio - Y Yo Sigo Aqui",
-            timeout:15000
+            timeout: 15000
           },
           {
             answer: "Jarabe de Palo - La flaca",
@@ -9988,10 +10087,10 @@ var app = (function () {
           {
             answer: "Melendi - Barbie de extrarradio",
             url: "https://soundcloud.com/melendi-official/barbie-de-extrarradio",
-            timeout:1000
+            timeout: 1000
           },
           {
-            answer: "Shakira - La Tortura", 
+            answer: "Shakira - La Tortura",
             url: "https://soundcloud.com/shakira/la-tortura",
           },
           {
@@ -10005,12 +10104,12 @@ var app = (function () {
           {
             answer: "Chayanne - Torero",
             url: "https://soundcloud.com/chayanne-official/torero",
-            timeout:3000
+            timeout: 3000
           },
           {
             url: "https://soundcloud.com/aitana-music/formentera",
             answer: "Aitana - Formentera",
-            timeout:500
+            timeout: 500
           },
           {
             answer: "Nena Daconte - En Que Estrella Estara",
@@ -10027,7 +10126,7 @@ var app = (function () {
           {
             answer: "Andy & Lucas - Son de Amores",
             url: "https://soundcloud.com/andy-lucas-official/son-de-amores-1",
-            timeout:2000
+            timeout: 2000
           },
           {
             answer: "Jarabe de Palo - Depende",
@@ -10040,7 +10139,7 @@ var app = (function () {
           {
             answer: "El Arrebato - Dame cariño",
             url: "https://soundcloud.com/el-arrebato/dame-carino",
-            timeout:3000
+            timeout: 3000
           },
           {
             answer: "El sueño de Morfeo - Ojos de cielo",
@@ -10053,7 +10152,7 @@ var app = (function () {
           {
             answer: "Miguel Bosé - Como un lobo ",
             url: "https://soundcloud.com/bosemiguel/como-un-lobo-dueto-2007",
-            timeout:14000
+            timeout: 14000
           },
           {
             url: "https://soundcloud.com/thalia-54826/no-me-acuerdo",
@@ -10080,7 +10179,7 @@ var app = (function () {
             url: "https://soundcloud.com/manolo-garcia-official/nunca-el-tiempo-es-perdido",
           },
           {
-            answer: "Maná Oficial - Labios Compartidos", 
+            answer: "Maná Oficial - Labios Compartidos",
             url: "https://soundcloud.com/mana-oficial/labios-compartidos",
           },
           {
@@ -10104,7 +10203,7 @@ var app = (function () {
             url: "https://soundcloud.com/amaia-montero/mirando-al-mar",
           },
           {
-            answer: "Mecano - El 7 de Septiembre", 
+            answer: "Mecano - El 7 de Septiembre",
             url: "https://soundcloud.com/mecano-official/el-7-de-septiembre",
           },
           {
@@ -10148,7 +10247,7 @@ var app = (function () {
             url: "https://soundcloud.com/diego-torres-official/color-esperanza",
           },
           {
-            answer: "Pereza - Lady Madrid", 
+            answer: "Pereza - Lady Madrid",
             url: "https://soundcloud.com/perezaofficial/lady-madrid",
           },
           {
@@ -10192,12 +10291,11 @@ var app = (function () {
             url: "https://soundcloud.com/laquintaestacion/el-sol-no-regresa",
           },
           {
-            url: "https://soundcloud.com/chenoa-official/cuando-t-vas-album-version", 
+            url: "https://soundcloud.com/chenoa-official/cuando-t-vas-album-version",
             answer: "Chenoa - Cuando Tú Vas",
           },
           {
-            answer:
-              "Despistaos - Cada dos minutos (con Rulo y la Contrabanda y Kutxi Romero)",
+            answer: "Despistaos - Cada dos minutos (con Rulo y la Contrabanda y Kutxi Romero)",
             url: "https://soundcloud.com/despistaos-official/cada-dos-minutos-con-rulo-de",
           },
           {
@@ -10213,7 +10311,7 @@ var app = (function () {
             answer: "Bad-Bunny - Bad Bunny, El Alfa - La Romana",
           },
           {
-            answer: "Mecano - Me cuesta tanto olvidarte", 
+            answer: "Mecano - Me cuesta tanto olvidarte",
             url: "https://soundcloud.com/mecano-official/me-cuesta-tanto-olvidarte",
           },
           {
@@ -10301,7 +10399,7 @@ var app = (function () {
             url: "https://soundcloud.com/bosemiguel/aire-soy-feat-ximena-sari-ana",
           },
           {
-            url: "https://soundcloud.com/maria-isabel-official/antes-muerta-que-sencilla", 
+            url: "https://soundcloud.com/maria-isabel-official/antes-muerta-que-sencilla",
             answer: "Maria Isabel - Antes Muerta Que Sencilla",
           },
         ],
@@ -10309,7 +10407,10 @@ var app = (function () {
       ).subscribe,
     };
   var Pn;
-  const { document: An, window: Ln } = X;
+  const {
+    document: An,
+    window: Ln
+  } = X;
 
   function Nn(e) {
     let t, n;
@@ -10326,8 +10427,7 @@ var app = (function () {
           },
         },
       })),
-      t.$on("close", e[20]),
-      {
+      t.$on("close", e[20]), {
         c() {
           Q(t.$$.fragment);
         },
@@ -10339,10 +10439,10 @@ var app = (function () {
           1024 & n[0] && (r.hasFrame = e[10].hasFrame),
             1024 & n[0] && (r.title = e[10].title),
             (1392 & n[0]) | (8 & n[1]) &&
-              (r.$$scope = {
-                dirty: n,
-                ctx: e,
-              }),
+            (r.$$scope = {
+              dirty: n,
+              ctx: e,
+            }),
             t.$set(r);
         },
         i(e) {
@@ -10362,8 +10462,7 @@ var app = (function () {
     let n, r;
     return (
       (n = new vn({})),
-      n.$on("close", t[19]),
-      {
+      n.$on("close", t[19]), {
         c() {
           Q(n.$$.fragment);
         },
@@ -10397,8 +10496,7 @@ var app = (function () {
           guessRef: e[5].gotCorrect ? e[6].length + 1 : 0,
           hasFinished: e[5].hasFinished,
         },
-      })),
-      {
+      })), {
         c() {
           Q(t.$$.fragment);
         },
@@ -10430,8 +10528,7 @@ var app = (function () {
   function Wn(t) {
     let n, r;
     return (
-      (n = new Ut({})),
-      {
+      (n = new Ut({})), {
         c() {
           Q(n.$$.fragment);
         },
@@ -10455,8 +10552,7 @@ var app = (function () {
   function Rn(t) {
     let n, r;
     return (
-      (n = new Ht({})),
-      {
+      (n = new Ht({})), {
         c() {
           Q(n.$$.fragment);
         },
@@ -10483,19 +10579,18 @@ var app = (function () {
       o = [];
 
     function a(e, t) {
-      return "info" == e[10].name
-        ? 0
-        : "donate" == e[10].name
-        ? 1
-        : "results" == e[10].name
-        ? 2
-        : "help" == e[10].name
-        ? 3
-        : -1;
+      return "info" == e[10].name ?
+        0 :
+        "donate" == e[10].name ?
+        1 :
+        "results" == e[10].name ?
+        2 :
+        "help" == e[10].name ?
+        3 :
+        -1;
     }
     return (
-      ~(t = a(e)) && (n = o[t] = i[t](e)),
-      {
+      ~(t = a(e)) && (n = o[t] = i[t](e)), {
         c() {
           n && n.c(), (r = b());
         },
@@ -10505,20 +10600,20 @@ var app = (function () {
         p(e, s) {
           let l = t;
           (t = a(e)),
-            t === l
-              ? ~t && o[t].p(e, s)
-              : (n &&
-                  (J(),
-                  q(o[l], 1, 1, () => {
-                    o[l] = null;
-                  }),
-                  K()),
-                ~t
-                  ? ((n = o[t]),
-                    n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
-                    Z(n, 1),
-                    n.m(r.parentNode, r))
-                  : (n = null));
+          t === l ?
+            ~t && o[t].p(e, s) :
+            (n &&
+              (J(),
+                q(o[l], 1, 1, () => {
+                  o[l] = null;
+                }),
+                K()),
+              ~t ?
+              ((n = o[t]),
+                n ? n.p(e, s) : ((n = o[t] = i[t](e)), n.c()),
+                Z(n, 1),
+                n.m(r.parentNode, r)) :
+              (n = null));
         },
         i(e) {
           s || (Z(n), (s = !0));
@@ -10557,8 +10652,7 @@ var app = (function () {
           void 0 !== r && ((e.$$.bound[r] = n), n(e.$$.ctx[r]));
         })(t, "guessInput", s)
       ),
-      t.$on("guess", e[15]),
-      {
+      t.$on("guess", e[15]), {
         c() {
           Q(t.$$.fragment);
         },
@@ -10572,8 +10666,8 @@ var app = (function () {
             512 & r[0] && (s.allOptions = e[9]),
             64 & r[0] && (s.currentAttempt = e[6].length + 1),
             !n &&
-              128 & r[0] &&
-              ((n = !0),
+            128 & r[0] &&
+            ((n = !0),
               (s.guessInput = e[7]),
               (i = () => (n = !1)),
               W.push(i)),
@@ -10602,7 +10696,7 @@ var app = (function () {
       }));
     let L = e[10].isActive && Nn(e);
     (f = new xe({})),
-      f.$on("modal", e[16]),
+    f.$on("modal", e[16]),
       (_ = new Ie({
         props: {
           userGuesses: e[6],
@@ -10632,19 +10726,19 @@ var app = (function () {
     (Y = new gt({
       props: N,
     })),
-      e[21](Y),
+    e[21](Y),
       Y.$on("updateSong", e[13]),
       Y.$on("updatePlayerState", e[14]);
     let H = !e[5].hasFinished && e[8].gameIsActive && Gn(e);
     return {
       c() {
         (t = w("meta")),
-          (n = w("link")),
-          (s = w("link")),
-          (i = w("link")),
-          (o = w("link")),
-          (a = x()),
-          Q(l.$$.fragment),
+        (n = w("link")),
+        (s = w("link")),
+        (i = w("link")),
+        (o = w("link")),
+        (a = x()),
+        Q(l.$$.fragment),
           (u = x()),
           (c = w("main")),
           L && L.c(),
@@ -10721,15 +10815,15 @@ var app = (function () {
           H && H.m(c, null),
           (O = !0),
           P ||
-            ((A = [S(Ln, "resize", e[17]), S(Ln, "resize", e[18])]), (P = !0));
+          ((A = [S(Ln, "resize", e[17]), S(Ln, "resize", e[18])]), (P = !0));
       },
       p(e, t) {
-        e[10].isActive
-          ? L
-            ? (L.p(e, t), 1024 & t[0] && Z(L, 1))
-            : ((L = Nn(e)), L.c(), Z(L, 1), L.m(c, d))
-          : L &&
-            (J(),
+        e[10].isActive ?
+          L ?
+          (L.p(e, t), 1024 & t[0] && Z(L, 1)) :
+          ((L = Nn(e)), L.c(), Z(L, 1), L.m(c, d)) :
+          L &&
+          (J(),
             q(L, 1, 1, () => {
               L = null;
             }),
@@ -10753,28 +10847,28 @@ var app = (function () {
           4 & t[0] && (s.trackDuration = e[2].duration),
           64 & t[0] && (s.currentAttempt = e[6].length + 1),
           Y.$set(s),
-          !e[5].hasFinished && e[8].gameIsActive
-            ? H
-              ? (H.p(e, t), 288 & t[0] && Z(H, 1))
-              : ((H = Gn(e)), H.c(), Z(H, 1), H.m(c, null))
-            : H &&
-              (J(),
-              q(H, 1, 1, () => {
-                H = null;
-              }),
-              K()),
+          !e[5].hasFinished && e[8].gameIsActive ?
+          H ?
+          (H.p(e, t), 288 & t[0] && Z(H, 1)) :
+          ((H = Gn(e)), H.c(), Z(H, 1), H.m(c, null)) :
+          H &&
+          (J(),
+            q(H, 1, 1, () => {
+              H = null;
+            }),
+            K()),
           (!O || 8 & t[0]) && T(c, "height", e[3] + "px");
       },
       i(e) {
         O ||
           (Z(l.$$.fragment, e),
-          Z(L),
-          Z(f.$$.fragment, e),
-          Z(_.$$.fragment, e),
-          Z($.$$.fragment, e),
-          Z(Y.$$.fragment, e),
-          Z(H),
-          (O = !0));
+            Z(L),
+            Z(f.$$.fragment, e),
+            Z(_.$$.fragment, e),
+            Z($.$$.fragment, e),
+            Z(Y.$$.fragment, e),
+            Z(H),
+            (O = !0));
       },
       o(e) {
         q(l.$$.fragment, e),
@@ -10823,21 +10917,21 @@ var app = (function () {
         hasStarted: !1,
       };
     var c, d;
-    void 0 !== document.hidden
-      ? ((c = "hidden"), (d = "visibilitychange"))
-      : void 0 !== document.msHidden
-      ? ((c = "msHidden"), (d = "msvisibilitychange"))
-      : void 0 !== document.webkitHidden &&
-        ((c = "webkitHidden"), (d = "webkitvisibilitychange")),
+    void 0 !== document.hidden ?
+      ((c = "hidden"), (d = "visibilitychange")) :
+      void 0 !== document.msHidden ?
+      ((c = "msHidden"), (d = "msvisibilitychange")) :
+      void 0 !== document.webkitHidden &&
+      ((c = "webkitHidden"), (d = "webkitvisibilitychange")),
       void 0 === document.addEventListener ||
-        void 0 === c ||
-        document.addEventListener(
-          d,
-          function () {
-            document[c] || a === x(Vt.startDate) || location.reload(!0);
-          },
-          !1
-        );
+      void 0 === c ||
+      document.addEventListener(
+        d,
+        function () {
+          document[c] || a === x(Vt.startDate) || location.reload(!0);
+        },
+        !1
+      );
     let h,
       f,
       m = 0;
@@ -10848,12 +10942,12 @@ var app = (function () {
     P(() => {
       p();
     });
-    null == localStorage.getItem("userStats")
-      ? ((h = []), localStorage.setItem("userStats", JSON.stringify(h)))
-      : (h = JSON.parse(localStorage.getItem("userStats"))),
+    null == localStorage.getItem("userStats") ?
+      ((h = []), localStorage.setItem("userStats", JSON.stringify(h))) :
+      (h = JSON.parse(localStorage.getItem("userStats"))),
       (f = h.find((e) => e.id === l.id)),
       void 0 === f &&
-        ((f = l),
+      ((f = l),
         h.push(f),
         localStorage.setItem("userStats", JSON.stringify(h)));
     let g,
@@ -10917,73 +11011,80 @@ var app = (function () {
       function (e) {
         l.hasStarted ||
           (pe("startGame#" + l.id, {
-            name: "startGame",
-          }),
-          pe("startGame", {
-            name: "startGame",
-          }),
-          n(2, (l.hasStarted = !0), l)),
+              name: "startGame",
+            }),
+            pe("startGame", {
+              name: "startGame",
+            }),
+            n(2, (l.hasStarted = !0), l)),
           n(8, (w.musicIsPlaying = e.detail.musicIsPlaying), w);
       },
       function (e) {
-        let t = e.detail.guess,
-          r = e.detail.isSkipped,
-          s = !1;
-        var o;
-        r ||
-          t != l.correctAnswer ||
-          ((s = !0),
-          pe("correctGuess", {
-            name: "correctGuess",
-          }),
-          pe("correctGuess#" + l.id, {
-            name: "correctGuess",
-          })),
-          r
-            ? (pe("skippedGuess", {
-                name: "skippedGuess",
-              }),
-              pe("skippedGuess#" + l.id, {
-                name: "skippedGuess",
-              }))
-            : s ||
-              (pe("incorrectGuess", {
-                name: "incorrectGuess",
-              }),
-              pe("incorrectGuess#" + l.id, {
-                name: "incorrectGuess",
-              })),
+         let t = e.detail.guess,
+           r = e.detail.isSkipped,
+           s = !1,
+           u = !1;
+         if (r)
+           r ? (pe("skippedGuess", {
+               name: "skippedGuess"
+             }),
+             pe("skippedGuess#" + r.id, {
+               name: "skippedGuess"
+             })) : s || (pe("incorrectGuess", {
+               name: "incorrectGuess"
+             }),
+             pe("incorrectGuess#" + r.id, {
+               name: "incorrectGuess"
+             }));
+         else {
+          
+             t == l.correctAnswer ? (s = !0,
+               pe("correctGuess", {
+                 name: "correctGuess"
+               }),
+               pe("correctGuess#" + r.id, {
+                 name: "correctGuess"
+               })) : t.split('-')[0] == l.correctAnswer.split('-')[0]&& (u = !0,
+               pe("correctArtist", {
+                 name: "correctArtist"
+               }),
+               pe("correctArtist#" + r.id, {
+                 name: "correctArtist"
+               }))
+          }
+         
           n(
             6,
             (v = v.concat({
               answer: e.detail.guess,
               isCorrect: s,
+              isArtist: u,
               isSkipped: r,
             }))
           ),
           n(5, (f.guessList = v), f),
           localStorage.setItem("userStats", JSON.stringify(h)),
           (v.length != Vt.maxAttempts && 1 != s) ||
-            ((o = s),
+          ((o = s),
             n(8, (w.gameIsActive = !1), w),
             n(5, (f.hasFinished = !0), f),
             n(5, (f.gotCorrect = o), f),
             n(5, (f.score = v.length), f),
             localStorage.setItem("userStats", JSON.stringify(h)),
             i.resetAndPlay(),
-            o
-              ? (pe("wonGame", {
-                  name: "won",
-                }),
-                pe("wonGame#" + l.id, {
-                  name: "won",
-                }))
-              : (pe("lostGame", {
-                  name: "lost",
-                }),
-                pe("lostGame#" + l.id, {
-                  name: "lost",
-                })),
+            o ?
+            (pe("wonGame", {
+                name: "won",
+              }),
+              pe("wonGame#" + l.id, {
+                name: "won",
+              })) :
+            (pe("lostGame", {
+                name: "lost",
+              }),
+              pe("lostGame#" + l.id, {
+                name: "lost",
+              })),
             pe("endGame" + l.id + "in" + v.length, {
               name: "#" + v.length,
             }),
@@ -11021,7 +11122,7 @@ var app = (function () {
       },
     ];
   }
-  return new (class extends se {
+  return new(class extends se {
     constructor(e) {
       super(), re(this, e, jn, En, i, {}, null, [-1, -1]);
     }
